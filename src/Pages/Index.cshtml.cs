@@ -3,10 +3,10 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
-using ContosoCrafts.WebSite.Models;
-using ContosoCrafts.WebSite.Services;
+using LetsGoPark.WebSite.Models;
+using LetsGoPark.WebSite.Services;
 
-namespace ContosoCrafts.WebSite.Pages
+namespace LetsGoPark.WebSite.Pages
 {
     public class IndexModel : PageModel
     {

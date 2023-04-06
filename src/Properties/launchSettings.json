@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "ContosoCrafts.WebSite": {
+    "LetsGoPark.WebSite": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

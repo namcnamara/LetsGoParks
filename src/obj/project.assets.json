@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "U:\\LetsGoPark\\src\\ContosoCrafts.WebSite.csproj",
-      "projectName": "ContosoCrafts.WebSite",
-      "projectPath": "U:\\LetsGoPark\\src\\ContosoCrafts.WebSite.csproj",
+      "projectUniqueName": "U:\\LetsGoPark\\src\\LetsGoPark.WebSite.csproj",
+      "projectName": "LetsGoPark.WebSite",
+      "projectPath": "U:\\LetsGoPark\\src\\LetsGoPark.WebSite.csproj",
       "packagesPath": "C:\\Users\\s1522_sea\\.nuget\\packages\\",
       "outputPath": "U:\\LetsGoPark\\src\\obj\\",
       "projectStyle": "PackageReference",

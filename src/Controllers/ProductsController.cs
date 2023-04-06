@@ -2,10 +2,10 @@ using System.Collections.Generic;
 
 using Microsoft.AspNetCore.Mvc;
 
-using ContosoCrafts.WebSite.Models;
-using ContosoCrafts.WebSite.Services;
+using LetsGoPark.WebSite.Models;
+using LetsGoPark.WebSite.Services;
 
-namespace ContosoCrafts.WebSite.Controllers
+namespace LetsGoPark.WebSite.Controllers
 {
     [ApiController]
     [Route("[controller]")]

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\LetsGoPark.WebSite.props" />
+</Project>

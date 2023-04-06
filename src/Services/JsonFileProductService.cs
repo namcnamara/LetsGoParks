@@ -3,11 +3,11 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 
-using ContosoCrafts.WebSite.Models;
+using LetsGoPark.WebSite.Models;
 
 using Microsoft.AspNetCore.Hosting;
 
-namespace ContosoCrafts.WebSite.Services
+namespace LetsGoPark.WebSite.Services
 {
    public class JsonFileProductService
     {

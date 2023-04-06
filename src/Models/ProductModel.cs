@@ -1,7 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace ContosoCrafts.WebSite.Models
+namespace LetsGoPark.WebSite.Models
 {
     public class ProductModel
     {
