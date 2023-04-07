@@ -15,9 +15,11 @@ namespace LetsGoPark.WebSite.Pages
         public IndexModel(ILogger<IndexModel> logger,
             JsonFileProductService productService)
         {
-            _logger = logger; xyz
+            _logger = logger;
             ProductService = productService;
         }
+        //hey hey
+       
 
         public JsonFileProductService ProductService { get; }
         public IEnumerable<ProductModel> Products { get; private set; }
