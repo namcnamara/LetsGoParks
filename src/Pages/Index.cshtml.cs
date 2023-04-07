@@ -15,7 +15,7 @@ namespace LetsGoPark.WebSite.Pages
         public IndexModel(ILogger<IndexModel> logger,
             JsonFileProductService productService)
         {
-            _logger = logger;
+            _logger = logger; xyz
             ProductService = productService;
         }
 
