@@ -8,6 +8,9 @@ using LetsGoPark.WebSite.Services;
 //Shatakshi
 namespace LetsGoPark.WebSite.Pages
 {
+    /// <summary>
+    /// Lei Meng
+    /// </summary>
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
