@@ -9,7 +9,7 @@ using LetsGoPark.WebSite.Services;
 namespace LetsGoPark.WebSite.Pages
 {
     /// <summary>
-    /// Lei Meng
+    /// Gudibandi Ganesh reddy
     /// </summary>
     public class IndexModel : PageModel
     {
