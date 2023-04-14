@@ -10,6 +10,7 @@ namespace LetsGoPark.WebSite.Pages
 {
     /// <summary>
     /// Shatakshi Purankar
+    /// Nicholas McNamara
     /// </summary>
     public class IndexModel : PageModel
     {
