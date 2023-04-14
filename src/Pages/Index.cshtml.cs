@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
@@ -9,7 +9,7 @@ using LetsGoPark.WebSite.Services;
 namespace LetsGoPark.WebSite.Pages
 {
     /// <summary>
-    /// Gudibandi Ganesh reddy
+    /// Shatakshi Purankar
     /// </summary>
     public class IndexModel : PageModel
     {
