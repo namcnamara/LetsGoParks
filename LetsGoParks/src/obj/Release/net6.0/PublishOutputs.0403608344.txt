@@ -1,8 +1,0 @@
-C:\Users\nicho\OneDrive\Desktop\School\5110\LetsGoParks\src\obj\Release\net6.0\PubTmp\Out\LetsGoPark.WebSite.exe
-C:\Users\nicho\OneDrive\Desktop\School\5110\LetsGoParks\src\obj\Release\net6.0\PubTmp\Out\NuGet.config
-C:\Users\nicho\OneDrive\Desktop\School\5110\LetsGoParks\src\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
-C:\Users\nicho\OneDrive\Desktop\School\5110\LetsGoParks\src\obj\Release\net6.0\PubTmp\Out\appsettings.json
-C:\Users\nicho\OneDrive\Desktop\School\5110\LetsGoParks\src\obj\Release\net6.0\PubTmp\Out\LetsGoPark.WebSite.dll
-C:\Users\nicho\OneDrive\Desktop\School\5110\LetsGoParks\src\obj\Release\net6.0\PubTmp\Out\LetsGoPark.WebSite.deps.json
-C:\Users\nicho\OneDrive\Desktop\School\5110\LetsGoParks\src\obj\Release\net6.0\PubTmp\Out\LetsGoPark.WebSite.runtimeconfig.json
-C:\Users\nicho\OneDrive\Desktop\School\5110\LetsGoParks\src\obj\Release\net6.0\PubTmp\Out\LetsGoPark.WebSite.pdb

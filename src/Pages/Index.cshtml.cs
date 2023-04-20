@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
@@ -8,10 +8,6 @@ using LetsGoPark.WebSite.Services;
 //Shatakshi
 namespace LetsGoPark.WebSite.Pages
 {
-    /// <summary>
-    /// Shatakshi Purankar
-    /// Nicholas McNamara
-    /// </summary>
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;

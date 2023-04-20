@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YS+tOju7CVqf0BI0Kbtr2qOSi3wxEqUfZhkxUZJxFow=",
+  "Hash": "GrHItvWigQNqbPDNjzH8ZDqC23CA/XghhSVKibW1xh0=",
   "Source": "LetsGoPark.WebSite",
   "BasePath": "_content/LetsGoPark.WebSite",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\data\\products.json"
+    },
+    {
+      "Identity": "C:\\Users\\nicho\\OneDrive\\Desktop\\School\\5110\\LetsGoParks\\src\\wwwroot\\favicon.ico",
+      "SourceId": "LetsGoPark.WebSite",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nicho\\OneDrive\\Desktop\\School\\5110\\LetsGoParks\\src\\wwwroot\\",
+      "BasePath": "_content/LetsGoPark.WebSite",
+      "RelativePath": "favicon.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
       "Identity": "C:\\Users\\nicho\\OneDrive\\Desktop\\School\\5110\\LetsGoParks\\src\\wwwroot\\js\\site.js",
