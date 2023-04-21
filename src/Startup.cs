@@ -23,7 +23,7 @@ namespace LetsGoPark.WebSite
             services.AddServerSideBlazor();
             services.AddHttpClient();
             services.AddControllers();
-            services.AddTransient<JsonFileProductService>();
+            services.AddTransient<JsonFileParksService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,7 +36,7 @@ namespace LetsGoPark.WebSite
             else
             {
                 app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                // The default HSTS value is 30 days. You may want to change this for Parkion scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -53,10 +53,10 @@ namespace LetsGoPark.WebSite
                 endpoints.MapControllers();
                 endpoints.MapBlazorHub();
 
-                // endpoints.MapGet("/products", (context) => 
+                // endpoints.MapGet("/Parks", (context) => 
                 // {
-                //     var products = app.ApplicationServices.GetService<JsonFileProductService>().GetProducts();
-                //     var json = JsonSerializer.Serialize<IEnumerable<Product>>(products);
+                //     var Parks = app.ApplicationServices.GetService<JsonFileParkservice>().GetParks();
+                //     var json = JsonSerializer.Serialize<IEnumerable<Park>>(Parks);
                 //     return context.Response.WriteAsync(json);
                 // });
             });

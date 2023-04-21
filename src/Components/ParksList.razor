@@ -1,43 +1,43 @@
 @using LetsGoPark.WebSite.Models
 @using LetsGoPark.WebSite.Services
 @using Microsoft.AspNetCore.Components.Web
-@inject JsonFileProductService ProductService
+@inject JsonFileParksService Parkservice
 
 <div class="card-columns">
-@foreach (var product in ProductService.GetProducts())
+@foreach (var Park in Parkservice.GetParks())
 {
     <div class="card">
-        <div class="card-img" style="background-image: url('@product.Image');">
+        <div class="card-img" style="background-image: url('@Park.Image');">
         </div>
         <div class="card-body">
-            <h5 class="card-title">@product.Title</h5>
+            <h5 class="card-title">@Park.Title</h5>
         </div>
         <div class="card-footer">
-            <small class="text-muted"><button @onclick="(e => SelectProduct(product.Id))" 
-              data-toggle="modal" data-target="#productModal" class="btn btn-primary">More Info</button>
+            <small class="text-muted"><button @onclick="(e => SelectPark(Park.Id))" 
+              data-toggle="modal" data-target="#ParkModal" class="btn btn-primary">More Info</button>
             </small>
         </div>
     </div>
 }
 </div>
 
-@if(selectedProduct != null)
+@if(selectedPark != null)
 {
-  <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productTitle" aria-hidden="true">
+  <div class="modal fade" id="ParkModal" tabindex="-1" role="dialog" aria-labelledby="ParkTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="productTitle">@selectedProduct.Title</h5>
+          <h5 class="modal-title" id="ParkTitle">@selectedPark.Title</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <div class="card">
-            <div class="card-img" style="background-image: url('@selectedProduct.Image');">
+            <div class="card-img" style="background-image: url('@selectedPark.Image');">
             </div>
             <div class="card-body">
-                <p class="card-text">@selectedProduct.Description</p>
+                <p class="card-text">@selectedPark.Description</p>
             </div>
           </div>
         </div>
@@ -72,13 +72,13 @@
 
 @code 
 {
-    ProductModel selectedProduct;
-    string selectedProductId;
+    ParksModel selectedPark;
+    string selectedParkId;
 
-    void SelectProduct(string productId)
+    void SelectPark(string ParkId)
     {
-      selectedProductId = productId;
-      selectedProduct = ProductService.GetProducts().First(x => x.Id == productId);
+      selectedParkId = ParkId;
+      selectedPark = Parkservice.GetParks().First(x => x.Id == ParkId);
       GetCurrentRating();
     }
 
@@ -88,25 +88,25 @@
 
     void GetCurrentRating()
     {
-      if(selectedProduct.Ratings == null)
+      if(selectedPark.Ratings == null)
       {
         currentRating = 0;
         voteCount = 0;
       }
       else
       {
-        voteCount = selectedProduct.Ratings.Count();
+        voteCount = selectedPark.Ratings.Count();
         voteLabel = voteCount > 1 ? "Votes" : "Vote";
-        currentRating = selectedProduct.Ratings.Sum() / voteCount;
+        currentRating = selectedPark.Ratings.Sum() / voteCount;
       }
 
-      System.Console.WriteLine($"Current rating for {selectedProduct.Id}: {currentRating}");
+      System.Console.WriteLine($"Current rating for {selectedPark.Id}: {currentRating}");
     }
 
     void SubmitRating(int rating)
     {
-      System.Console.WriteLine($"Rating received for {selectedProduct.Id}: {rating}");
-      ProductService.AddRating(selectedProductId, rating);
-      SelectProduct(selectedProductId);
+      System.Console.WriteLine($"Rating received for {selectedPark.Id}: {rating}");
+      Parkservice.AddRating(selectedParkId, rating);
+      SelectPark(selectedParkId);
     }
 }

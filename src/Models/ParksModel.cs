@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace LetsGoPark.WebSite.Models
 {
-    public class ProductModel
+    public class ParksModel
     {
         public string Id { get; set; }
         public string Maker { get; set; }
@@ -15,7 +15,7 @@ namespace LetsGoPark.WebSite.Models
         public string Description { get; set; }
         public int[] Ratings { get; set; }
 
-        public override string ToString() => JsonSerializer.Serialize<ProductModel>(this);
+        public override string ToString() => JsonSerializer.Serialize<ParksModel>(this);
 
  
     }

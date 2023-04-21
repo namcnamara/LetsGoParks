@@ -9,9 +9,9 @@ using Microsoft.AspNetCore.Hosting;
 
 namespace LetsGoPark.WebSite.Services
 {
-   public class JsonFileProductService
+   public class JsonFileParksService
     {
-        public JsonFileProductService(IWebHostEnvironment webHostEnvironment)
+        public JsonFileParksService(IWebHostEnvironment webHostEnvironment)
         {
             WebHostEnvironment = webHostEnvironment;
         }
@@ -20,14 +20,14 @@ namespace LetsGoPark.WebSite.Services
 
         private string JsonFileName
         {
-            get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); }
+            get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "parks.json"); }
         }
 
-        public IEnumerable<ProductModel> GetProducts()
+        public IEnumerable<ParksModel> GetParks()
         {
             using(var jsonFileReader = File.OpenText(JsonFileName))
             {
-                return JsonSerializer.Deserialize<ProductModel[]>(jsonFileReader.ReadToEnd(),
+                return JsonSerializer.Deserialize<ParksModel[]>(jsonFileReader.ReadToEnd(),
                     new JsonSerializerOptions
                     {
                         PropertyNameCaseInsensitive = true
@@ -35,30 +35,30 @@ namespace LetsGoPark.WebSite.Services
             }
         }
 
-        public void AddRating(string productId, int rating)
+        public void AddRating(string ParkId, int rating)
         {
-            var products = GetProducts();
+            var Parks = GetParks();
 
-            if(products.First(x => x.Id == productId).Ratings == null)
+            if(Parks.First(x => x.Id == ParkId).Ratings == null)
             {
-                products.First(x => x.Id == productId).Ratings = new int[] { rating };
+                Parks.First(x => x.Id == ParkId).Ratings = new int[] { rating };
             }
             else
             {
-                var ratings = products.First(x => x.Id == productId).Ratings.ToList();
+                var ratings = Parks.First(x => x.Id == ParkId).Ratings.ToList();
                 ratings.Add(rating);
-                products.First(x => x.Id == productId).Ratings = ratings.ToArray();
+                Parks.First(x => x.Id == ParkId).Ratings = ratings.ToArray();
             }
 
             using(var outputStream = File.OpenWrite(JsonFileName))
             {
-                JsonSerializer.Serialize<IEnumerable<ProductModel>>(
+                JsonSerializer.Serialize<IEnumerable<ParksModel>>(
                     new Utf8JsonWriter(outputStream, new JsonWriterOptions
                     {
                         SkipValidation = true,
                         Indented = true
                     }), 
-                    products
+                    Parks
                 );
             }
         }

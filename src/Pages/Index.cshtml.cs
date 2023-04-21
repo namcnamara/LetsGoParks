@@ -13,20 +13,20 @@ namespace LetsGoPark.WebSite.Pages
         private readonly ILogger<IndexModel> _logger;
 
         public IndexModel(ILogger<IndexModel> logger,
-            JsonFileProductService productService)
+            JsonFileParksService parkService)
         {
             _logger = logger;
-            ProductService = productService;
+            ParkService = parkService;
         }
         
        
 
-        public JsonFileProductService ProductService { get; }
-        public IEnumerable<ProductModel> Products { get; private set; }
+        public JsonFileParksService ParkService { get; }
+        public IEnumerable<ParksModel> Parks { get; private set; }
 
         public void OnGet()
         {
-            Products = ProductService.GetProducts();
+            Parks = ParkService.GetParks();
         }
     }
 }
