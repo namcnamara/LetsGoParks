@@ -55,7 +55,13 @@
                                 <!--Loads permits and fees of selected park-->
                                 <strong>Permits and Fees: </strong>@selectedPark.Permits <br>
                                 <!--Loads Activities array of selected parks-->
-                                <strong>Activities: </strong>  <br>
+                                <strong>Activities: </strong>
+                                <ul>
+                                    @foreach (var activity in selectedPark.Activities)
+                                    {
+                                        <li>@activity</li>
+                                    }
+                                </ul>
                                 
                                 <!--Loads Description of selected park--> 
                                 <strong>Park description:</strong> <br> @selectedPark.Description <br>
