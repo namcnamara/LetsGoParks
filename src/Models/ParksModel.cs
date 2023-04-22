@@ -7,7 +7,7 @@ namespace LetsGoPark.WebSite.Models
     {
         public string Id { get; set; }
         public string Name { get; set; }
-        
+
         [JsonPropertyName("img")]
         public string Image { get; set; }
         public string Url { get; set; }
@@ -17,7 +17,7 @@ namespace LetsGoPark.WebSite.Models
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Park_system { get; set; }
-        public string[] Activites { get; set; }
+        public string[] Activities { get; set; }
         public string Map_brochure { get; set; }
         public string Permits { get; set; }
 
