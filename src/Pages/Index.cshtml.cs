@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 
 using LetsGoPark.WebSite.Models;
 using LetsGoPark.WebSite.Services;
-//Shatakshi
+
 namespace LetsGoPark.WebSite.Pages
 {
     public class IndexModel : PageModel
@@ -20,7 +20,6 @@ namespace LetsGoPark.WebSite.Pages
         }
         
        
-
         public JsonFileParksService ParkService { get; }
         public IEnumerable<ParksModel> Parks { get; private set; }
 

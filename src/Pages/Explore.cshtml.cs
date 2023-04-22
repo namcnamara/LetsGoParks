@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 
 using LetsGoPark.WebSite.Models;
 using LetsGoPark.WebSite.Services;
-//Shatakshi
+
 namespace LetsGoPark.WebSite.Pages
 {
     public class ExploreModel : PageModel
@@ -13,19 +13,19 @@ namespace LetsGoPark.WebSite.Pages
         private readonly ILogger<ExploreModel> _logger;
 
         public ExploreModel(ILogger<ExploreModel> logger,
-            JsonFileParksService Parkservice)
+            JsonFileParksService parkService)
         {
             _logger = logger;
-            Parkservice = Parkservice;
+            ParkService = parkService;
         }
-        
-       
-        public JsonFileParksService Parkservice { get; }
+
+
+        public JsonFileParksService ParkService { get; }
         public IEnumerable<ParksModel> Parks { get; private set; }
 
         public void OnGet()
         {
-            Parks = Parkservice.GetParks();
+            Parks = ParkService.GetParks();
         }
     }
 }
