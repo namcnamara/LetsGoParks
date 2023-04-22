@@ -10,7 +10,7 @@
     "Address": "2010 N.W. Sammamish Road Issaquah, WA 98027",
     "Phone": "(425) 455-7010",
     "Park_system": "WA State Parks",
-    "Activites": [
+    "Activities": [
       "1.5 miles of biking trails",
       "1.5 miles of hiking trails",
       "Boating",
@@ -35,7 +35,7 @@
     "Address": "5300 116th Ave. N.E. Kirkland, WA 98033",
     "Phone": "(425) 455-7010",
     "Park_system": "WA State Parks",
-    "Activites": [ "28 miles of hiking and horse trails" ],
+    "Activities": [ "28 miles of hiking and horse trails" ],
     "Map_brochure": "https://www.parks.wa.gov/DocumentCenter/View/9278",
     "Permits": "Discover Pass required"
   },
@@ -50,7 +50,7 @@
     "Address": "23700 S.E. Flaming Geyser Road Auburn, WA 98092",
     "Phone": "(253) 735-8839",
     "Park_system": "WA State Parks",
-    "Activites": [
+    "Activities": [
       "1 mile of horse trails",
       "4.3 miles of hiking trails",
       "Fishing",
@@ -79,7 +79,7 @@
     "Address": "Manchester, WA 98353",
     "Phone": "(360) 731-8330",
     "Park_system": "WA State Parks",
-    "Activites": [
+    "Activities": [
       "1,500 feet of moorage",
       "Boating",
       "Clamming",
@@ -111,7 +111,7 @@
     "Address": "14445 Juanita Drive N.E. Kenmore, WA 98028",
     "Phone": "(425) 823-2992",
     "Park_system": "WA State Parks",
-    "Activites": [
+    "Activities": [
       "Boating",
       "Fishing (freshwater)",
       "Personal watercraft use",
