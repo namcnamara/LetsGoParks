@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {}
+    "C:\\Users\\nicho\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Source\\Repos\\LetsGoParks\\src\\LetsGoPark.WebSite.csproj",
+      "projectUniqueName": "C:\\Users\\nicho\\OneDrive\\Desktop\\School\\5110\\LetsGoParks\\src\\LetsGoPark.WebSite.csproj",
       "projectName": "LetsGoPark.WebSite",
-      "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\LetsGoParks\\src\\LetsGoPark.WebSite.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Source\\Repos\\LetsGoParks\\src\\obj\\",
+      "projectPath": "C:\\Users\\nicho\\OneDrive\\Desktop\\School\\5110\\LetsGoParks\\src\\LetsGoPark.WebSite.csproj",
+      "packagesPath": "C:\\Users\\nicho\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\nicho\\OneDrive\\Desktop\\School\\5110\\LetsGoParks\\src\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nicho\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
