@@ -11,23 +11,23 @@ namespace LetsGoPark.WebSite.Controllers
     [Route("[controller]")]
     public class ParksController : ControllerBase
     {
-        public ParksController(JsonFileParksService Parkservice)
+        public ParksController(JsonFileParksService ParkService)
         {
-            Parkservice = Parkservice;
+            ParkService = ParkService;
         }
 
-        public JsonFileParksService Parkservice { get; }
+        public JsonFileParksService ParkService { get; }
 
         [HttpGet]
         public IEnumerable<ParksModel> Get()
         {
-            return Parkservice.GetParks();
+            return ParkService.GetParks();
         }
 
         [HttpPatch]
         public ActionResult Patch([FromBody] RatingRequest request)
         {
-            Parkservice.AddRating(request.ParkId, request.Rating);
+            ParkService.AddRating(request.ParkId, request.Rating);
             
             return Ok();
         }

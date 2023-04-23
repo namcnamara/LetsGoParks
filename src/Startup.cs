@@ -55,7 +55,7 @@ namespace LetsGoPark.WebSite
 
                 // endpoints.MapGet("/Parks", (context) => 
                 // {
-                //     var Parks = app.ApplicationServices.GetService<JsonFileParkservice>().GetParks();
+                //     var Parks = app.ApplicationServices.GetService<JsonFileParkService>().GetParks();
                 //     var json = JsonSerializer.Serialize<IEnumerable<Park>>(Parks);
                 //     return context.Response.WriteAsync(json);
                 // });
