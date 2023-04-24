@@ -143,3 +143,23 @@ ul {
     background: -moz-linear-gradient(340deg, #1a5c34 40%, #3b3952 40%);
     background: linear-gradient(340deg, #1a5c34 40%, #3b3952 40%);
 }
+
+.homepagebody {
+    text-align: center;
+    color: rgb(193, 235, 254)
+    
+}
+
+.homepageformat > span {
+    text-align: center;
+    color: rgb(244 252 170);
+}
+
+.homepageimagetext {
+    display: flex;
+    align-items: center;
+}
+
+homepageimagetext img {
+    margin-right: 10px;
+}
