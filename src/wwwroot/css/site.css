@@ -144,22 +144,18 @@ ul {
     background: linear-gradient(340deg, #1a5c34 40%, #3b3952 40%);
 }
 
-.homepagebody {
+.homepageformat {
     text-align: center;
-    color: rgb(193, 235, 254)
-    
+    color: rgb(193, 235, 254);
 }
 
-.homepageformat > span {
-    text-align: center;
-    color: rgb(244 252 170);
+.homepageformat span {
+    font-weight: bold;
+    color: rgb(244, 252, 170);
 }
 
-.homepageimagetext {
-    display: flex;
-    align-items: center;
-}
-
-homepageimagetext img {
-    margin-right: 10px;
+.homepageh5 {
+    text-align:center;
+    font-size: 36px;
+    color: rgb(7, 70, 6);
 }
