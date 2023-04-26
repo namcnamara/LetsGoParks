@@ -1,11 +1,58 @@
 ﻿@page
 @using LetsGoPark.WebSite.Components
-@model AboutUsModel
-@{
-    //Saves the title of the webpage
-    ViewData["Title"] = "About Us";
-}
-<!--Loads title of the page-->
-<h1>@ViewData["Title"]</h1>
-<!--Displays the information that pertains to the developers of the website-->
-<p>About Us to come later.</p>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="site.css">
+</head>
+<main>
+    <style>
+        body {
+            background-image: url(https://cdn.dribbble.com/users/2405927/screenshots/13819728/media/e35e8fe51cb2f738190ad98448929e16.jpg?compress=1&resize=1000x750&vertical=top);
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+        }
+    </style>
+
+
+    <section>
+        <h2><strong>Our Story</strong></h2>
+        <p>We,being  <strong>parkgoers</strong> went on a journey to find a website that will be perfect for people like us to spend some time with the nature but we couldn't find one. so, we created this awesome website for guys like us. </p>
+    </section>
+    <section>
+        <h2><strong>Our Team</strong></h2>
+
+        <div class="content">
+            <div class="details">
+                <div class="name">Mc Namara Nicholas</div>
+                <div class="designation">Graduate student at <strong>SEATTLEU</strong></div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="details">
+                <div class="name">Meng, Lei</div>
+                <div class="designation">Graduate student at <strong>SEATTLEU</strong></div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="details">
+                <div class="name"> Puranakar Shatakshi</div>
+                <div class="designation">Graduate student at <strong>SEATTLEU</strong></div>
+
+            </div>
+        </div>
+        <div class="content">
+            <div class="details">
+                <div class="name">Gudibandi Ganesh Reddy</div>
+                <div class="designation">Graduate student at <strong>SEATTLEU</strong></div>
+            </div>
+        </div>
+
+
+
+    </section>
+    <section>
+        <h2><strong>Our Mission</strong></h2>
+        <p> Our Mission is to match the perfect parks with the perfect people based on their intrests.</p>
+    </section>
+</main>
