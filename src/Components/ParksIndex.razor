@@ -36,7 +36,7 @@
     It then shows the picture of the park, followed by a hyperlink to its brochure.
     It thenn lists the contact and address information of the park, as well as its descriptions and activities.
 -->
-@if(selectedPark != null)
+@if (selectedPark != null)
 {
     <div class="modal fade" id="ParkModal" tabindex="-1" role="dialog" aria-labelledby="ParkTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -88,7 +88,7 @@
                     }
                     else
                     {
-                <span>@voteCount @voteLabel</span>
+                        <span>@voteCount @voteLabel</span>
                     }
                     <!--Displays 5 faded stars as backgrounds, and turn them yellow if the park's rating
                         is above the current star number-->

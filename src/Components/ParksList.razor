@@ -11,15 +11,14 @@
 <div class="card-columns">
 @foreach (var Park in ParkService.GetParks())
 {
-    <div class="card">
+    <div class="homecard">
         <div class="card-img" style="background-image: url('@Park.Image');">
         </div>
-        <div class="card-body">
-            <h5 class="card-title">@Park.Title</h5>
-        </div>
         <div class="card-footer">
-            <small class="text-muted"><button @onclick="(e => SelectPark(Park.Id))" 
-              data-toggle="modal" data-target="#ParkModal" class="btn btn-primary">More Info</button>
+            <small class="text-muted"><button @onclick="(e => SelectPark(Park.Id))"
+                        data-toggle="modal" data-target="#ParkModal" class="btn btn-primary">
+                        @Park.Id
+                    </button>
             </small>
         </div>
     </div>

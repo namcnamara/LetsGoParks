@@ -16,32 +16,34 @@
 </p>
 
 <!--Displays text that indicates the highest rated park:-->
-<h5 class="homepageh5">Highest Rated Park:</h5>
-<p class ="homepageformat"> <span>Our highest rated park:</span></p>
+<h5 class="homepageh5">Highest Rated Parks:</h5>
 
 
 <!--This block of c# code populates the value Park using the function GetHighestRatedPark() from JsonFileParkService-->
 @{
-    ParksModel HighestRatedPark = ParkService.GetHighestRatedPark();
+    ParksModel[] topRatedParks = ParkService.GetHighestRatedParks();
 }
 
 <!--The following block of code shows a single park card for the highest rated park in the JSON file. 
     Is displays the title of the park, followed by an image of the park and a button labelled "More Info".
 -->
 <div class="card-columns">
-    <div class="card">
-        <div class="card-img" style="background-image: url('@HighestRatedPark.Image');">
+    @foreach (var Park in topRatedParks)
+    {
+        <div class="homecard">
+            <span>Top Park in @Park.Park_system System</span>
+            <div class="card-img" style="background-image: url('@Park.Image');">
+            </div>
+            <div class="homecard">
+                <small class="text-muted">
+                    <button @onclick="(e => SelectPark(Park.Id))"
+                        data-toggle="modal" data-target="#ParkModal" class="btn btn-primary">
+                        @Park.Title
+                    </button>
+                </small>
+            </div>
         </div>
-        <div class="card-body">
-            <h5 class="card-title">@HighestRatedPark.Title</h5>
-        </div>
-        <div class="card-footer">
-            <button @onclick="(e => SelectPark(HighestRatedPark.Id))"
-                    data-toggle="modal" data-target="#ParkModal" class="btn btn-primary">
-                More Info
-            </button>
-        </div>
-    </div>
+    }
 </div>
 
 <!--The following block of code determines how the page behaves once a park has been selected.

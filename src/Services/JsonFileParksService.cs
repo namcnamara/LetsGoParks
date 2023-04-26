@@ -53,27 +53,84 @@ namespace LetsGoPark.WebSite.Services
                         PropertyNameCaseInsensitive = true
                     });
                 ParksModel topPark = Parks.FirstOrDefault();
+                //Uses the compareParks() function to select the highest rated park from parks.json
                 foreach (var park in Parks)
                 {
-                    //If the current top rated park has no ratings, the current park is considered the top park.
-                    if (topPark.Ratings == null) { topPark = park; }
-                    //If the current park is null, topPark is unchanged.
-                    else if (park.Ratings == null) { continue; }
-                    //If both parks have the same rating, the park with the higher number of votes is the new top park.
-                    else if (park.Ratings != null && topPark.Ratings.Average() == park.Ratings.Average())
-                    {
-                        //If the count rating of the current park is higher, the current park is the new top park.
-                        if (park.Ratings != null && topPark.Ratings.Count() < park.Ratings.Count())
-                            topPark = park;
-                    }
-                    //If the current park has a higher average rating than the top park, the current is the new top park.
-                    else if (topPark.Ratings.Average() < park.Ratings.Average())
-                    {
-                        topPark = park;
-                    }
+                    topPark = compareParks(topPark, park);
                 }
                 return topPark;
             }
+        }
+
+        //This function returns an array of size 3 that holds the top city, state, and national park by rating. 
+        public ParksModel[] GetHighestRatedParks()
+        {
+            using (var jsonFileReader = File.OpenText(JsonFileName))
+            {
+                IEnumerable<ParksModel> Parks = JsonSerializer.Deserialize<ParksModel[]>(jsonFileReader.ReadToEnd(),
+                    new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+                //topRatedParks is an array that holds the 3 highest rated parks for each catagory.
+                //Index 0 is for city parks, index 1 is for state parks, and index 2 is for national parks.
+                ParksModel[] topRatedParks = { Parks.FirstOrDefault(), Parks.FirstOrDefault(), Parks.FirstOrDefault()};
+                foreach (var park in Parks)
+                {
+                    switch(park.Park_system)
+                    {
+                        //Compares top city park against potential contenders.
+                        case "City Parks":
+                            //If the current top city park doesn't actually belong to the city system, switch it with the current park.
+                            if (topRatedParks != null && topRatedParks[0].Park_system != "City Parks")
+                                topRatedParks[0] = park;
+                            else
+                                topRatedParks[0] = compareParks(topRatedParks[0], park);
+                            break;
+                        //Compares top state park against potential contenders.
+                        case "WA State Parks":
+                            //If the current top state park doesn't actually belong to the state system, switch it with the current park.
+                            if (topRatedParks != null && topRatedParks[1].Park_system != "WA State Parks")
+                                topRatedParks[1] = park;
+                            else
+                                topRatedParks[1] = compareParks(topRatedParks[1], park);
+                            break;
+                        //Compares the national heavyweight champion against possible contenders.
+                        case "National Parks":
+                            //If the current top national park doesn't actually belong to the national system, switch it with the current park.
+                            if (topRatedParks != null && topRatedParks[2].Park_system != "National Parks")
+                                topRatedParks[2] = park;
+                            else
+                                topRatedParks[2] = compareParks(topRatedParks[2], park);
+                            break;
+                    }
+                }
+                return topRatedParks;
+            }
+        }
+
+        //Helper function that compares parks and returns the one with the highest rating.
+        //If two parks have the highest rating, the one with the highest vote count wins.
+        public ParksModel compareParks(ParksModel topPark, ParksModel currentPark)
+        {
+            ParksModel newTopPark = topPark;
+            //If the current top rated park has no ratings, the current park is considered the top park.
+            if (topPark.Ratings == null) { newTopPark = currentPark; }
+            //If the current park is null, topPark is unchanged.
+            else if (currentPark.Ratings == null) { newTopPark = topPark; }
+            //If both parks have the same rating, the park with the higher number of votes is the new top park.
+            else if (topPark.Ratings.Average() == currentPark.Ratings.Average())
+            {
+                //If the count rating of the current park is higher, the current park is the new top park.
+                if (topPark.Ratings.Count() < currentPark.Ratings.Count())
+                    newTopPark = currentPark;
+            }
+            //If the current park has a higher average rating than the top park, the current is the new top park.
+            else if (topPark.Ratings.Average() < currentPark.Ratings.Average())
+            {
+                newTopPark = currentPark;
+            }
+            return newTopPark;
         }
 
         //This function adds a rating to a park defined by the argument ParkId.
