@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace LetsGoPark.WebSite
 {
+    //Creates a startup protocol for the web builder used in Program.cs
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -14,6 +15,7 @@ namespace LetsGoPark.WebSite
             Configuration = configuration;
         }
 
+        //provides get functionality for Configuration
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.

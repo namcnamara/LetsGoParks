@@ -2,9 +2,14 @@
 @using LetsGoPark.WebSite.Components
 @model ExploreModel
 @{
+    //Saves the title of the webpage 
     ViewData["Title"] = "Explore";
 }
 
+<!--Displays the title of the page-->
+<h1>@ViewData["Title"]</h1>
+
+<!--Loads the ParksList razor page to populate Explore page.-->
 @(await Html.RenderComponentAsync<ParksList>(RenderMode.ServerPrerendered))
 
 <script src="_framework/blazor.server.js"></script>

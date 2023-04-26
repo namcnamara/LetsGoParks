@@ -3,6 +3,11 @@
 @using Microsoft.AspNetCore.Components.Web
 @inject JsonFileParksService ParkService
 
+<!--The following block creates a table of found parks in parks.json.
+    Shows a two column table that displays the title of the park in one column, and then a button labelled "Read".
+    If the button "Read" is selected, a modal window opens that displays all information within the database
+    pertaining to the selected park.
+-->
 <table class="table">
     <thead>
         <tr>
@@ -26,24 +31,28 @@
     </tbody>
 </table>
 
+<!--The following block of code determines how the page behaves once a park has been selected.
+    The Modal window opens an shows the Park Title that functions as a hyperlink to the parks official website.
+    It then shows the picture of the park, followed by a hyperlink to its brochure.
+    It thenn lists the contact and address information of the park, as well as its descriptions and activities.
+-->
 @if(selectedPark != null)
 {
-  <div class="modal fade" id="ParkModal" tabindex="-1" role="dialog" aria-labelledby="ParkTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
+    <div class="modal fade" id="ParkModal" tabindex="-1" role="dialog" aria-labelledby="ParkTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
                     <h5 class="modal-title" id="ParkTitle"> <a href=@selectedPark.Url><strong>@selectedPark.Title</strong></a></h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="card">
-            <div class="card-img" style="background-image: url('@selectedPark.Image');">
-            </div>
-            <div class="card-body">
-                <p class="card-text">
-
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="card">
+                        <div class="card-img" style="background-image: url('@selectedPark.Image');">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
                                 <!--Links brochure of selected park-->
                                 <a href=@selectedPark.Map_brochure><strong>Park Brochure</strong></a> <br>
                                 <!--Loads Address of selected park-->
@@ -56,76 +65,84 @@
                                 <strong>Permits and Fees: </strong>@selectedPark.Permits <br>
                                 <!--Loads Activities array of selected parks-->
                                 <strong>Activities: </strong>
+                                <!--This creates an unordered list of all activities with the parks Activities array-->
                                 <ul>
                                     @foreach (var activity in selectedPark.Activities)
                                     {
                                         <li>@activity</li>
                                     }
                                 </ul>
-                                
-                                <!--Loads Description of selected park--> 
+                                <!--Loads Description of selected park-->
                                 <strong>Park description:</strong> <br> @selectedPark.Description <br>
-
-                    
                             </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!--The following block shows the rating for the current park, and allows a user to update the current vote.-->
+                <div class="modal-footer">
+                    <!--If no votes are currently in json's Ratings array:-->
+                    @if (voteCount == 0)
+                    {
+                        <span>Be the first to vote!</span>
+                    }
+                    else
+                    {
+                <span>@voteCount @voteLabel</span>
+                    }
+                    <!--Displays 5 faded stars as backgrounds, and turn them yellow if the park's rating
+                        is above the current star number-->
+                    @for (int i = 1; i < 6; i++)
+                    {
+                        var currentStar = i;
+                        if (i <= currentRating)
+                        {
+                            <span class="fa fa-star checked" @onclick="(e => SubmitRating(currentStar))"></span>
+                        }
+                        else
+                        {
+                            <span class="fa fa-star" @onclick="(e => SubmitRating(currentStar))"></span>
+                        }
+                    }
+                </div>
             </div>
-          </div>
         </div>
-                
-        <div class="modal-footer">
-          @if(voteCount == 0)
-          {
-            <span>Be the first to vote!</span>
-          }
-          else
-          {
-            <span>@voteCount @voteLabel</span>
-          }
-          @for(int i=1; i<6; i++)
-          {
-            var currentStar = i;
-            if(i<=currentRating)
-            {
-              <span class="fa fa-star checked" @onclick="(e => SubmitRating(currentStar))"></span>
-            }
-            else
-            {
-              <span class="fa fa-star" @onclick="(e => SubmitRating(currentStar))"></span>
-            }
-          }
-        </div>
-      </div>
     </div>
-  </div>
 }
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-@code 
+<!--C# code that is used to dynamically populate HTMl content:-->
+@code
 {
+    //The currently selected park.
     ParksModel selectedPark;
+    //the Id of the selected park.
     string selectedParkId;
 
+    //This function is called once the "More Info" button is clicked in the card grid.
     void SelectPark(string ParkId)
     {
+        //Sets the argument Id as the selectedparkId.
         selectedParkId = ParkId;
+        //Sets the currently selected park using the selectedParkId.
         selectedPark = ParkService.GetParks().First(x => x.Id == ParkId);
+        //Grabs the current rating for the park.
         GetCurrentRating();
     }
 
-    void SelectPark(ParksModel newPark)
-    {
-        selectedPark = newPark;
-        GetCurrentRating();
-    }
-
+    //Holds information for the rating of the current park.
     int currentRating = 0;
+    //The number of votes currently in a park's Ratings array.
     int voteCount = 0;
+    //Is used to set the word displayed as either Vote or Votes depending on the current vote count.
     string voteLabel;
 
+    //This function determines the current rating for the currently selected park.
     void GetCurrentRating()
     {
-        if(selectedPark.Ratings == null)
+        //An empty Ratings array is declared as null in the parks.json file.
+        if (selectedPark.Ratings == null)
         {
             currentRating = 0;
             voteCount = 0;
@@ -140,20 +157,11 @@
         System.Console.WriteLine($"Current rating for {selectedPark.Id}: {currentRating}");
     }
 
+    //This allows a user to submit a rating vote. It commits that vote to the json database for the currently selected park.
     void SubmitRating(int rating)
     {
         System.Console.WriteLine($"Rating received for {selectedPark.Id}: {rating}");
         ParkService.AddRating(selectedParkId, rating);
         SelectPark(selectedParkId);
-    }
-
-    string ActivitiesToString(string[] activities)
-    {
-        string fullList = "";
-        foreach (string activity in activities)
-        {
-            fullList += activity + " ";
-        }
-        return fullList;
     }
 }

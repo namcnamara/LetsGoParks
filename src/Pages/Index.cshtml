@@ -2,22 +2,13 @@
 @using LetsGoPark.WebSite.Components
 @model IndexModel
 @{
+    //Saves the title of the webpage if we decide to use it 
     ViewData["Title"] = "Home";
 }
 
-<h5 class="homepageh5">"Ready to explore sunny Seattle? </h5>
 
-<p class="homepageformat">
-    <strong>Let's Go Park</strong> your worries and take ahike! <br />
-    Get ready to have a <em>tree-mendous</em> time and make some memories that will <em>leaf</em> you smiling! <br />
-    We've got the inside scoop on Seattle's city, state, and federal parks, so come <em>branch</em> out and discover your new favorite spot.
-    <br />
-    <br />
-</p>
+<!--Renders the webpage for the home page using Homepage.razor-->
+@(await Html.RenderComponentAsync<Homepage>(RenderMode.ServerPrerendered))
 
-<h5 class="homepageh5">Highest Rated Park:</h5>
-<p class ="homepageformat"> <span>To come Later</span></p>
+<script src="_framework/blazor.server.js"></script>
 
-<!--Renders webpage with highest rating
-
--->
