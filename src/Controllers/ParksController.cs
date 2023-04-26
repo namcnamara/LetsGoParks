@@ -11,7 +11,7 @@ namespace LetsGoPark.WebSite.Controllers
     [Route("[controller]")]
     public class ParksController : ControllerBase
     {
-        public ParksController(JsonFileParksService ParkService)
+        public ParksController(JsonFileParksService parkService)
         {
             ParkService = ParkService;
         }

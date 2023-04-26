@@ -2,11 +2,14 @@
 @using LetsGoPark.WebSite.Components
 @model ParksIndexModel
 @{
+    //Saves the title of the webpage
     ViewData["Title"] = "Parks Index";
 }
 
+<!--Displays the title of the page-->
 <h1>@ViewData["Title"]</h1>
 
+<!--Renders the ParksIndex razor page to dynamically display an index table-->
 @(await Html.RenderComponentAsync<ParksIndex>(RenderMode.ServerPrerendered))
 
 <script src="_framework/blazor.server.js"></script>
