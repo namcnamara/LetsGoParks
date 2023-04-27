@@ -1,9 +1,15 @@
-﻿.checked {
-  color: rebeccapurple;
+﻿/*Color of the voting stars that graphically demonstrate a park's rating*/
+.checked {
+  color: blue;
 }
 
 .fa-star {
   cursor: pointer;
+}
+
+/*Sets the properties for table elements*/
+table {
+    color: white;
 }
 
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
@@ -16,7 +22,7 @@ for details on configuring this project to bundle and minify static web assets. 
 .card-columns .card-body {
     height: 100px;
     font-family: 'Nunito', sans-serif;
-    background: #fbfafd;
+    background: rgb(7, 70, 6);
 }
 
 .card-columns .card-img {
@@ -25,25 +31,35 @@ for details on configuring this project to bundle and minify static web assets. 
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
-  opacity: .8;
+  opacity: 1;
 }
-
-.modal .card-img {
-  height: 500px;
-  vertical-align: bottom;
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
-}
-
 .card-columns .card:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(37,33,82,.12), 0 4px 8px rgba(37,33,82,.06);
 }
+
 .card-footer {
-    background: #fbfafd;
+    background-color: #1a5c34;
 }
 
+/*.modal .#### describe the characteristics of the modal window's relavant section*/
+.modal .card-header {
+    background-color: rgb(102, 187, 99);
+}
+.modal .card-img {
+    height: 500px;
+    vertical-align: bottom;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    background-color: #1a5c34;
+}
+.modal .card-body {
+    background-color: rgb(204, 225, 166);
+}
+.modal .card-footer {
+    background-color: rgb(119, 186, 117);
+}
 
 a.navbar-brand {
     white-space: normal;
@@ -110,18 +126,25 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-image: url(https://cdn.dribbble.com/users/2405927/screenshots/13819728/media/e35e8fe51cb2f738190ad98448929e16.jpg?compress=1&resize=1000x750&vertical=top);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
+
 p {
     font-family: 'Nunito', sans-serif;
 }
 h1 {
     font-family: 'Nunito', sans-serif;
+    color: white;
 }
 ul {
     font-family: 'Nunito', sans-serif;
 }
+
 .footer {
     position: absolute;
     bottom: 0;
@@ -130,6 +153,7 @@ ul {
     line-height: 60px; /* Vertically center the text there */
     font-family: 'Nunito', sans-serif;
 }
+
 /*Backgrounds*/
 .bg-navbar {
     background: -webkit-linear-gradient(340deg,  #3b3952 40%, #1a5c34 40%);
@@ -137,9 +161,45 @@ ul {
     background: -moz-linear-gradient(340deg,  #3b3952 40%, #1a5c34 40%);
     background: linear-gradient(340deg,  #3b3952 40%, #1a5c34 40%);
 }
+
 .bg-footer {
     background: -webkit-linear-gradient(340deg, #1a5c34 40%, #3b3952 40%);
     background: -o-linear-gradient(340deg, #1a5c34 40%, #3b3952 40%);
     background: -moz-linear-gradient(340deg, #1a5c34 40%, #3b3952 40%);
     background: linear-gradient(340deg, #1a5c34 40%, #3b3952 40%);
+}
+
+/*formatting for portions of the home page and tis cards*/
+.homepageformat {
+    text-align: center;
+    color: white;
+}
+
+    .homepageformat span {
+        font-weight: bold;
+        color: white;
+    }
+
+.homepageh5 {
+    text-align: center;
+    font-size: 36px;
+    color: white;
+}
+
+.homecard {
+    text-align: center;
+    background: #1a5c34; 
+    color: white;
+    border-color: #e9a8a6;
+}
+
+/*Formatting for the about us and privacy pages*/
+.aboutUsAndPrivacyFormat {
+    color: white;
+}
+
+/*changed color of anchors in aboutUsAndPrivacyFormat class*/
+.aboutUsAndPrivacyFormat a {
+    color: rgb(241, 163, 41);
+    
 }
