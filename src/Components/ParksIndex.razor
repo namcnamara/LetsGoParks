@@ -9,17 +9,17 @@
     pertaining to the selected park.
 -->
 <table class="table">
-    <thead>
+    <thead class ="aboutUsAndPrivacyFormat">
         <tr>
-            <th>Title</th>
-            <th>Action</th>
+            <th><strong>Title</strong></th>
+            <th><strong>Action</strong></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var Park in ParkService.GetParks())
         {
             <tr>
-                <td>@Park.Title</td>
+                <td class="aboutUsAndPrivacyFormat">@Park.Title</td>
                 <td>
                     <button @onclick="(e => SelectPark(Park.Id))"
                         data-toggle="modal" data-target="#ParkModal" class="btn btn-primary">
