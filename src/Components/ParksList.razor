@@ -92,6 +92,28 @@
                                     }
                                     <br>
                                 }
+                                <!--Add input boxes for writing a comment-->
+                                <!--comment record structure: [User, Time, Comment, Token]-->
+                                <strong>Write a comment:</strong> <br>
+                                @{
+                                    string[] currentComment = new string[4];
+                                    currentComment[1] = DateTime.Now.ToString();
+                                }
+                                <div>
+                                    <label for="name-input">Name:</label>
+                                    <input type="text" id="name-input" name="name" value="" onchange="@currentComment[0]=this.value">
+                                </div>
+
+                                <div>
+                                    <label for="comment-input">Comment:</label>
+                                    <input type="text" id="comment-input" name="comment" value="" onchange="@currentComment[2]=this.value">
+                                </div>
+                                <div>
+                                    <label for="token-input">Token:</label>
+                                    <input type="text" id="token-input" name="token" value="" onchange="@currentComment[3]=this.value">
+                                </div>
+                                <br>
+                                <button id="write-comment-button" @onclick="(e => SubmitComment(currentComment))">Submit</button>
                             </p>
                         </div>
                     </div>
