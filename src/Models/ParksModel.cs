@@ -1,3 +1,4 @@
+using System.Numerics;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -32,6 +33,8 @@ namespace LetsGoPark.WebSite.Models
         public string Map_brochure { get; set; }
         //permits or fees required to access the park.
         public string Permits { get; set; }
+        //A 2D string array of the comments on the park.
+        public string[][] Comments { get; set; }
 
         //Serializes the information to send to json file. 
         public override string ToString() => JsonSerializer.Serialize<ParksModel>(this);
