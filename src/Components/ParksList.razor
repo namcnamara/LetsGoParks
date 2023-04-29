@@ -68,7 +68,30 @@
                                         }
                                     </ul>
                                 <!--Loads Description of selected park-->
-                                <strong>Park description:</strong> <br> @selectedPark.Description <br>
+                                <strong>Park description:</strong> <br> @selectedPark.Description <br><br>
+                                <!--Loads Comments of selected park-->
+                                <strong>Comments: </strong> <br>
+                                @if (commentCount == 0)
+                                {
+                                    <span>Be the first to comment!</span>
+                                    <br>
+                                }
+                                else
+                                {
+                                    @foreach (string[] comment in selectedPark.Comments)
+                                    {
+                                        <!--comment record structure: [User, Time, Comment, Token]-->
+                                        <div>
+                                            <div>
+                                                <span>@comment[0]</span> - <span>@comment[1]: </span>
+                                            </div>
+                                            <div>
+                                                <p>&nbsp;&nbsp;@comment[2]</p>
+                                            </div>
+                                        </div>
+                                    }
+                                    <br>
+                                }
                             </p>
                         </div>
                     </div>
@@ -124,6 +147,8 @@
         selectedPark = ParkService.GetParks().First(x => x.Id == ParkId);
         //Grabs the current rating for the park.
         GetCurrentRating();
+        //Grabs the current comment for the park.
+        GetCurrentComment();
     }
 
     //Holds information for the rating of the current park.
@@ -157,6 +182,35 @@
     {
         System.Console.WriteLine($"Rating received for {selectedPark.Id}: {rating}");
         ParkService.AddRating(selectedParkId, rating);
+        SelectPark(selectedParkId);
+    }
+
+    //The number of comments currently in a park's Comments array.
+    int commentCount = 0;
+
+    //This function determines the current rating for the currently selected park.
+    void GetCurrentComment()
+    {
+        //An empty Comments array is declared as null in the parks.json file.
+        if (selectedPark.Comments == null)
+        {
+            commentCount = 0;
+        }
+        else
+        {
+            commentCount = selectedPark.Comments.Count();
+        }
+    }
+
+    //This allows a user to submit a comment record. It commits that comment to the json database for the currently selected park.
+    void SubmitComment(string[] comment)
+    {
+        System.Console.WriteLine($"Rating received for {selectedPark.Id}");
+        foreach (var item in comment)
+        {
+            Console.WriteLine(item);
+        }
+        ParkService.AddComment(selectedParkId, comment);
         SelectPark(selectedParkId);
     }
 }
