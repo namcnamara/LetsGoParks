@@ -153,8 +153,8 @@ namespace LetsGoPark.WebSite.Services
                 Parks.First(x => x.Id == ParkId).Ratings = ratings.ToArray();
             }
 
-            //Saves the updated rating to the json file.
-            using(var outputStream = File.OpenWrite(JsonFileName))
+                //Saves the updated rating to the json file.
+                using(var outputStream = File.OpenWrite(JsonFileName))
             {
                 JsonSerializer.Serialize<IEnumerable<ParksModel>>(
                     new Utf8JsonWriter(outputStream, new JsonWriterOptions
@@ -162,6 +162,40 @@ namespace LetsGoPark.WebSite.Services
                         SkipValidation = true,
                         Indented = true
                     }), 
+                    Parks
+                );
+            }
+        }
+
+        //This function adds a comment to a park defined by the argument ParkId.
+        public void AddComment(string ParkId, string[] comment)
+        {
+            //Gets all parks in the json file
+            var Parks = GetParks();
+
+            //If the current park has no current comments, creates a 2d string array and inputs the passed in comment as its first value.
+            if (Parks.First(x => x.Id == ParkId).Comments == null)
+            {
+                //Sets the first value at index 0 in the comments array.
+                Parks.First(x => x.Id == ParkId).Comments = new string[][] { comment };
+            }
+            else
+            {
+                //Joins the current rating to the existing array of comments.
+                var comments = Parks.First(x => x.Id == ParkId).Comments.ToList();
+                comments.Add(comment);
+                Parks.First(x => x.Id == ParkId).Comments = comments.ToArray();
+            }
+
+            //Saves the updated rating to the json file.
+            using (var outputStream = File.OpenWrite(JsonFileName))
+            {
+                JsonSerializer.Serialize<IEnumerable<ParksModel>>(
+                    new Utf8JsonWriter(outputStream, new JsonWriterOptions
+                    {
+                        SkipValidation = true,
+                        Indented = true
+                    }),
                     Parks
                 );
             }
