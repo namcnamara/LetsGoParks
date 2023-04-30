@@ -386,3 +386,4 @@ FileContentIndex/
 v17/TestStore/
 DesignTimeBuild/
 v17/
+*.suo
