@@ -28,8 +28,24 @@
     "Map_brochure": "https://www.parks.wa.gov/DocumentCenter/View/1894/Lake-Sammamish-State-Park-PDF",
     "Permits": "Discover Pass required",
     "Comments": [
-      [ "Bob", "2023-04-20 10:09:34", "This is a nice park!", "123" ],
-      [ "Mike", "2023-04-12 22:11:58", "Highly recommended!", "123" ]
+      [
+        "Bob",
+        "2023-04-20 10:09:34",
+        "This is a nice park!",
+        "123"
+      ],
+      [
+        "Mike",
+        "2023-04-12 22:11:58",
+        "Highly recommended!",
+        "123"
+      ],
+      [
+        null,
+        "4/30/2023 12:06:02 AM",
+        null,
+        null
+      ]
     ]
   },
   {
@@ -290,44 +306,7 @@
     "Title": "Mount Rainier National Park",
     "Description": "Ascending to 14,410 feet above sea level, Mount Rainier stands as an icon in the Washington landscape. An active volcano, Mount Rainier is the most glaciated peak in the contiguous U.S.A., spawning five major rivers. Subalpine wildflower meadows ring the icy volcano while ancient forest cloaks Mount Rainier\u2019s lower slopes. Wildlife abounds in the park\u2019s ecosystems. A lifetime of discovery awaits.",
     "Ratings": [
-      5,
-      5,
-      5,
-      5,
-      5,
-      5,
-      5,
-      5,
-      5,
-      5,
-      5,
-      5,
-      5,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1
+      5
     ],
     "Address": "55210 238th Avenue East Ashford, WA 98304",
     "Phone": "360-569-2211",

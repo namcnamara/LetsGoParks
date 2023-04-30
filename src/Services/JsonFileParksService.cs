@@ -134,35 +134,65 @@ namespace LetsGoPark.WebSite.Services
         }
 
         //This function adds a rating to a park defined by the argument ParkId.
-        public void AddRating(string ParkId, int rating)
+        public bool AddRating(string productId, int rating)
         {
-            //Gets all parks in the json file
-            var Parks = GetParks();
-
-            //If the current park has no current ratings, creates a int array and inputs the passed in rating as its first value.
-            if(Parks.First(x => x.Id == ParkId).Ratings == null)
+            // If the ProductID is invalid, return
+            if (string.IsNullOrEmpty(productId))
             {
-                //Sets the first value at index 0 in the ratings array.
-                Parks.First(x => x.Id == ParkId).Ratings = new int[] { rating };
-            }
-            else
-            {
-                //Joins the current rating to the existing array of ratings.
-                var ratings = Parks.First(x => x.Id == ParkId).Ratings.ToList();
-                ratings.Add(rating);
-                Parks.First(x => x.Id == ParkId).Ratings = ratings.ToArray();
+                return false;
             }
 
-                //Saves the updated rating to the json file.
-                using(var outputStream = File.OpenWrite(JsonFileName))
+            var products = GetParks();
+
+            // Look up the product, if it does not exist, return
+            var data = products.FirstOrDefault(x => x.Id.Equals(productId));
+            if (data == null)
+            {
+                return false;
+            }
+
+            // Check Rating for boundries, do not allow ratings below 0
+            if (rating < 0)
+            {
+                return false;
+            }
+
+            // Check Rating for boundries, do not allow ratings above 5
+            if (rating > 5)
+            {
+                return false;
+            }
+
+            // Check to see if the rating exist, if there are none, then create the array
+            if (data.Ratings == null)
+            {
+                data.Ratings = new int[] { };
+            }
+
+            // Add the Rating to the Array
+            var ratings = data.Ratings.ToList();
+            ratings.Add(rating);
+            data.Ratings = ratings.ToArray();
+
+            // Save the data back to the data store
+            SaveData(products);
+
+            return true;
+        }
+
+        //This function saves all updated data to parks.json
+        private void SaveData(IEnumerable<ParksModel> parks)
+        {
+
+            using (var outputStream = File.Create(JsonFileName))
             {
                 JsonSerializer.Serialize<IEnumerable<ParksModel>>(
                     new Utf8JsonWriter(outputStream, new JsonWriterOptions
                     {
                         SkipValidation = true,
                         Indented = true
-                    }), 
-                    Parks
+                    }),
+                    parks
                 );
             }
         }
