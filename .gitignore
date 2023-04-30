@@ -384,3 +384,5 @@ UnitTests/obj/
 ProjectEvaluation/
 FileContentIndex/
 v17/TestStore/
+DesignTimeBuild/
+v17/
