@@ -53,10 +53,10 @@ namespace LetsGoPark.WebSite.Services
                         PropertyNameCaseInsensitive = true
                     });
                 ParksModel topPark = Parks.FirstOrDefault();
-                //Uses the compareParks() function to select the highest rated park from parks.json
+                //Uses the CompareParks() function to select the highest rated park from parks.json
                 foreach (var park in Parks)
                 {
-                    topPark = compareParks(topPark, park);
+                    topPark = CompareParks(topPark, park);
                 }
                 return topPark;
             }
@@ -74,7 +74,9 @@ namespace LetsGoPark.WebSite.Services
                     });
                 //topRatedParks is an array that holds the 3 highest rated parks for each catagory.
                 //Index 0 is for city parks, index 1 is for state parks, and index 2 is for national parks.
-                ParksModel[] topRatedParks = { Parks.FirstOrDefault(), Parks.FirstOrDefault(), Parks.FirstOrDefault()};
+                ParksModel[] topRatedParks = { Parks.FirstOrDefault(x => x.Park_system == "National Parks"), 
+                    Parks.FirstOrDefault(x => x.Park_system == "National Parks"), 
+                    Parks.FirstOrDefault(x => x.Park_system == "WA State Parks")};
                 foreach (var park in Parks)
                 {
                     switch(park.Park_system)
@@ -82,26 +84,26 @@ namespace LetsGoPark.WebSite.Services
                         //Compares top city park against potential contenders.
                         case "City Parks":
                             //If the current top city park doesn't actually belong to the city system, switch it with the current park.
-                            if (topRatedParks != null && topRatedParks[0].Park_system != "City Parks")
+                            if (topRatedParks[0].Park_system != "City Parks")
                                 topRatedParks[0] = park;
                             else
-                                topRatedParks[0] = compareParks(topRatedParks[0], park);
+                                topRatedParks[0] = CompareParks(topRatedParks[0], park);
                             break;
                         //Compares top state park against potential contenders.
                         case "WA State Parks":
                             //If the current top state park doesn't actually belong to the state system, switch it with the current park.
-                            if (topRatedParks != null && topRatedParks[1].Park_system != "WA State Parks")
+                            if (topRatedParks[1].Park_system != "WA State Parks")
                                 topRatedParks[1] = park;
                             else
-                                topRatedParks[1] = compareParks(topRatedParks[1], park);
+                                topRatedParks[1] = CompareParks(topRatedParks[1], park);
                             break;
                         //Compares the national heavyweight champion against possible contenders.
                         case "National Parks":
                             //If the current top national park doesn't actually belong to the national system, switch it with the current park.
-                            if (topRatedParks != null && topRatedParks[2].Park_system != "National Parks")
+                            if (topRatedParks[2].Park_system != "National Parks")
                                 topRatedParks[2] = park;
                             else
-                                topRatedParks[2] = compareParks(topRatedParks[2], park);
+                                topRatedParks[2] = CompareParks(topRatedParks[2], park);
                             break;
                     }
                 }
@@ -111,7 +113,7 @@ namespace LetsGoPark.WebSite.Services
 
         //Helper function that compares parks and returns the one with the highest rating.
         //If two parks have the highest rating, the one with the highest vote count wins.
-        public ParksModel compareParks(ParksModel topPark, ParksModel currentPark)
+        public ParksModel CompareParks(ParksModel topPark, ParksModel currentPark)
         {
             ParksModel newTopPark = topPark;
             //If the current top rated park has no ratings, the current park is considered the top park.
