@@ -1,0 +1,32 @@
+@page
+@model PrivacyModel
+
+<!--Links our site.css style sheet to the document-->
+<link rel="stylesheet" type="text/css" href="~/css/site.css">
+
+@{
+    //Saves the title of the webpage
+    ViewData["Title"] = "Privacy Policy";
+}
+
+<!--Displays the title of the page-->
+<h1>@ViewData["Title"]</h1>
+
+
+<!--adding privacy policy-->
+<body class="aboutUsAndPrivacyFormat">
+    <p>
+        <br /> <br /> <em>This website takes your privacy seriously.</em> <br /> <br />
+        We will collect and use any personal information provided to us only for the purpose of improving our service to you, <br />
+        and will not share or sell your information to any third parties.<br />
+    </p>
+    <!--adding info on what info can be collected -->
+    <p>
+        We may collect non-personally identifiable information, such as browser type, IP address, and pages visited in order  <br />
+        to analyze trends and improve our website. This information will not be used to identify individual users. <br />
+    </p>
+    <!--adding contact us.-->
+    <p>
+        If you have any questions or concerns about our privacy policy, please don't hesitate to <a href="/contact">contact us</a>.
+    </p>
+</body>

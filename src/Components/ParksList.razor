@@ -176,7 +176,7 @@
         //Grabs the current rating for the park.
         GetCurrentRating();
         //Grabs the current comment for the park.
-        GetCurrentComment();
+        GetCurrentCommentCount();
     }
 
     //Holds information for the rating of the current park.
@@ -218,7 +218,7 @@
     int commentCount = 0;
 
     //This function determines the current rating for the currently selected park.
-    void GetCurrentComment()
+    void GetCurrentCommentCount()
     {
         //An empty Comments array is declared as null in the parks.json file.
         if (selectedPark.Comments == null)
