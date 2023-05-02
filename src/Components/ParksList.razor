@@ -95,25 +95,28 @@
                                 <!--Add input boxes for writing a comment-->
                                 <!--comment record structure: [User, Time, Comment, Token]-->
                                 <strong>Write a comment:</strong> <br>
-                                @{
-                                    string[] currentComment = new string[4];
-                                    currentComment[1] = DateTime.Now.ToString();
-                                }
-                                <div>
-                                    <label for="name-input">Name:</label>
-                                    <input type="text" id="name-input" name="name" value="" onchange="@currentComment[0]=this.value">
-                                </div>
 
-                                <div>
-                                    <label for="comment-input">Comment:</label>
-                                    <input type="text" id="comment-input" name="comment" value="" onchange="@currentComment[2]=this.value">
-                                </div>
-                                <div>
-                                    <label for="token-input">Token:</label>
-                                    <input type="text" id="token-input" name="token" value="" onchange="@currentComment[3]=this.value">
-                                </div>
-                                <br>
-                                <button id="write-comment-button" @onclick="(e => SubmitComment(currentComment))">Submit</button>
+                                <h1>Add a Comment!</h1>
+                                <!--Recieves input from user and saves via SubmitComment method. The date is updated in the function.-->
+                                <form method="post" @onsubmit="@(e => { SubmitComment(currentComment); })">
+                                    <div class="comments">
+                                        <!--Saves Name Field-->
+                                        <label for="name-input">Name:</label>
+                                        <input type="text" id="name-input" name="name" value="@currentComment[0]" @oninput="@((eventArgs) => currentComment[0] = eventArgs.Value.ToString())" />
+                                    </div>
+                                    <div class="comments">
+                                        <!--Saves Comment Field-->
+                                        <label for="comment-input">Write Comment:</label>
+                                        <textarea id="comment-input" name="comment" @oninput="@((eventArgs) => currentComment[2] = eventArgs.Value.ToString())">@currentComment[2]</textarea>
+                                    </div>
+                                    <div class="comments">
+                                        <!--Saves token Field-->
+                                        <label for="token-input">Token For Your Comment:</label>
+                                        <input type="text" id="token-input" name="token" rows="4" cols="50" value="@currentComment[3]" @oninput="@((eventArgs) => currentComment[3] = eventArgs.Value.ToString())" />
+                                    </div>
+                                    <button type="submit">Submit</button>
+                                </form>
+
                             </p>
                         </div>
                     </div>
@@ -159,6 +162,9 @@
     ParksModel selectedPark;
     //the Id of the selected park.
     string selectedParkId;
+    //Current comment.
+    string[] currentComment = new string[4];
+
 
     //This function is called once the "More Info" button is clicked in the card grid.
     void SelectPark(string ParkId)
@@ -205,6 +211,7 @@
         System.Console.WriteLine($"Rating received for {selectedPark.Id}: {rating}");
         ParkService.AddRating(selectedParkId, rating);
         SelectPark(selectedParkId);
+        currentComment = new string[4];
     }
 
     //The number of comments currently in a park's Comments array.
@@ -227,6 +234,8 @@
     //This allows a user to submit a comment record. It commits that comment to the json database for the currently selected park.
     void SubmitComment(string[] comment)
     {
+        //Updates the date time on comment
+        comment[1] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         System.Console.WriteLine($"Rating received for {selectedPark.Id}");
         foreach (var item in comment)
         {
@@ -235,4 +244,6 @@
         ParkService.AddComment(selectedParkId, comment);
         SelectPark(selectedParkId);
     }
+    
+
 }
