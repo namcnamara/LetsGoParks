@@ -31,6 +31,7 @@
     </tbody>
 </table>
 
+
 <!--The following block of code determines how the page behaves once a park has been selected.
     The Modal window opens an shows the Park Title that functions as a hyperlink to the parks official website.
     It then shows the picture of the park, followed by a hyperlink to its brochure.
@@ -73,7 +74,55 @@
                                     }
                                 </ul>
                                 <!--Loads Description of selected park-->
-                                <strong>Park description:</strong> <br> @selectedPark.Description <br>
+                                <strong>Park description:</strong> <br> @selectedPark.Description <br><br>
+                                <!--Loads Comments of selected park-->
+                                <strong>Comments: </strong> <br>
+                                @if (commentCount == 0)
+                                {
+                                    <span>Be the first to comment!</span>
+                                    <br>
+                                }
+                                else
+                                {
+                                    @foreach (string[] comment in selectedPark.Comments)
+                                    {
+                                        <!--comment record structure: [User, Time, Comment, Token]-->
+                                        <div>
+                                            <div>
+                                                <span>@comment[0]</span> - <span>@comment[1]: </span>
+                                            </div>
+                                            <div>
+                                                <p>&nbsp;&nbsp;@comment[2]</p>
+                                            </div>
+                                        </div>
+                                    }
+                                    <br>
+                                }
+                                <!--Add input boxes for writing a comment-->
+                                <!--comment record structure: [User, Time, Comment, Token]-->
+                                <strong>Write a comment:</strong> <br>
+
+                                <h1>Add a Comment!</h1>
+                                <!--Recieves input from user and saves via SubmitComment method. The date is updated in the function.-->
+                                <form method="post" @onsubmit="@(e => { SubmitComment(currentComment); })">
+                                    <div class="comments">
+                                        <!--Saves Name Field-->
+                                        <label for="name-input">Name:</label>
+                                        <input type="text" id="name-input" name="name" value="@currentComment[0]" @oninput="@((eventArgs) => currentComment[0] = eventArgs.Value.ToString())" />
+                                    </div>
+                                    <div class="comments">
+                                        <!--Saves Comment Field-->
+                                        <label for="comment-input">Write Comment:</label>
+                                        <textarea id="comment-input" name="comment" @oninput="@((eventArgs) => currentComment[2] = eventArgs.Value.ToString())">@currentComment[2]</textarea>
+                                    </div>
+                                    <div class="comments">
+                                        <!--Saves token Field-->
+                                        <label for="token-input">Token For Your Comment:</label>
+                                        <input type="text" id="token-input" name="token" rows="4" cols="50" value="@currentComment[3]" @oninput="@((eventArgs) => currentComment[3] = eventArgs.Value.ToString())" />
+                                    </div>
+                                    <button type="submit">Submit</button>
+                                </form>
+
                             </p>
                         </div>
                     </div>
@@ -119,6 +168,9 @@
     ParksModel selectedPark;
     //the Id of the selected park.
     string selectedParkId;
+    //Current comment.
+    string[] currentComment = new string[4];
+
 
     //This function is called once the "More Info" button is clicked in the card grid.
     void SelectPark(string ParkId)
@@ -129,6 +181,8 @@
         selectedPark = ParkService.GetParks().First(x => x.Id == ParkId);
         //Grabs the current rating for the park.
         GetCurrentRating();
+        //Grabs the current comment for the park.
+        GetCurrentComment();
     }
 
     //Holds information for the rating of the current park.
@@ -163,5 +217,39 @@
         System.Console.WriteLine($"Rating received for {selectedPark.Id}: {rating}");
         ParkService.AddRating(selectedParkId, rating);
         SelectPark(selectedParkId);
+        currentComment = new string[4];
     }
+
+    //The number of comments currently in a park's Comments array.
+    int commentCount = 0;
+
+    //This function determines the current rating for the currently selected park.
+    void GetCurrentComment()
+    {
+        //An empty Comments array is declared as null in the parks.json file.
+        if (selectedPark.Comments == null)
+        {
+            commentCount = 0;
+        }
+        else
+        {
+            commentCount = selectedPark.Comments.Count();
+        }
+    }
+
+    //This allows a user to submit a comment record. It commits that comment to the json database for the currently selected park.
+    void SubmitComment(string[] comment)
+    {
+        //Updates the date time on comment
+        comment[1] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        System.Console.WriteLine($"Rating received for {selectedPark.Id}");
+        foreach (var item in comment)
+        {
+            Console.WriteLine(item);
+        }
+        ParkService.AddComment(selectedParkId, comment);
+        SelectPark(selectedParkId);
+    }
+
+
 }

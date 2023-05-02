@@ -41,12 +41,6 @@
         "123"
       ],
       [
-        null,
-        "4/30/2023 12:06:02 AM",
-        null,
-        null
-      ],
-      [
         "as",
         "2023-05-01 20:13:17",
         "hey",
@@ -66,27 +60,9 @@
       ],
       [
         "Nicholas McNamara",
-        "2023-05-01 20:20:51",
-        "Still working? from Explore",
-        "1"
-      ],
-      [
-        "Nicholas McNamara",
         "2023-05-01 20:26:54",
         "asdfsadfasdfsadfsdfsadfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
         "1"
-      ],
-      [
-        "sa",
-        "2023-05-01 20:35:53",
-        "d",
-        "2"
-      ],
-      [
-        "Nicholas McNamara",
-        "2023-05-01 20:43:03",
-        "s",
-        "2"
       ]
     ]
   },
@@ -248,7 +224,14 @@
     ],
     "Map_brochure": "https://www.kirklandwa.gov/files/sharedassets/public/parks-amp-comm-services/pdfs/2018parks_trails-guide.pdf",
     "Permits": "Free",
-    "Comments": null
+    "Comments": [
+      [
+        "Nicholas McNamara",
+        "2023-05-01 20:56:59",
+        "Nice Park!",
+        "3"
+      ]
+    ]
   },
   {
     "Id": "Juanita Beach Park",
