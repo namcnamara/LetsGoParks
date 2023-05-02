@@ -1,10 +1,10 @@
 ﻿/*Color of the voting stars that graphically demonstrate a park's rating*/
 .checked {
-  color: blue;
+    color: blue;
 }
 
 .fa-star {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 /*Sets the properties for table elements*/
@@ -23,16 +23,19 @@ for details on configuring this project to bundle and minify static web assets. 
     height: 100px;
     font-family: 'Nunito', sans-serif;
     background: rgb(7, 70, 6);
+    border-radius: 30px;
 }
 
 .card-columns .card-img {
-  height: 330px;
-  vertical-align: bottom;
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
-  opacity: 1;
+    height: 330px;
+    vertical-align: bottom;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    opacity: 1;
+    border-radius: 30px;
 }
+
 .card-columns .card:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(37,33,82,.12), 0 4px 8px rgba(37,33,82,.06);
@@ -40,12 +43,15 @@ for details on configuring this project to bundle and minify static web assets. 
 
 .card-footer {
     background-color: #1a5c34;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
 }
 
 /*.modal .#### describe the characteristics of the modal window's relavant section*/
 .modal .card-header {
     background-color: rgb(102, 187, 99);
 }
+
 .modal .card-img {
     height: 500px;
     vertical-align: bottom;
@@ -54,9 +60,11 @@ for details on configuring this project to bundle and minify static web assets. 
     background-size: cover; /* Resize the background image to cover the entire container */
     background-color: #1a5c34;
 }
+
 .modal .card-body {
     background-color: rgb(204, 225, 166);
 }
+
 .modal .card-footer {
     background-color: rgb(119, 186, 117);
 }
@@ -71,7 +79,7 @@ a.navbar-brand {
 
 /* Provide sufficient contrast against white background */
 a {
-   color: #0366d6;
+    color: #0366d6;
 }
 
 .btn-primary {
@@ -79,50 +87,53 @@ a {
     background-color: #252152;
     border-color: #252152;
 }
-.btn-primary:hover {
-    color: #fff;
-    background-color: #e9a8a6;
-    border-color: #e9a8a6;
-}
+
+    .btn-primary:hover {
+        color: #fff;
+        background-color: #e9a8a6;
+        border-color: #e9a8a6;
+    }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
+
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+    font-size: 1rem;
+    line-height: inherit;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
@@ -137,10 +148,12 @@ body {
 p {
     font-family: 'Nunito', sans-serif;
 }
+
 h1 {
     font-family: 'Nunito', sans-serif;
     color: white;
 }
+
 ul {
     font-family: 'Nunito', sans-serif;
 }
@@ -156,10 +169,10 @@ ul {
 
 /*Backgrounds*/
 .bg-navbar {
-    background: -webkit-linear-gradient(340deg,  #3b3952 40%, #1a5c34 40%);
-    background: -o-linear-gradient(340deg,  #3b3952 40%, #1a5c34 40%);
-    background: -moz-linear-gradient(340deg,  #3b3952 40%, #1a5c34 40%);
-    background: linear-gradient(340deg,  #3b3952 40%, #1a5c34 40%);
+    background: -webkit-linear-gradient(340deg, #3b3952 40%, #1a5c34 40%);
+    background: -o-linear-gradient(340deg, #3b3952 40%, #1a5c34 40%);
+    background: -moz-linear-gradient(340deg, #3b3952 40%, #1a5c34 40%);
+    background: linear-gradient(340deg, #3b3952 40%, #1a5c34 40%);
 }
 
 .bg-footer {
@@ -188,9 +201,10 @@ ul {
 
 .homecard {
     text-align: center;
-    background: #1a5c34; 
+    background: #1a5c34;
     color: white;
     border-color: #e9a8a6;
+    border-radius: 10px;
 }
 
 /*Formatting for the about us and privacy pages*/
@@ -198,8 +212,13 @@ ul {
     color: white;
 }
 
-/*changed color of anchors in aboutUsAndPrivacyFormat class*/
-.aboutUsAndPrivacyFormat a {
-    color: rgb(241, 163, 41);
-    
+    /*changed color of anchors in aboutUsAndPrivacyFormat class*/
+    .aboutUsAndPrivacyFormat a {
+        color: rgb(241, 163, 41);
+    }
+
+/*For comment formatting*/
+.comments {
+    display: flex;
+    flex-direction: column;
 }
