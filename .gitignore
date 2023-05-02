@@ -389,3 +389,14 @@ v17/
 .suo
 *.suo
 /.vs/LetsGoPark.WebSite/v17/.suo
+/src/bin/Debug/net6.0/LetsGoPark.WebSite.dll
+/src/bin/Debug/net6.0/LetsGoPark.WebSite.pdb
+/src/obj/Debug/net6.0/ref/LetsGoPark.WebSite.dll
+/src/obj/Debug/net6.0/refint/LetsGoPark.WebSite.dll
+/src/obj/Debug/net6.0/LetsGoPark.WebSite.dll
+/src/obj/Debug/net6.0/LetsGoPark.WebSite.pdb
+/UnitTests/obj/Debug/net6.0/UnitTests.csproj.AssemblyReference.cache
+/UnitTests/obj/Debug/net6.0/UnitTests.pdb
+/UnitTests/bin/Debug/net6.0/UnitTests.dll
+/UnitTests/bin/Debug/net6.0/UnitTests.pdb
+/UnitTests/obj/Debug/net6.0/UnitTests.dll
