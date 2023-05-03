@@ -1,32 +1,42 @@
 @page
-@model PrivacyModel
+@model DeleteModel
+@using LetsGoPark.WebSite.Models
+@using LetsGoPark.WebSite.Services
+@using LetsGoPark.WebSite.Components
+@inject JsonFileParksService ParkService
+
 
 <!--Links our site.css style sheet to the document-->
 <link rel="stylesheet" type="text/css" href="~/css/site.css">
 
 @{
     //Saves the title of the webpage
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Delete Comment";
+
+    // Extract the comment data from the query string parameters
+    int commentIndex = int.Parse(Request.Query["commentIndex"]);
+    string selectedParkId = Request.Query["selectedParkId"];
+    string name = Request.Query["name"];
+    string dateTime = Request.Query["dateTime"];
+    string description = Request.Query["description"];
+    string token = Request.Query["token"];
+    //Old comment:
+    string[] oldComment = { name, dateTime, description, token };
+    //New comment:
+    string[] newComment = oldComment;
 }
 
-<!--Displays the title of the page-->
-<h1>@ViewData["Title"]</h1>
+<!--Renders Udpdate.razor to populate Delete page.-->
+@(await Html.RenderComponentAsync<DeleteComment>(
+        RenderMode.ServerPrerendered, new
+        {
+            CommentIndex = commentIndex,
+            SelectedParkId = selectedParkId,
+            Name = name,
+            DateTime = dateTime,
+            Description = description,
+            Token = token
+        }))
 
+<script src="_framework/blazor.server.js"></script>
 
-<!--adding privacy policy-->
-<body class="aboutUsAndPrivacyFormat">
-    <p>
-        <br /> <br /> <em>This website takes your privacy seriously.</em> <br /> <br />
-        We will collect and use any personal information provided to us only for the purpose of improving our service to you, <br />
-        and will not share or sell your information to any third parties.<br />
-    </p>
-    <!--adding info on what info can be collected -->
-    <p>
-        We may collect non-personally identifiable information, such as browser type, IP address, and pages visited in order  <br />
-        to analyze trends and improve our website. This information will not be used to identify individual users. <br />
-    </p>
-    <!--adding contact us.-->
-    <p>
-        If you have any questions or concerns about our privacy policy, please don't hesitate to <a href="/contact">contact us</a>.
-    </p>
-</body>

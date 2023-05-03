@@ -1,0 +1,79 @@
+
+@using LetsGoPark.WebSite.Models
+@using LetsGoPark.WebSite.Services
+@using Microsoft.AspNetCore.Components.Web
+@inject JsonFileParksService ParkService
+
+@code {
+    //Parameter list passed in from Update.cshtml
+    [Parameter]
+    public int CommentIndex { get; set; }
+
+    [Parameter]
+    public string SelectedParkId { get; set; }
+
+    [Parameter]
+    public string Name { get; set; }
+
+    [Parameter]
+    public string Datetime { get; set; }
+
+    [Parameter]
+    public string Description { get; set; }
+
+    [Parameter]
+    public string Token { get; set; }
+
+    //String versions of parameters
+    private string nameString;
+    private string datetimeString;
+    private string descriptionString;
+    private string tokenString;
+    private string parkId;
+    int commentIndex;
+
+    protected override void OnInitialized()
+    {
+        nameString = Name.ToString();
+        datetimeString = Datetime.ToString();
+        descriptionString = Description.ToString();
+        tokenString = Token.ToString();
+        parkId = SelectedParkId.ToString();
+        commentIndex = int.Parse(CommentIndex.ToString());
+    }
+}
+
+@functions {
+    bool DeleteCurrentComment(string parkId, int commentIndex){
+        string newId = convertToString(parkId);
+        int index = commentIndex;
+        var Parks = ParkService.GetParks();
+        //Updates the date time on comment
+        ParkService.DeleteComment(newId, index);
+        return true;
+    }
+    //This helper function converts a ReadOnlySpan into a string
+    string convertToString(string convert)
+    {
+        string newValue = "";
+        for (int i = 0; i < convert.Length; i++)
+        {
+            newValue += convert[i];
+        }
+        return newValue;
+    }
+}
+<body>
+    <p class="updateAndDelete">
+        Comment:
+        Name: @nameString <br />
+        Time Stamp: @datetimeString<br />
+        Description: @descriptionString <br />
+        Are you sure you want to delete this comment?:
+    </p>
+
+
+<form method="post" action ="/Explore" onsubmit="@DeleteCurrentComment(parkId, commentIndex)">
+        <button type="submit">Delete Comment</button>
+    </form>
+</body>

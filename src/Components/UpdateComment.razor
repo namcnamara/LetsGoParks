@@ -1,0 +1,103 @@
+[parameter]
+@using LetsGoPark.WebSite.Models
+@using LetsGoPark.WebSite.Services
+@using Microsoft.AspNetCore.Components.Web
+@inject JsonFileParksService ParkService
+
+@code {
+    //Parameter list passed in from Update.cshtml
+    [Parameter]
+    public int CommentIndex { get; set; }
+
+    [Parameter]
+    public string SelectedParkId { get; set; }
+
+    [Parameter]
+    public string Name { get; set; }
+
+    [Parameter]
+    public string Datetime { get; set; }
+
+    [Parameter]
+    public string Description { get; set; }
+
+    [Parameter]
+    public string Token { get; set; }
+
+    //String versions of parameters
+    private string nameString;
+    private string datetimeString;
+    private string descriptionString;
+    private string tokenString;
+    private string parkId;
+    int commentIndex;
+
+    protected override void OnInitialized()
+    {
+        nameString = Name.ToString();
+        datetimeString = Datetime.ToString();
+        descriptionString = Description.ToString();
+        tokenString = Token.ToString();
+        parkId = SelectedParkId.ToString();
+        commentIndex = int.Parse(CommentIndex.ToString());
+    }
+    }
+
+@functions {
+
+    bool SubmitUpdatedComment(string name, string dateTime, string description, string token, string parkId, int commentIndex){
+        //If any fields are empty, do nothing
+        string[] comment = { convertToString(name), convertToString(dateTime), convertToString(description), convertToString(token) };
+        
+        string newId = convertToString(parkId);
+        
+        var Parks = ParkService.GetParks();
+        //Updates the date time on comment
+        comment[1] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        ParkService.UpdateComment(newId, comment, commentIndex);
+        return true;
+    }
+    //This helper function converts a ReadOnlySpan into a string
+    string convertToString(string convert)
+    {
+        string newValue = "";
+        for (int i = 0; i < convert.Length; i++)
+        {
+            newValue += convert[i];
+        }
+        return newValue;
+    }
+}
+
+<p>
+    Original Comment: <br />
+    
+        @nameString <br />
+        @datetimeString<br />
+        @descriptionString <br />
+        @tokenString <br />
+        @parkId <br />
+        @commentIndex <br />
+    Update your comment below:
+</p>
+
+
+<form method="post" onclick="@SubmitUpdatedComment(nameString, datetimeString, descriptionString, tokenString, parkId, commentIndex)">
+        <div>
+            <label for="name-input">Name:</label>
+        <input type="text" id="name-input" name="name" value="@nameString" />
+        </div>
+        <div>
+            <label for="date-time-input">Date and Time:</label>
+        <input type="text" id="date-time-input" name="dateTime" value="@datetimeString" />
+        </div>
+        <div>
+            <label for="description-input">Description:</label>
+        <input type="text" id="description-input" name="description" value="@descriptionString" />
+        </div>
+        <div>
+            <label for="token-input">Token:</label>
+            <input type="text" id="token-input" name="token" value="@Token" />
+        </div>
+        <button type="submit">Update Comment</button>
+</form>

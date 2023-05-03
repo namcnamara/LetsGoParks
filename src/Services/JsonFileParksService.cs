@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Xml.Linq;
 using LetsGoPark.WebSite.Models;
 using Microsoft.AspNetCore.Hosting;
 
@@ -221,6 +223,76 @@ namespace LetsGoPark.WebSite.Services
 
             //Saves the updated rating to the json file.
             using (var outputStream = File.OpenWrite(JsonFileName))
+            {
+                JsonSerializer.Serialize<IEnumerable<ParksModel>>(
+                    new Utf8JsonWriter(outputStream, new JsonWriterOptions
+                    {
+                        SkipValidation = true,
+                        Indented = true
+                    }),
+                    Parks
+                );
+            }
+        }
+
+        //Updates a current comment
+        public void UpdateComment(string selectedParkId, string[] comment, int oldCommentIndex)
+        {
+            selectedParkId =selectedParkId.Trim();
+            //Gets all parks in the json file
+            var Parks = GetParks();
+
+            {
+                //Joins the current rating to the existing array of comments.
+                var park = Parks.FirstOrDefault(x => x.Id == selectedParkId);
+                var comments = Parks.First(x => x.Id == selectedParkId).Comments.ToList();
+                //Updates index value with new comment
+                comments[oldCommentIndex] = comment;
+                Parks.First(x => x.Id == selectedParkId).Comments = comments.ToArray();
+            }
+
+            //Saves the updated rating to the json file.
+            using (var outputStream = File.Create(JsonFileName))
+            {
+                JsonSerializer.Serialize<IEnumerable<ParksModel>>(
+                    new Utf8JsonWriter(outputStream, new JsonWriterOptions
+                    {
+                        SkipValidation = true,
+                        Indented = true
+                    }),
+                    Parks
+                );
+            }
+        }
+
+        public void DeleteComment(string selectedParkId, int commentIndex)
+        {
+            selectedParkId = selectedParkId.Trim();
+            //Gets all parks in the json file
+            var Parks = GetParks();
+
+            {
+                //Deletes the desired comment
+                var park = Parks.FirstOrDefault(x => x.Id == selectedParkId);
+                var comments = Parks.First(x => x.Id == selectedParkId).Comments.ToList();
+                //If you remove the only comment, set comments to null
+                if (comments.Count == 1)
+                { 
+                    comments = null;
+                Parks.First(x => x.Id == selectedParkId).Comments = null;
+                }
+                else
+                {
+                    //Deletes the comment from the list
+                    comments.RemoveAt(commentIndex);
+                    Parks.First(x => x.Id == selectedParkId).Comments = comments.ToArray();
+                }
+                //Saves updated comments to specified parkId
+                
+            }
+           
+            //Saves the updated rating to the json file.
+            using (var outputStream = File.Create(JsonFileName))
             {
                 JsonSerializer.Serialize<IEnumerable<ParksModel>>(
                     new Utf8JsonWriter(outputStream, new JsonWriterOptions

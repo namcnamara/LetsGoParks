@@ -154,6 +154,11 @@ h1 {
     color: white;
 }
 
+h4 {
+    color: white;
+    background-color: rgba(37,33,82,.06);
+}
+
 ul {
     font-family: 'Nunito', sans-serif;
 }
@@ -221,4 +226,18 @@ ul {
 .comments {
     display: flex;
     flex-direction: column;
+}
+
+.form-submit {
+    background-color: #4CAF50; 
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.updateAndDelete {
+    color: white;
+    text-align: left;
 }
