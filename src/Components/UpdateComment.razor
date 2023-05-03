@@ -82,22 +82,22 @@
 </p>
 
 
-<form method="post" onclick="@SubmitUpdatedComment(nameString, datetimeString, descriptionString, tokenString, parkId, commentIndex)">
+<form method="post" @onsubmit="@(e => {SubmitUpdatedComment(nameString, datetimeString, descriptionString, tokenString, parkId, commentIndex);})">
         <div>
             <label for="name-input">Name:</label>
-        <input type="text" id="name-input" name="name" value="@nameString" />
+        <input type="text" id="name-input" name="name" value="@nameString" @oninput="@((eventArgs) => nameString = eventArgs.Value.ToString())" />
         </div>
         <div>
             <label for="date-time-input">Date and Time:</label>
-        <input type="text" id="date-time-input" name="dateTime" value="@datetimeString" />
+        <input type="text" id="date-time-input" name="dateTime" value="@datetimeString" @oninput="@((eventArgs) => datetimeString = eventArgs.Value.ToString())" />
         </div>
         <div>
             <label for="description-input">Description:</label>
-        <input type="text" id="description-input" name="description" value="@descriptionString" />
+        <input type="text" id="description-input" name="description" value="@descriptionString" @oninput="@((eventArgs) => descriptionString = eventArgs.Value.ToString())" />
         </div>
         <div>
             <label for="token-input">Token:</label>
-            <input type="text" id="token-input" name="token" value="@Token" />
+        <input type="text" id="token-input" name="token" value="@Token" @oninput="@((eventArgs) => tokenString = eventArgs.Value.ToString())" />
         </div>
         <button type="submit">Update Comment</button>
 </form>
