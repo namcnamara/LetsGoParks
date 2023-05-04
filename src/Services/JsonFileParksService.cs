@@ -255,34 +255,36 @@ namespace LetsGoPark.WebSite.Services
             
         }
 
-        public void DeleteComment(string selectedParkId, int commentIndex)
+        public bool DeleteComment(string selectedParkId, int commentIndex)
         {
+            if (selectedParkId == null)
+            { return false; }
             selectedParkId = selectedParkId.Trim();
             //Gets all parks in the json file
             var Parks = GetParks();
+            if (commentIndex < 0) { return false; }
 
+
+            //Deletes the desired comment if park is found
+            var park = Parks.FirstOrDefault(x => x.Id == selectedParkId);
+
+            if (park == null) { return false; }
+            var comments = Parks.First(x => x.Id == selectedParkId).Comments.ToList();
+            //If you remove the only comment, set comments to null
+            if (comments.Count == 1)
             {
-                //Deletes the desired comment
-                var park = Parks.FirstOrDefault(x => x.Id == selectedParkId);
-                var comments = Parks.First(x => x.Id == selectedParkId).Comments.ToList();
-                //If you remove the only comment, set comments to null
-                if (comments.Count == 1)
-                { 
-                    comments = null;
                 Parks.First(x => x.Id == selectedParkId).Comments = null;
-                }
-                else
-                {
-                    //Deletes the comment from the list
-                    comments.RemoveAt(commentIndex);
-                    Parks.First(x => x.Id == selectedParkId).Comments = comments.ToArray();
-                }
-                //Saves updated comments to specified parkId
-                
+            }
+            else
+            {
+                //Deletes the comment from the list
+                comments.RemoveAt(commentIndex);
+                Parks.First(x => x.Id == selectedParkId).Comments = comments.ToArray();
             }
 
             //Saves the updated rating to the json file.
             SaveData(Parks);
+            return true;
         }
     }
 }
