@@ -48,3 +48,8 @@ C:\Users\nicho\OneDrive\Desktop\School\5110\LetsGoParks\LetsGoParks\src\obj\Rele
 C:\Users\nicho\OneDrive\Desktop\School\5110\LetsGoParks\LetsGoParks\src\obj\Release\net6.0\LetsGoPark.WebSite.pdb
 C:\Users\nicho\OneDrive\Desktop\School\5110\LetsGoParks\LetsGoParks\src\obj\Release\net6.0\LetsGoPark.WebSite.genruntimeconfig.cache
 C:\Users\nicho\OneDrive\Desktop\School\5110\LetsGoParks\LetsGoParks\src\obj\Release\net6.0\ref\LetsGoPark.WebSite.dll
+C:\Users\nicho\OneDrive\Desktop\School\5110\LetsGoParks\src\obj\Release\net6.0\staticwebassets\msbuild.LetsGoPark.WebSite.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\nicho\OneDrive\Desktop\School\5110\LetsGoParks\src\obj\Release\net6.0\staticwebassets\msbuild.build.LetsGoPark.WebSite.props
+C:\Users\nicho\OneDrive\Desktop\School\5110\LetsGoParks\src\obj\Release\net6.0\staticwebassets\msbuild.buildMultiTargeting.LetsGoPark.WebSite.props
+C:\Users\nicho\OneDrive\Desktop\School\5110\LetsGoParks\src\obj\Release\net6.0\staticwebassets\msbuild.buildTransitive.LetsGoPark.WebSite.props
+C:\Users\nicho\OneDrive\Desktop\School\5110\LetsGoParks\src\obj\Release\net6.0\staticwebassets.pack.json

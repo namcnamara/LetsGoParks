@@ -26,7 +26,8 @@
       "Waterskiing"
     ],
     "Map_brochure": "https://www.parks.wa.gov/DocumentCenter/View/1894/Lake-Sammamish-State-Park-PDF",
-    "Permits": "Discover Pass required"
+    "Permits": "Discover Pass required",
+    "Comments": null
   },
   {
     "Id": "BRIDLE TRAILS STATE PARK",
@@ -45,7 +46,8 @@
       "28 miles of hiking and horse trails"
     ],
     "Map_brochure": "https://www.parks.wa.gov/DocumentCenter/View/9278",
-    "Permits": "Discover Pass required"
+    "Permits": "Discover Pass required",
+    "Comments": null
   },
   {
     "Id": "FLAMING GEYSER STATE PARK",
@@ -74,7 +76,8 @@
       "Wildlife viewing"
     ],
     "Map_brochure": "https://www.parks.wa.gov/DocumentCenter/View/9288/Flaming-Geyser-State-Park",
-    "Permits": "Discover Pass required"
+    "Permits": "Discover Pass required",
+    "Comments": null
   },
   {
     "Id": "BLAKE ISLAND MARINE STATE PARK",
@@ -108,7 +111,15 @@
       "Wildlife viewing"
     ],
     "Map_brochure": "https://www.parks.wa.gov/DocumentCenter/View/9339",
-    "Permits": "Discover Pass required"
+    "Permits": "Discover Pass required",
+    "Comments": [
+      [
+        "Nicholas McNamara",
+        "2023-05-03 17:32:30",
+        "peeerrrrkkkks",
+        "2"
+      ]
+    ]
   },
   {
     "Id": "SAINT EDWARD STATE PARK",
@@ -134,7 +145,8 @@
       "Waterskiing"
     ],
     "Map_brochure": "https://www.parks.wa.gov/DocumentCenter/View/871/Saint-Edward-State-Park",
-    "Permits": "Discover Pass required"
+    "Permits": "Discover Pass required",
+    "Comments": null
   },
   {
     "Id": "2nd Ave South Dock",
@@ -151,7 +163,8 @@
       "Boating"
     ],
     "Map_brochure": "https://www.kirklandwa.gov/files/sharedassets/public/parks-amp-comm-services/pdfs/2018parks_trails-guide.pdf",
-    "Permits": "Free"
+    "Permits": "Free",
+    "Comments": null
   },
   {
     "Id": "Doris Cooper Houghton Beach Park",
@@ -180,7 +193,15 @@
       "Wildlife Viewing"
     ],
     "Map_brochure": "https://www.kirklandwa.gov/files/sharedassets/public/parks-amp-comm-services/pdfs/2018parks_trails-guide.pdf",
-    "Permits": "Free"
+    "Permits": "Free",
+    "Comments": [
+      [
+        "Nicholas McNamara",
+        "2023-05-03 22:28:55",
+        "PPPPPAAAARRRRRKKKKSSS",
+        "1"
+      ]
+    ]
   },
   {
     "Id": "Juanita Beach Park",
@@ -215,7 +236,8 @@
       "Wildlife Viewing"
     ],
     "Map_brochure": "https://www.kirklandwa.gov/files/sharedassets/public/parks-amp-comm-services/pdfs/2018parks_trails-guide.pdf",
-    "Permits": "Free"
+    "Permits": "Free",
+    "Comments": null
   },
   {
     "Id": "Marina Park",
@@ -243,7 +265,8 @@
       "Restrooms (Year-round)"
     ],
     "Map_brochure": "https://www.kirklandwa.gov/files/sharedassets/public/parks-amp-comm-services/pdfs/2018parks_trails-guide.pdf",
-    "Permits": "Free"
+    "Permits": "Free",
+    "Comments": null
   },
   {
     "Id": "Marsh Park",
@@ -267,7 +290,8 @@
       "Restrooms (Year-round)"
     ],
     "Map_brochure": "https://www.kirklandwa.gov/files/sharedassets/public/parks-amp-comm-services/pdfs/2018parks_trails-guide.pdf",
-    "Permits": "Free"
+    "Permits": "Free",
+    "Comments": null
   },
   {
     "Id": "Mount Rainier National Park",
@@ -277,44 +301,7 @@
     "Title": "Mount Rainier National Park",
     "Description": "Ascending to 14,410 feet above sea level, Mount Rainier stands as an icon in the Washington landscape. An active volcano, Mount Rainier is the most glaciated peak in the contiguous U.S.A., spawning five major rivers. Subalpine wildflower meadows ring the icy volcano while ancient forest cloaks Mount Rainier\u2019s lower slopes. Wildlife abounds in the park\u2019s ecosystems. A lifetime of discovery awaits.",
     "Ratings": [
-      5,
-      5,
-      5,
-      5,
-      5,
-      5,
-      5,
-      5,
-      5,
-      5,
-      5,
-      5,
-      5,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1
+      5
     ],
     "Address": "55210 238th Avenue East Ashford, WA 98304",
     "Phone": "360-569-2211",
@@ -336,7 +323,8 @@
       "Ranger-led star gazing"
     ],
     "Map_brochure": "https://www.nps.gov/mora/planyourvisit/upload/Mount-Rainier-Brochure-final_Combo_508_v2023.pdf",
-    "Permits": "Entrance Fee Required"
+    "Permits": "Entrance Fee Required",
+    "Comments": null
   },
   {
     "Id": "North Cascades National Park",
@@ -369,7 +357,8 @@
       "Ranger-led programs"
     ],
     "Map_brochure": "https://npmaps.com/wp-content/uploads/north-cascades-map.pdf",
-    "Permits": "Entrance Fee Required"
+    "Permits": "Entrance Fee Required",
+    "Comments": null
   },
   {
     "Id": "Olympic National Park",
@@ -402,7 +391,8 @@
       "Ranger-led programs"
     ],
     "Map_brochure": "https://www.nps.gov/npgallery/GetAsset/d8dcb91a-4eba-467d-861f-16cf66c69272",
-    "Permits": "Entrance Fee Required"
+    "Permits": "Entrance Fee Required",
+    "Comments": null
   },
   {
     "Id": "San Juan Island National Historical Park",
@@ -431,7 +421,8 @@
       "Photography"
     ],
     "Map_brochure": "https://sanjuanislandtrails.org/wp/wp-content/uploads/2022/12/SJI-Trails5b.pdf",
-    "Permits": "Free"
+    "Permits": "Free",
+    "Comments": null
   },
   {
     "Id": "Lake Roosevelt National Recreation Area",
@@ -473,6 +464,7 @@
       "Photography"
     ],
     "Map_brochure": "https://www.nps.gov/laro/planyourvisit/publications.htm",
-    "Permits": "Free"
+    "Permits": "Free",
+    "Comments": null
   }
 ]
