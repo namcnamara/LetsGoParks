@@ -400,3 +400,7 @@ v17/
 /UnitTests/bin/Debug/net6.0/UnitTests.dll
 /UnitTests/bin/Debug/net6.0/UnitTests.pdb
 /UnitTests/obj/Debug/net6.0/UnitTests.dll
+/.vs/LetsGoPark.WebSite/DesignTimeBuild/.dtbcache.v2
+/src/obj/Debug/net6.0/project.razor.vs.json
+/src/wwwroot/data/parks.json
+/.vs/LetsGoPark.WebSite/v17/.futdcache.v2
