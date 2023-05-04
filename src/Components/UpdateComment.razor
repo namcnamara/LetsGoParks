@@ -1,8 +1,8 @@
-[parameter]
 @using LetsGoPark.WebSite.Models
 @using LetsGoPark.WebSite.Services
 @using Microsoft.AspNetCore.Components.Web
 @inject JsonFileParksService ParkService
+@inject NavigationManager NavigationManager
 
 @code {
     //Parameter list passed in from Update.cshtml
@@ -44,11 +44,10 @@
     }
 
 @functions {
-
     bool SubmitUpdatedComment(string name, string dateTime, string description, string token, string parkId, int commentIndex){
         //If any fields are empty, do nothing
         string[] comment = { convertToString(name), convertToString(dateTime), convertToString(description), convertToString(token) };
-        
+        Console.WriteLine("asdfasdfa");
         string newId = convertToString(parkId);
         
         var Parks = ParkService.GetParks();
@@ -71,7 +70,6 @@
 
 <p>
     Original Comment: <br />
-    
         @nameString <br />
         @datetimeString<br />
         @descriptionString <br />
@@ -81,8 +79,7 @@
     Update your comment below:
 </p>
 
-
-<form method="post" @onsubmit="@(e => {SubmitUpdatedComment(nameString, datetimeString, descriptionString, tokenString, parkId, commentIndex);})">
+<form method="get" @onsubmit="@(e => {SubmitUpdatedComment(nameString, datetimeString, descriptionString, tokenString, parkId, commentIndex);})">
         <div>
             <label for="name-input">Name:</label>
         <input type="text" id="name-input" name="name" value="@nameString" @oninput="@((eventArgs) => nameString = eventArgs.Value.ToString())" />
@@ -99,5 +96,8 @@
             <label for="token-input">Token:</label>
         <input type="text" id="token-input" name="token" value="@Token" @oninput="@((eventArgs) => tokenString = eventArgs.Value.ToString())" />
         </div>
-        <button type="submit">Update Comment</button>
+        <button type="submit" @onclick="@(() => NavigationManager.NavigateTo("~/Pages/Explore"))">Update Comment</button>
 </form>
+
+<a href="/Explore" style="z-index: 100;">Back to Explore</a> 
+
