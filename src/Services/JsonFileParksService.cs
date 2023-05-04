@@ -222,47 +222,37 @@ namespace LetsGoPark.WebSite.Services
             }
 
             //Saves the updated rating to the json file.
-            using (var outputStream = File.OpenWrite(JsonFileName))
-            {
-                JsonSerializer.Serialize<IEnumerable<ParksModel>>(
-                    new Utf8JsonWriter(outputStream, new JsonWriterOptions
-                    {
-                        SkipValidation = true,
-                        Indented = true
-                    }),
-                    Parks
-                );
-            }
+            SaveData(Parks);
         }
 
         //Updates a current comment
-        public void UpdateComment(string selectedParkId, string[] comment, int oldCommentIndex)
+        public bool UpdateComment(string selectedParkId, string[] comment, int oldCommentIndex)
         {
-            selectedParkId =selectedParkId.Trim();
+            if(comment == null || comment.Length == 0)
+                { return false; }
             //Gets all parks in the json file
             var Parks = GetParks();
-
+            if (selectedParkId == null)
+                { return false; }
+            selectedParkId = selectedParkId.Trim();
+            //Joins the current rating to the existing array of comments.
+            var park = Parks.FirstOrDefault(x => x.Id == selectedParkId);
+            if (park == null)
+                { return false; }
+            var comments = Parks.First(x => x.Id == selectedParkId).Comments.ToList();
+            int numComments = comments.Count;
+            if (oldCommentIndex > numComments-1)
+                { return false; }
+            else
             {
-                //Joins the current rating to the existing array of comments.
-                var park = Parks.FirstOrDefault(x => x.Id == selectedParkId);
-                var comments = Parks.First(x => x.Id == selectedParkId).Comments.ToList();
-                //Updates index value with new comment
                 comments[oldCommentIndex] = comment;
                 Parks.First(x => x.Id == selectedParkId).Comments = comments.ToArray();
-            }
 
-            //Saves the updated rating to the json file.
-            using (var outputStream = File.Create(JsonFileName))
-            {
-                JsonSerializer.Serialize<IEnumerable<ParksModel>>(
-                    new Utf8JsonWriter(outputStream, new JsonWriterOptions
-                    {
-                        SkipValidation = true,
-                        Indented = true
-                    }),
-                    Parks
-                );
+                //Saves the updated rating to the json file.
+                SaveData(Parks);
+                return true;
             }
+            
         }
 
         public void DeleteComment(string selectedParkId, int commentIndex)
@@ -290,19 +280,9 @@ namespace LetsGoPark.WebSite.Services
                 //Saves updated comments to specified parkId
                 
             }
-           
+
             //Saves the updated rating to the json file.
-            using (var outputStream = File.Create(JsonFileName))
-            {
-                JsonSerializer.Serialize<IEnumerable<ParksModel>>(
-                    new Utf8JsonWriter(outputStream, new JsonWriterOptions
-                    {
-                        SkipValidation = true,
-                        Indented = true
-                    }),
-                    Parks
-                );
-            }
+            SaveData(Parks);
         }
     }
 }

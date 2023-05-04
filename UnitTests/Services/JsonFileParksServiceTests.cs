@@ -4,6 +4,8 @@ using NUnit.Framework;
 
 using LetsGoPark.WebSite.Models;
 using System.Linq;
+using System.Reflection.PortableExecutable;
+
 namespace UnitTests.Pages.Park.AddRating
 {
     public class JsonFileParksServiceTests
@@ -198,5 +200,146 @@ namespace UnitTests.Pages.Park.AddRating
         }
 
         #endregion AddComment
+
+        #region UpdateComment
+
+        [Test]
+        public void UpdateComment_With_Null_Comment_Returns_False()
+        {
+            // Arrange
+            string[] comment = null;
+            int oldCommentIndex = 0;
+
+            // Act
+            bool result = TestHelper.ParkService.UpdateComment("San Juan Island National Historical Park", comment, oldCommentIndex);
+
+            // Assert
+            Assert.IsFalse(result);
+        }
+
+        [Test]
+        public void UpdateComment_With_Empty_Comment_Returns_False()
+        {
+            // Arrange
+            string[] comment = new string[0];
+            int oldCommentIndex = 0;
+
+            // Act
+            bool result = TestHelper.ParkService.UpdateComment("San Juan Island National Historical Park", comment, oldCommentIndex);
+
+            // Assert
+            Assert.IsFalse(result);
+        }
+
+        [Test]
+        public void UpdateComment_With_Null_SelectedParkId_Returns_False()
+        {
+            // Arrange
+            string[] comment = { "New comment" };
+            int oldCommentIndex = 0;
+
+            // Act
+            bool result = TestHelper.ParkService.UpdateComment(null, comment, oldCommentIndex);
+
+            // Assert
+            Assert.IsFalse(result);
+        }
+
+        [Test]
+        public void UpdateComment_With_Nonexistent_SelectedParkId_Returns_False()
+        {
+            // Arrange
+            string[] comment = { "New comment" };
+            int oldCommentIndex = 0;
+
+            // Act
+            bool result = TestHelper.ParkService.UpdateComment("Nonexistent park", comment, oldCommentIndex);
+
+            // Assert
+            Assert.IsFalse(result);
+        }
+
+        [Test]
+        public void UpdateComment_With_Invalid_OldCommentIndex_Returns_False()
+        {
+            // Arrange
+            string[] comment = { "New comment" };
+            int oldCommentIndex = 10;
+
+            // Act
+            bool result = TestHelper.ParkService.UpdateComment("San Juan Island National Historical Park", comment, oldCommentIndex);
+
+            // Assert
+            Assert.IsFalse(result);
+        }
+
+        [Test]
+        public void UpdateComment_With_Valid_Parameters_Updates_Comment_And_Returns_True()
+        {
+            // Arrange
+            string[] comment = { "New comment" };
+            int oldCommentIndex = 0;
+
+            // Act
+            bool result = TestHelper.ParkService.UpdateComment("San Juan Island National Historical Park", comment, oldCommentIndex);
+
+            // Assert
+            Assert.IsTrue(result);
+
+            var updatedComment = TestHelper.ParkService.GetParks().First(x => x.Id == "San Juan Island National Historical Park").Comments[oldCommentIndex];
+            Assert.AreEqual(comment, updatedComment);
+        }
+
+        [Test]
+        public void UpdateComment_With_Valid_OldCommentIndex_UpdatesComment()
+        {
+            // Arrange
+            var selectedParkId = "San Juan Island National Historical Park";
+            var comment = new string[] { "New comment" };
+            var oldCommentIndex = 0;
+
+            // Act
+            var result = TestHelper.ParkService.UpdateComment(selectedParkId, comment, oldCommentIndex);
+
+            // Assert
+            Assert.IsTrue(result);
+            var updatedComment = TestHelper.ParkService.GetParks()
+                .First(x => x.Id == selectedParkId)
+                .Comments[oldCommentIndex];
+            Assert.AreEqual(comment, updatedComment);
+        }
+        #endregion UpdateComment
+
+        #region DeleteComment
+        [Test]
+        public void DeleteComment_Comments_Deleted_Successfully_At_Least_1_Comment_In_Array_Left()
+        {
+            //Arrange
+                //Get Initial comment count
+            var Comments = TestHelper.ParkService.GetParks().First
+                    (x => x.Id == "San Juan Island National Historical Park").Comments;
+
+            //Add comment so intial length of Comments array is 1
+            string[] comment = { "3", "4", "5", "6" };
+            TestHelper.ParkService.AddComment(TestHelper.ParkService.GetParks().First(x => x.Id == "San Juan Island National Historical Park").Id, comment);
+            int countInitial= TestHelper.ParkService.GetParks().First
+                   (x => x.Id == "San Juan Island National Historical Park").Comments.Length;
+
+            //Add a comment so length is 2
+            TestHelper.ParkService.AddComment(TestHelper.ParkService.GetParks().First(x => x.Id == "San Juan Island National Historical Park").Id, comment);
+            int countMid = TestHelper.ParkService.GetParks().First
+                    (x => x.Id == "San Juan Island National Historical Park").Comments.Length;
+
+            //Act
+            //Delete comment so length is again 1
+            TestHelper.ParkService.DeleteComment("San Juan Island National Historical Park", 0);
+            int countAfter = TestHelper.ParkService.GetParks().First
+                    (x => x.Id == "San Juan Island National Historical Park").Comments.Length;
+            //Assert
+            Assert.AreNotEqual(countAfter, countMid);
+            Assert.AreEqual(countInitial, countAfter);
+        }
+        #endregion DeleteComment
+
     }
 }
