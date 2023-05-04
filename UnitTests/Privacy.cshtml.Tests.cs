@@ -5,43 +5,50 @@ using NUnit.Framework;
 using Moq;
 
 using LetsGoPark.WebSite.Pages;
+using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
 
 namespace UnitTests.Pages.Privacy
 {
-    public class PrivacyTests
+    public class PrivacyModelTests
     {
-        #region TestSetup
-        public static PrivacyModel pageModel;
-
-        [SetUp]
-        public void TestInitialize()
-        {
-            var MockLoggerDirect = Mock.Of<ILogger<PrivacyModel>>();
-
-            pageModel = new PrivacyModel(MockLoggerDirect)
-            {
-                PageContext = TestHelper.PageContext,
-                TempData = TestHelper.TempData,
-            };
-        }
-
-        #endregion TestSetup
-
-        #region OnGet
         [Test]
-        public void OnGet_Valid_Activity_Set_Should_Return_RequestId()
+        public void ModelIsRendered()
         {
             // Arrange
+            var loggerMock = new Mock<ILogger<PrivacyModel>>();
 
             // Act
-            pageModel.OnGet();
-
-            // Reset
+            var model = new PrivacyModel(loggerMock.Object);
 
             // Assert
-            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.NotNull(model);
+           
         }
 
-        #endregion OnGet
+
+        [Test]
+        public void Logger_IsCalled_OnGet()
+        {
+            // Arrange
+            var loggerMock = new Mock<ILogger<PrivacyModel>>();
+            var model = new PrivacyModel(loggerMock.Object);
+
+            // Act
+            model.OnGet();
+
+            // Assert
+            loggerMock.Verify(
+                x => x.Log(
+                    It.IsAny<LogLevel>(),
+                    It.IsAny<EventId>(),
+                    It.IsAny<It.IsAnyType>(),
+                    It.IsAny<Exception>(),
+                    (Func<It.IsAnyType, Exception, string>)It.IsAny<object>()
+                ),
+                Times.Once
+            );
+        }
     }
 }
