@@ -8,7 +8,7 @@ using LetsGoPark.WebSite.Services;
 
 namespace LetsGoPark.WebSite.Pages
 {
-    public class IndexModel : PageModel
+    public class IndexModel : PageModel 
     {
         private readonly ILogger<IndexModel> _logger;
 
