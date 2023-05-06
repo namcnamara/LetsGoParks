@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Numerics;
+using System.Reflection;
 using System.Text.Json;
 using System.Xml.Linq;
 using LetsGoPark.WebSite.Models;
@@ -140,16 +143,16 @@ namespace LetsGoPark.WebSite.Services
         //This function adds a rating to a park defined by the argument ParkId.
         public bool AddRating(string productId, int rating)
         {
-            // If the ProductID is invalid, return
+            // If the ParkID is invalid, return
             if (string.IsNullOrEmpty(productId))
             {
                 return false;
             }
 
-            var products = GetParks();
+            var parks = GetParks();
 
             // Look up the product, if it does not exist, return
-            var data = products.FirstOrDefault(x => x.Id.Equals(productId));
+            var data = parks.FirstOrDefault(x => x.Id.Equals(productId));
             if (data == null)
             {
                 return false;
@@ -179,7 +182,7 @@ namespace LetsGoPark.WebSite.Services
             data.Ratings = ratings.ToArray();
 
             // Save the data back to the data store
-            SaveData(products);
+            SaveData(parks);
 
             return true;
         }
@@ -286,5 +289,93 @@ namespace LetsGoPark.WebSite.Services
             SaveData(Parks);
             return true;
         }
+
+        /// <summary>
+        /// Find the data record
+        /// Update the fields
+        /// Save to the data store
+        /// </summary>
+        /// <param name="data"></param>
+        public ParksModel UpdateData(ParksModel data)
+        {
+            var parks = GetParks();
+            var parkData = parks.FirstOrDefault(x => x.Id.Equals(data.Id));
+            if (parkData == null)
+            {
+                return null;
+            }
+
+            parkData.Title = data.Title;
+            parkData.Id = data.Title;
+            parkData.Name = data.Title;
+            parkData.Description = data.Description;
+            parkData.Url = data.Url;
+            parkData.Image = data.Image;
+            parkData.Address = data.Address;
+            parkData.Park_system = data.Park_system;
+            parkData.Activities = data.Activities;
+            parkData.Map_brochure = data.Map_brochure;
+            parkData.Permits = data.Permits;
+            
+            SaveData(parks);
+
+            return parkData;
+        }
+
+
+        /// <summary>
+        /// Create a new product using default values
+        /// After create the user can update to set values
+        /// </summary>
+        /// <returns></returns>
+        public ParksModel CreateData()
+        {
+            var data = new ParksModel()
+            {
+                Title = "Enter Title",
+                Url = "Enter URL",
+                Image = "Enter Image URL",
+                Description = "Enter Description",
+                Ratings = null,
+                Address = "Enter Park Address",
+                Phone = "Enter Park Agency Phone Number",
+                Park_system = "Enter \"National\", \"City\", Or \"WA State\"",
+                Activities = new string[1] { "Enter activites separated by a comma, or NA" },
+                Map_brochure = "Enter Map brochure URL or NA",
+                Permits = "Enter any fees associated with park",
+                Comments = null,
+            };
+
+            data.Id = data.Title;
+            data.Name = data.Title;
+            // Get the current set, and append the new record to it
+            var dataSet = GetParks();
+            dataSet = dataSet.Append(data);
+
+            SaveData(dataSet);
+
+            return data;
+        }
+
+
+        /// <summary>
+        /// Remove the item from the system
+        /// </summary>
+        /// <returns></returns>
+        public ParksModel DeleteData(string id)
+        {
+            // Get the current set, and append the new record to it
+            var dataSet = GetParks();
+            var data = dataSet.FirstOrDefault(m => m.Id.Equals(id));
+
+            var newDataSet = GetParks().Where(m => m.Id.Equals(id) == false);
+
+            SaveData(newDataSet);
+
+            return data;
+        }
+
+
+
     }
 }

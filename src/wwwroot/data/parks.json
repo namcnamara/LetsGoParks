@@ -27,7 +27,14 @@
     ],
     "Map_brochure": "https://www.parks.wa.gov/DocumentCenter/View/1894/Lake-Sammamish-State-Park-PDF",
     "Permits": "Discover Pass required",
-    "Comments": null
+    "Comments": [
+      [
+        "Nicholas McNamara",
+        "2023-05-05 13:34:59",
+        "asdaf",
+        "2rwr"
+      ]
+    ]
   },
   {
     "Id": "BRIDLE TRAILS STATE PARK",
@@ -114,10 +121,10 @@
     "Permits": "Discover Pass required",
     "Comments": [
       [
-        "Nicholas McNamara",
-        "2023-05-03 17:32:30",
-        "peeerrrrkkkks",
-        "2"
+        "Nicholas McNamara                                            ",
+        "2023-05-05 13:47:40",
+        "peeerrrrkkkks ",
+        "22"
       ]
     ]
   },
@@ -196,10 +203,10 @@
     "Permits": "Free",
     "Comments": [
       [
-        "Nicholas McNamara",
-        "2023-05-03 22:28:55",
-        "PPPPPAAAARRRRRKKKKSSS",
-        "1"
+        "Nicholas McNamaraasd                                            ",
+        "2023-05-05 17:54:31",
+        "d ddd",
+        "2"
       ]
     ]
   },
@@ -465,6 +472,24 @@
     ],
     "Map_brochure": "https://www.nps.gov/laro/planyourvisit/publications.htm",
     "Permits": "Free",
+    "Comments": null
+  },
+  {
+    "Id": "ww",
+    "Name": "ww",
+    "img": "Enter Image URL",
+    "Url": "Enter URL",
+    "Title": "ww",
+    "Description": "Enter Description",
+    "Ratings": null,
+    "Address": "Enter Park Address",
+    "Phone": "Enter Park Agency Phone Number",
+    "Park_system": "Enter \u0022National\u0022, \u0022City\u0022, Or \u0022WA State\u0022",
+    "Activities": [
+      "System.String[]"
+    ],
+    "Map_brochure": "Enter Map brochure URL or NA",
+    "Permits": "Enter any fees associated with park",
     "Comments": null
   }
 ]

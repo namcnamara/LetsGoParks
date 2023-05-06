@@ -9,7 +9,34 @@
 <!--Displays the title of the page-->
 <h1>@ViewData["Title"]</h1>
 
-<!--Renders the ParksIndex razor page to dynamically display an index table-->
-@(await Html.RenderComponentAsync<ParksIndex>(RenderMode.ServerPrerendered))
 
-<script src="_framework/blazor.server.js"></script>
+<div class="container">
+    <!--Creates an anchor link to the creat a park page-->
+    <a asp-page="/CreatePark" class="btn btn-link">+ Create</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Read Park</th>
+                <th>Update Park</th>
+                <th>Delete Park</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var park in Model.Parks)
+            {
+                <tr>
+                    <!--Park title-->
+                    <td>@park.Title</td>
+                    <!--Read button-->
+                    <td><a asp-page="/ReadPark" asp-route-id="@park.Id">Read</a></td>
+                    <!--Delete button-->
+                    <td><a asp-page="/UpdatePark" asp-route-id="@park.Id">Update</a></td>
+                    <!--Update button-->
+                    <td><a asp-page="DeletePark" asp-route-id="@park.Id">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

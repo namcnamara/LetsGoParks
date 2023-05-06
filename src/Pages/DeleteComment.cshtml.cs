@@ -3,11 +3,11 @@ using Microsoft.Extensions.Logging;
 
 namespace LetsGoPark.WebSite.Pages
 {
-    public class UpdateModel : PageModel
+    public class DeleteCommentModel : PageModel
     {
-        private readonly ILogger<UpdateModel> _logger;
+        private readonly ILogger<DeleteCommentModel> _logger;
 
-        public UpdateModel(ILogger<UpdateModel> logger)
+        public DeleteCommentModel(ILogger<DeleteCommentModel> logger)
         {
             _logger = logger;
         }

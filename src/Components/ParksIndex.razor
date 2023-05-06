@@ -3,8 +3,9 @@
 @using Microsoft.AspNetCore.Components.Web
 @inject JsonFileParksService ParkService
 
+
 <!--The following block creates a table of found parks in parks.json.
-    Shows a two column table that displays the title of the park in one column, and then a button labelled "Read".
+    Shows a two column table that displays the title of the park in one column, and then buttons labelled "Read" "Update" and "Delete".
     If the button "Read" is selected, a modal window opens that displays all information within the database
     pertaining to the selected park.
 -->
@@ -25,6 +26,7 @@
                         data-toggle="modal" data-target="#ParkModal" class="btn btn-primary">
                         Read
                     </button>
+
                 </td>
             </tr>
         }
@@ -96,16 +98,16 @@
                                                 <p>&nbsp;&nbsp;@comment[2]</p>
                                             </div>
                                         </div>
-                                        <!--Link to update page-->
-                                        <a href="/Update?commentIndex=@Array.IndexOf(selectedPark.Comments, comment) &selectedParkId=@selectedParkId &name=@comment[0]
+                                        <!--Link to updateComment page-->
+                                        <a href="/UpdateComment?commentIndex=@Array.IndexOf(selectedPark.Comments, comment) &selectedParkId=@selectedParkId &name=@comment[0]
                                             &dateTime=@comment[1] &description=@comment[2] &token=@comment[3]">
                                             <u>Update Comment</u>
                                         </a>
 
                                         <br />
 
-                                        <!--Link to delete page-->
-                                        <a href="/Delete?commentIndex=@Array.IndexOf(selectedPark.Comments, comment) &selectedParkId=@selectedParkId &name=@comment[0]
+                                        <!--Link to DeleteComment page-->
+                                        <a href="/DeleteComment?commentIndex=@Array.IndexOf(selectedPark.Comments, comment) &selectedParkId=@selectedParkId &name=@comment[0]
                                             &dateTime=@comment[1] &description=@comment[2] &token=@comment[3]">
                                             <u>Delete Comment</u>
                                         </a>
@@ -187,8 +189,6 @@
     string selectedParkId;
     //Current comment.
     string[] currentComment = new string[4];
-
-    //Delete in progress flag
 
 
     //This function is called once the "More Info" button is clicked in the card grid.

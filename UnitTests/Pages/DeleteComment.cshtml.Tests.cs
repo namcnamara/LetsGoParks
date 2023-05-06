@@ -9,24 +9,23 @@ using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
 
-namespace UnitTests.Pages.Update
+namespace UnitTests.Pages.Delete
 {
-    public class UpdateModelTests
+    public class DeleteCommentModelTests
     {
         [Test]
         public void ModelIsRendered()
         {
             // Arrange
-            var loggerMock = new Mock<ILogger<UpdateModel>>();
+            var loggerMock = new Mock<ILogger<DeleteCommentModel>>();
 
             // Act
-            var model = new UpdateModel(loggerMock.Object);
+            var model = new DeleteCommentModel(loggerMock.Object);
 
             // Assert
             Assert.NotNull(model);
            
         }
-
 
         
     }

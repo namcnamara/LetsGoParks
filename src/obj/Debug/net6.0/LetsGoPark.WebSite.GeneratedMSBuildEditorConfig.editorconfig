@@ -40,8 +40,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXRVcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nicho/OneDrive/Desktop/School/5110/LetsGoParks/src/Pages/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVsZXRlLmNzaHRtbA==
+[C:/Users/nicho/OneDrive/Desktop/School/5110/LetsGoParks/src/Pages/CreatePark.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlUGFyay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nicho/OneDrive/Desktop/School/5110/LetsGoParks/src/Pages/DeleteComment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVsZXRlQ29tbWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nicho/OneDrive/Desktop/School/5110/LetsGoParks/src/Pages/DeletePark.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVsZXRlUGFyay5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/nicho/OneDrive/Desktop/School/5110/LetsGoParks/src/Pages/Error.cshtml]
@@ -56,12 +64,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/nicho/OneDrive/Desktop/School/5110/LetsGoParks/src/Pages/IndexPark.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXhQYXJrLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/nicho/OneDrive/Desktop/School/5110/LetsGoParks/src/Pages/ParksIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFya3NJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/nicho/OneDrive/Desktop/School/5110/LetsGoParks/src/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nicho/OneDrive/Desktop/School/5110/LetsGoParks/src/Pages/ReadPark.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVhZFBhcmsuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/nicho/OneDrive/Desktop/School/5110/LetsGoParks/src/Pages/Shared/_Layout.cshtml]
@@ -72,8 +88,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nicho/OneDrive/Desktop/School/5110/LetsGoParks/src/Pages/Update.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBkYXRlLmNzaHRtbA==
+[C:/Users/nicho/OneDrive/Desktop/School/5110/LetsGoParks/src/Pages/UpdateComment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBkYXRlQ29tbWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nicho/OneDrive/Desktop/School/5110/LetsGoParks/src/Pages/UpdatePark.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBkYXRlUGFyay5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/nicho/OneDrive/Desktop/School/5110/LetsGoParks/src/Pages/_ViewImports.cshtml]
