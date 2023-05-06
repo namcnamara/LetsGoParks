@@ -1,16 +1,29 @@
 @using LetsGoPark.WebSite.Models
 @using LetsGoPark.WebSite.Services
 @using Microsoft.AspNetCore.Components.Web
+@using LetsGoPark.WebSite.Pages
 @inject JsonFileParksService ParkService
 
-<!--The following block creates the grid of found parks in parks.json.
+<!--The following block creates the grid of user filtered parks in parks.json.
     Shows a grid of cards with the title of the park, the park image, and then a button labelled "More Info".
     If the button "More Info" is selected, a modal window opens that displays all information within the database 
     pertaining to the selected park. 
 -->
+
+<div>
+        <label for="filter-dropdown">Filter:</label>
+    <select id="filter-dropdown" @onchange="(e => UpdateSelectedFilterOption(e))">
+            <option value="">All</option>
+            @foreach (var option in filterOptions)
+            {
+                <option value="@option">@option</option>
+            }
+        </select>
+ </div>
+
 <div class="card-columns">
-@foreach (var Park in ParkService.GetParks())
-{
+    @foreach (var Park in ParkService.GetParks().Where(x => string.IsNullOrEmpty(SelectedFilterOption) || x.Park_system == SelectedFilterOption))
+ {
     <div class="homecard">
         <div class="card-img" style="background-image: url('@Park.Image');">
         </div>
@@ -175,12 +188,16 @@
 <!--C# code that is used to dynamically populate HTMl content:-->
 @code
 {
-    //The currently selected park.
+    // The currently selected park.
     ParksModel selectedPark;
-    //the Id of the selected park.
+    // The Id of the selected park.
     string selectedParkId;
-    //Current comment.
+    // Current comment.
     string[] currentComment = new string[4];
+    // The park system filter options
+    string[] filterOptions = new string[3] {"National Parks", "WA State Parks", "City Parks"};
+    // User selected filter option
+    string SelectedFilterOption { get; set; }
 
 
     //This function is called once the "More Info" button is clicked in the card grid.
@@ -266,5 +283,11 @@
         ParkService.AddComment(selectedParkId, comment);
         SelectPark(selectedParkId);
         return true;
+    }
+
+    // Update the selected filter option by user choice
+    void UpdateSelectedFilterOption(ChangeEventArgs e)
+    {
+        SelectedFilterOption = e.Value.ToString();
     }
 }
