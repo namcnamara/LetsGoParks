@@ -6,7 +6,6 @@
 
 <!--The following block creates a dropdown filter that allows a user to filter parks by park system.
 -->
-
 <div>
         <label for="filter-dropdown">Filter:</label>
     <select id="filter-dropdown" @onchange="(e => UpdateSelectedFilterOption(e))">
@@ -24,20 +23,24 @@
     pertaining to the selected park.
 -->
 <div class="card-columns">
-    @foreach (var Park in ParkService.GetParks().Where(x => string.IsNullOrEmpty(SelectedFilterOption) || x.Park_system == SelectedFilterOption))
- {
-    <div class="homecard">
-        <div class="card-img" style="background-image: url('@Park.Image');">
-        </div>
-        <div class="card-footer">
-            <small class="text-muted"><button @onclick="(e => SelectPark(Park.Id))"
-                        data-toggle="modal" data-target="#ParkModal" class="btn btn-primary">
-                        @Park.Id
+    @foreach (var park in ParkService.GetParks())
+    {
+        <div class="card">
+            <div class="card-img" style="background-image: url('@park.Image');">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">@park.Title</h5>
+            </div>
+            <div class="card-footer" align: center>
+                <small class="text-muted">
+                    <button @onclick="(e => SelectPark(park.Id))"
+                            data-toggle="modal" data-target="#ParkModal" class="btn btn-primary">
+                        More Info
                     </button>
-            </small>
+                </small>
+            </div>
         </div>
-    </div>
-}
+    }
 </div>
 
 
