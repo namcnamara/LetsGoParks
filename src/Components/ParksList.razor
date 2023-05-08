@@ -23,7 +23,7 @@
     pertaining to the selected park.
 -->
 <div class="card-columns">
-    @foreach (var park in ParkService.GetParks())
+    @foreach (var park in ParkService.GetParks().Where(x => string.IsNullOrEmpty(SelectedFilterOption) || x.Park_system == SelectedFilterOption))
     {
         <div class="card">
             <div class="card-img" style="background-image: url('@park.Image');">
