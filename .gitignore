@@ -378,3 +378,11 @@ FodyWeavers.xsd
 # Ignore fispecific files in LetsGoPark
 .vs/
 
+/.vs/LetsGoPark.WebSite/v17/.suo
+/UnitTests/obj/Debug/net6.0/ref/UnitTests.dll
+/UnitTests/obj/Debug/net6.0/refint/UnitTests.dll
+/UnitTests/obj/Debug/net6.0/UnitTests.dll
+/UnitTests/obj/Debug/net6.0/UnitTests.csproj.AssemblyReference.cache
+/UnitTests/obj/Debug/net6.0/UnitTests.pdb
+/UnitTests/bin/Debug/net6.0/UnitTests.pdb
+/UnitTests/bin/Debug/net6.0/UnitTests.dll
