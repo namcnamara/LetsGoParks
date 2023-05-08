@@ -7,7 +7,7 @@ using LetsGoPark.WebSite.Services;
 
 namespace LetsGoPark.WebSite.Pages
 {
-    public class CreateModel : PageModel
+    public class CreateParkModel : PageModel
     {
         // Data middle tier
         public JsonFileParksService ParksService { get; }
@@ -17,7 +17,7 @@ namespace LetsGoPark.WebSite.Pages
         /// </summary>
         /// <param name="logger"></param>
         /// <param name="productService"></param>
-        public CreateModel(JsonFileParksService productService)
+        public CreateParkModel(JsonFileParksService productService)
         {
             ParksService = productService;
         }
