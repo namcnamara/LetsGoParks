@@ -328,7 +328,7 @@ namespace LetsGoPark.WebSite.Services
         /// After create the user can update to set values
         /// </summary>
         /// <returns></returns>
-        public ParksModel CreateData()
+        public ParksModel CreateData(ParksModel newPark)
         {
             var data = new ParksModel()
             {
