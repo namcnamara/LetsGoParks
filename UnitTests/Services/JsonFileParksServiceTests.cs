@@ -6,6 +6,7 @@ using LetsGoPark.WebSite.Models;
 using System.Linq;
 using System.Reflection.PortableExecutable;
 using System;
+using System.Collections.Generic;
 
 namespace UnitTests.Pages.Park.AddRating
 {
@@ -411,8 +412,43 @@ namespace UnitTests.Pages.Park.AddRating
             // Act and Assert
             Assert.IsFalse(retVal);
         }
-        
+
         #endregion DeleteComment
 
+        #region CreateData
+        [Test]
+        public void CreateData_With_Valid_Input_Should_Create_New_Park()
+        {
+            //Arrange
+            var newPark = new ParksModel
+            {
+                Id = "Test Park",
+                Title = "Test Park",
+                Name = "Test Park",
+                Description = "This is a test park",
+                Url = "http://testpark.com",
+                Image = "http://testpark.com",
+                Address = "123 Test Street",
+                Park_system = "Test System",
+                Activities = new string[] { "Hiking", "Biking" },
+                Map_brochure = "http://testpark.com",
+                Permits = "No fees"
+            };
+
+            //Act
+
+
+            //Assert
+
+        }
+        #endregion CreateData
+
+        #region UpdateData
+        
+        #endregion UpdateData
+
+        #region DeleteData
+
+        #endregion DeleteData
     }
 }
