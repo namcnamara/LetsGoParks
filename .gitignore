@@ -394,3 +394,8 @@ FodyWeavers.xsd
 /UnitTests/bin/Debug/net6.0/LetsGoPark.WebSite.dll
 /src/obj/Debug/net6.0/ref/LetsGoPark.WebSite.dll
 /src/obj/Debug/net6.0/LetsGoPark.WebSite.dll
+/.vs/LetsGoPark.WebSite/DesignTimeBuild/.dtbcache.v2
+/.vs/LetsGoPark.WebSite/v17/TestStore/0/testlog.manifest
+/.vs/ProjectEvaluation/letsgopark.website.metadata.v6.1
+/.vs/LetsGoPark.WebSite/v17/.futdcache.v2
+/.vs/ProjectEvaluation/letsgopark.website.projects.v6.1
