@@ -4,10 +4,7 @@
 @using LetsGoPark.WebSite.Pages
 @inject JsonFileParksService ParkService
 
-<!--The following block creates the grid of user filtered parks in parks.json.
-    Shows a grid of cards with the title of the park, the park image, and then a button labelled "More Info".
-    If the button "More Info" is selected, a modal window opens that displays all information within the database 
-    pertaining to the selected park. 
+<!--The following block creates a dropdown filter that allows a user to filter parks by park system.
 -->
 
 <div>
@@ -21,6 +18,11 @@
         </select>
  </div>
 
+<!--The following block creates the grid of user filtered parks in parks.json.
+    Shows a grid of cards with the title of the park, the park image, and then a button labelled "More Info".
+    If the button "More Info" is selected, a modal window opens that displays all information within the database
+    pertaining to the selected park.
+-->
 <div class="card-columns">
     @foreach (var Park in ParkService.GetParks().Where(x => string.IsNullOrEmpty(SelectedFilterOption) || x.Park_system == SelectedFilterOption))
  {
