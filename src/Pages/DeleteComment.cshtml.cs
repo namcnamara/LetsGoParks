@@ -14,6 +14,7 @@ namespace LetsGoPark.WebSite.Pages
 
         public void OnGet()
         {
+            _logger.LogInformation("Request DeleteComment.cshtml");
         }
     }
 }
