@@ -29,7 +29,7 @@
             <div class="card-img" style="background-image: url('@park.Image');">
             </div>
             <div class="card-body">
-                <h5 class="card-title">@park.Title</h5>
+                <h5 class="card-title">@park.Id</h5>
             </div>
             <div class="card-footer" align: center>
                 <small class="text-muted">
@@ -56,7 +56,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="ParkTitle"> <a href=@selectedPark.Url><strong>@selectedPark.Title</strong></a></h5>
+                    <h5 class="modal-title" id="ParkTitle"> <a href=@selectedPark.Url><strong>@selectedPark.Id</strong></a></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -78,14 +78,7 @@
                                 <!--Loads permits and fees of selected park-->
                                 <strong>Permits and Fees: </strong>@selectedPark.Permits <br>
                                 <!--Loads Activities array of selected parks-->
-                                <strong>Activities: </strong>
-                                <!--This creates an unordered list of all activities with the parks Activities array-->
-                                <ul>
-                                    @foreach (var activity in selectedPark.Activities)
-                                    {
-                                        <li>@activity</li>
-                                    }
-                                </ul>
+                                <strong>Activities: </strong>@selectedPark.Activities <br>
                                 <!--Loads Description of selected park-->
                                 <strong>Park description:</strong> <br> @selectedPark.Description <br><br>
                                 <!--Loads Comments of selected park-->
