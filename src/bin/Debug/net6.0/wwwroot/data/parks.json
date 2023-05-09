@@ -6,7 +6,9 @@
     "Description": "A 531-acre, day-use park with 6,858 feet of waterfront on Lake Sammamish. The area around the lake carries cultural significance as a gathering place for at least four Native American tribes.",
     "Ratings": [
       5,
-      1,
+      5,
+      5,
+      5,
       5
     ],
     "Address": "2010 N.W. Sammamish Road Issaquah, WA 98027",
@@ -15,14 +17,7 @@
     "Activities": "1.5 miles of biking trails, 1.5 miles of hiking trails, Boating, Fishing",
     "Map_brochure": "https://www.parks.wa.gov/DocumentCenter/View/1894/Lake-Sammamish-State-Park-PDF",
     "Permits": "Discover Pass required",
-    "Comments": [
-      [
-        "Nicholas McNamara",
-        "2023-05-05 13:34:59",
-        "asdaf",
-        "2rwr"
-      ]
-    ]
+    "Comments": null
   },
   {
     "Id": "BRIDLE TRAILS STATE PARK",
@@ -30,7 +25,7 @@
     "Url": "https://www.parks.wa.gov/481/Bridle-Trails",
     "Description": "Bridle Trails State Park is a 489-acre day-use park with 28 miles of trails that welcomes equestrians, hikers and visitors. It does not offer bike trails or camping. The park is known as one of the top equestrian parks west of the Mississippi; it does not, however, offer horse rentals.",
     "Ratings": [
-      1
+      5
     ],
     "Address": "5300 116th Ave. N.E. Kirkland, WA 98033",
     "Phone": "(425) 455-7010",
