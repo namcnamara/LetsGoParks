@@ -247,3 +247,19 @@ ul {
     color: white;
     text-align: left;
 }
+
+/*Formating for the read parks page*/
+.readpageformat {
+    text-align: left;
+    color: white;
+}
+
+.readpageformat .comments{
+    text-align: left;
+    color: white;
+}
+
+/*Formats table for ParksIndex.cshtml*/
+.table {
+    color: white;
+}
