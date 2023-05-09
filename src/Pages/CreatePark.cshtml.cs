@@ -16,10 +16,10 @@ namespace LetsGoPark.WebSite.Pages
         /// Defualt Construtor
         /// </summary>
         /// <param name="logger"></param>
-        /// <param name="productService"></param>
-        public CreateParkModel(JsonFileParksService productService)
+        /// <param name="parkService"></param>
+        public CreateParkModel(JsonFileParksService parkService)
         {
-            ParksService = productService;
+            ParksService = parkService;
         }
 
         // The data to show

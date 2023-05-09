@@ -22,10 +22,10 @@ namespace LetsGoPark.WebSite.Pages
         /// Defualt Construtor
         /// </summary>
         /// <param name="logger"></param>
-        /// <param name="productService"></param>
-        public UpdateParkModel(JsonFileParksService productService)
+        /// <param name="parkService"></param>
+        public UpdateParkModel(JsonFileParksService parkService)
         {
-            ParksService = productService;
+            ParksService = parkService;
         }
 
         // The data to show, bind to it for the post

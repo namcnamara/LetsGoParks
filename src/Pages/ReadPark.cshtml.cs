@@ -10,9 +10,9 @@ namespace LetsGoPark.WebSite.Pages
     {
         // Data middletier
         public JsonFileParksService ParksService { get; }
-        public ReadParkModel(JsonFileParksService productService)
+        public ReadParkModel(JsonFileParksService parkService)
         { 
-            ParksService = productService;
+            ParksService = parkService;
         }
         public ParksModel Park;
         public void OnGet(string id)
