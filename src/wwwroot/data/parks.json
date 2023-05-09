@@ -3,7 +3,7 @@
     "Id": "LAKE SAMMAMISH STATE PARK",
     "img": "https://www.parks.wa.gov/ImageRepository/Document?documentID=8524",
     "Url": "https://www.parks.wa.gov/533/Lake-Sammamish",
-    "Description": "A 531-acre, day-use park with 6,858 feet of waterfront on Lake Sammamish. The area around the lake carries cultural significance as a gathering place for at least four Native American tribes.",
+    "Description": "A Beautiful 531-acre, day-use park with 6,858 feet of waterfront on Lake Sammamish. The area around the lake carries cultural significance as a gathering place for at least four Native American tribes.",
     "Ratings": [
       5,
       1,
@@ -292,6 +292,20 @@
     "Activities": "SuccsSuccs",
     "Map_brochure": "Succs",
     "Permits": "SuccsSuccs",
+    "Comments": null
+  },
+  {
+    "Id": "CreateCorrectly",
+    "img": "CreateCorrectlyCreateCorrectly",
+    "Url": "CreateCorrectly",
+    "Description": "CreateCorrectly",
+    "Ratings": null,
+    "Address": "UpdateedCorrectly",
+    "Phone": "CreateCorrectly",
+    "Park_system": "National Parks",
+    "Activities": "CreateCorrectly",
+    "Map_brochure": "CreateCorrectly",
+    "Permits": "CreateCorrectly",
     "Comments": null
   }
 ]

@@ -4,22 +4,14 @@
 @model LetsGoPark.WebSite.Pages.UpdateParkModel
 
 @{
-    ViewData["Title"] = "Contribute to our Parks List";
+    ViewData["Title"] = "Update:";
 }
 
-<h1>@ViewData["Title"]</h1>
-
-
-<div class="container">
+<div class="readpageformat">
     <form method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         @Html.HiddenFor(x => x.Park.Id)
-
-        <div class="form-group">
-            <label asp-for="Park.Id" class="control-label"></label>
-            <input asp-for="Park.Id" class="form-control" />
-            <span asp-validation-for="Park.Id" class="text-danger"></span>
-        </div>
+        <h1>@ViewData["Title"] @Html.DisplayFor(x => x.Park.Id) <br /></h1>
 
         <div class="form-group">
             <label asp-for="Park.Description" class="control-label"></label>

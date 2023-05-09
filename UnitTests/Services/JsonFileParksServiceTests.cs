@@ -136,11 +136,11 @@ namespace UnitTests.Pages.Park.AddRating
 
             //Assert
                 //City
-            Assert.AreEqual(parks[0].Id, "Juanita Beach Park");
+            Assert.AreEqual(parks[0].Id, "Doris Cooper Houghton Beach Park");
                 //State
             Assert.AreEqual(parks[1].Id, "LAKE SAMMAMISH STATE PARK");
                 //National
-            Assert.AreEqual(parks[2].Id, "San Juan Island National Historical Park");
+            Assert.AreEqual(parks[2].Id, "Mount Rainier National Park");
 
         }
         #endregion GetHighestRatedParks
@@ -178,7 +178,6 @@ namespace UnitTests.Pages.Park.AddRating
             Assert.AreEqual(comment[1], addedComment[1]);
             Assert.AreEqual(comment[2], addedComment[2]);
             Assert.AreEqual(comment[3], addedComment[3]);
-
         }
 
         [Test]
@@ -423,14 +422,12 @@ namespace UnitTests.Pages.Park.AddRating
             var newPark = new ParksModel
             {
                 Id = "Test Park",
-                Title = "Test Park",
-                Name = "Test Park",
                 Description = "This is a test park",
                 Url = "http://testpark.com",
                 Image = "http://testpark.com",
                 Address = "123 Test Street",
                 Park_system = "Test System",
-                Activities = new string[] { "Hiking", "Biking" },
+                Activities =  "Hiking" ,
                 Map_brochure = "http://testpark.com",
                 Permits = "No fees"
             };
