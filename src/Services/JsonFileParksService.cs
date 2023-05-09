@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Text.Json;
 using System.Xml.Linq;
 using LetsGoPark.WebSite.Models;
+using LetsGoPark.WebSite.Pages;
 using Microsoft.AspNetCore.Hosting;
 
 namespace LetsGoPark.WebSite.Services
@@ -305,9 +306,7 @@ namespace LetsGoPark.WebSite.Services
                 return null;
             }
 
-            parkData.Title = data.Title;
-            parkData.Id = data.Title;
-            parkData.Name = data.Title;
+            parkData.Id = data.Id;
             parkData.Description = data.Description;
             parkData.Url = data.Url;
             parkData.Image = data.Image;
@@ -328,11 +327,11 @@ namespace LetsGoPark.WebSite.Services
         /// After create the user can update to set values
         /// </summary>
         /// <returns></returns>
-        public ParksModel CreateData(ParksModel newPark)
+        public ParksModel CreateData(ParksModel parkIn)
         {
+            var newPark = parkIn;
             var data = new ParksModel()
             {
-                Title = "Enter Title",
                 Url = "Enter URL",
                 Image = "Enter Image URL",
                 Description = "Enter Description",
@@ -340,21 +339,19 @@ namespace LetsGoPark.WebSite.Services
                 Address = "Enter Park Address",
                 Phone = "Enter Park Agency Phone Number",
                 Park_system = "Enter \"National\", \"City\", Or \"WA State\"",
-                Activities = new string[1] { "Enter activites separated by a comma, or NA" },
+                Activities = "Enter activites separated by a comma, or NA",
                 Map_brochure = "Enter Map brochure URL or NA",
                 Permits = "Enter any fees associated with park",
                 Comments = null,
             };
-
-            data.Id = data.Title;
-            data.Name = data.Title;
+            if (newPark == data) { return newPark; }
             // Get the current set, and append the new record to it
             var dataSet = GetParks();
-            dataSet = dataSet.Append(data);
+            dataSet = dataSet.Append(newPark);
 
             SaveData(dataSet);
 
-            return data;
+            return newPark;
         }
 
 
