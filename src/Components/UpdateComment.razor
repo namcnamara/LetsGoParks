@@ -68,36 +68,34 @@
     }
 }
 
-<p>
-    Original Comment: <br />
-        @nameString <br />
-        @datetimeString<br />
-        @descriptionString <br />
-        @tokenString <br />
-        @parkId <br />
-        @commentIndex <br />
-    Update your comment below:
-</p>
+<div class="readpageformat">
+    <p>
+        Original Comment on @parkId: <br />
+            @nameString <sp />
+            @datetimeString<br />
+            @descriptionString <br /><br />
+        Update your comment below:
+    </p>
 
-<form method="get" @onsubmit="@(e => {SubmitUpdatedComment(nameString, datetimeString, descriptionString, tokenString, parkId, commentIndex);})">
-        <div>
-            <label for="name-input">Name:</label>
-        <input type="text" id="name-input" name="name" value="@nameString" @oninput="@((eventArgs) => nameString = eventArgs.Value.ToString())" />
-        </div>
-        <div>
-            <label for="date-time-input">Date and Time:</label>
-        <input type="text" id="date-time-input" name="dateTime" value="@datetimeString" @oninput="@((eventArgs) => datetimeString = eventArgs.Value.ToString())" />
-        </div>
-        <div>
-            <label for="description-input">Description:</label>
-        <input type="text" id="description-input" name="description" value="@descriptionString" @oninput="@((eventArgs) => descriptionString = eventArgs.Value.ToString())" />
-        </div>
-        <div>
-            <label for="token-input">Token:</label>
-        <input type="text" id="token-input" name="token" value="@Token" @oninput="@((eventArgs) => tokenString = eventArgs.Value.ToString())" />
-        </div>
-        <button type="submit" @onclick="@(() => NavigationManager.NavigateTo("~/Pages/Explore"))">Update Comment</button>
-</form>
+    <form method="get" @onsubmit="@(e => {SubmitUpdatedComment(nameString, datetimeString, descriptionString, tokenString, parkId, commentIndex);})">
+            <div>
+                <label for="name-input">Name:</label>
+            <input type="text" id="name-input" name="name" value="@nameString" @oninput="@((eventArgs) => nameString = eventArgs.Value.ToString())" />
+            </div>
+            <div>
+                <label for="date-time-input">Date and Time:</label>
+            <input type="text" id="date-time-input" name="dateTime" value="@datetimeString" @oninput="@((eventArgs) => datetimeString = eventArgs.Value.ToString())" />
+            </div>
+            <div>
+                <label for="description-input">Description:</label>
+            <input type="text" id="description-input" name="description" value="@descriptionString" @oninput="@((eventArgs) => descriptionString = eventArgs.Value.ToString())" />
+            </div>
+            <div>
+                <label for="token-input">Token:</label>
+            <input type="text" id="token-input" name="token" value="@Token" @oninput="@((eventArgs) => tokenString = eventArgs.Value.ToString())" />
+            </div>
+            <button type="submit" @onclick="@(() => NavigationManager.NavigateTo("~/Pages/Explore"))">Update Comment</button>
+    </form>
 
 <a href="/Explore" style="z-index: 100;">Back to Explore</a> 
-
+</div>
