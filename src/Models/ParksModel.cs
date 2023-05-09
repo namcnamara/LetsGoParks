@@ -13,25 +13,19 @@ namespace LetsGoPark.WebSite.Models
         [StringLength(maximumLength: 30, MinimumLength = 1, ErrorMessage = "The {0} should have a length of more than {2} and less than {1}")]
         public string Id { get; set; }
 
-        //The name of the park
-        [Required(ErrorMessage = "{0} is required!")]
-        [StringLength(maximumLength: 30, MinimumLength = 1, ErrorMessage = "The {0} should have a length of more than {2} and less than {1}")]
-        public string Name { get; set; }
-
-        //The URL that corresponds to the park's image.
+        
+        //The Image that corresponds to the park's image.
         [Required(ErrorMessage = "{0} is required!")]
         [StringLength(maximumLength: 500, MinimumLength = 1, ErrorMessage = "The {0} should have a length of more than {2} and less than {1}")]
         [JsonPropertyName("img")]
         public string Image { get; set; }
+        
+        //Url to park's official website
         [Required(ErrorMessage = "{0} is required!")]
         [StringLength(maximumLength: 500, MinimumLength = 1, ErrorMessage = "The {0} should have a length of more than {2} and less than {1}")]
         public string Url { get; set; }
 
-        //Park title (sometimes different from name.
-        [Required(ErrorMessage = "{0} is required!")]
-        [StringLength(maximumLength: 30, MinimumLength = 1, ErrorMessage = "The {0} should have a length of more than {2} and less than {1}")]
-        public string Title { get; set; }
-
+        
         //Paragraph description of the park and its features.
         [Required(ErrorMessage = "{0} is required!")]
         [StringLength(maximumLength: 1000, MinimumLength = 1, ErrorMessage = "The {0} should have a length of more than {2} and less than {1}")]
@@ -56,7 +50,7 @@ namespace LetsGoPark.WebSite.Models
         public string Park_system { get; set; }
 
         //A list of strings highlighting activities that can be done at the park.
-        public string[] Activities { get; set; }
+        public string Activities { get; set; }
 
         //URL to the parks agency provided brochure
         [Required(ErrorMessage = "{0} is required!")]
