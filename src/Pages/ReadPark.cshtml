@@ -5,16 +5,14 @@
 @{
     ViewData["Title"] = "Read page";
 }
-<div class="class">
-    <h5 class="title, txt-color" id="productTitle">@Model.Park.Title</h5>
+<div class="homepageformat" >
+    <h5 class="title, txt-color" id="productTitle">@Model.Park.Id</h5>
 
-    <img class="card-visible" src='@Model.Park.Image' alt='Image for @Model.Park.Title'>
-
-    <p class="card-text, txt-color">@Model.Park.Description</p>
+    <img class="card-visible" src='@Model.Park.Image' alt='Image for @Model.Park.Id'>
 
 
 </div>
-<p class="card-text">
+<p class=" readpageformat">
     <!--Links brochure of selected park-->
     <a href=@Model.Park.Map_brochure><strong>Park Brochure</strong></a> <br>
     <!--Loads Address of selected park-->
@@ -26,14 +24,7 @@
     <!--Loads permits and fees of selected park-->
     <strong>Permits and Fees: </strong>@Model.Park.Permits <br>
     <!--Loads Activities array of selected parks-->
-    <strong>Activities: </strong>
-    <!--This creates an unordered list of all activities with the parks Activities array-->
-    <ul>
-        @foreach (var activity in Model.Park.Activities)
-        {
-            <li>@activity</li>
-        }
-    </ul>
+    <strong>Activities: </strong>@Model.Park.Activities <br>
     <!--Loads Description of selected park-->
     <strong>Park description:</strong> <br> @Model.Park.Description <br><br>
     <!--Loads Comments of selected park-->
