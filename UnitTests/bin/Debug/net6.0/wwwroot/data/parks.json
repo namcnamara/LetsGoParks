@@ -1,33 +1,5 @@
 [
   {
-    "Id": "BRIDLE TRAILS STATE PARK",
-    "Name": "BRIDLE TRAILS STATE PARK",
-    "img": "https://www.parks.wa.gov/ImageRepository/Document?documentID=8772",
-    "Url": "https://www.parks.wa.gov/481/Bridle-Trails",
-    "Title": "BRIDLE TRAILS STATE PARK",
-    "Description": "Bridle Trails State Park is a 489-acre day-use park with 28 miles of trails that welcomes equestrians, hikers and visitors. It does not offer bike trails or camping. The park is known as one of the top equestrian parks west of the Mississippi; it does not, however, offer horse rentals.",
-    "Ratings": [
-      1,
-      5
-    ],
-    "Address": "5300 116th Ave. N.E. Kirkland, WA 98033",
-    "Phone": "(425) 455-7010",
-    "Park_system": "WA State Parks",
-    "Activities": [
-      "28 miles of hiking and horse trails"
-    ],
-    "Map_brochure": "https://www.parks.wa.gov/DocumentCenter/View/9278",
-    "Permits": "Discover Pass required",
-    "Comments": [
-      [
-        "TestName",
-        "2023-04-20 10:09:34",
-        "This is a Test",
-        "100"
-      ]
-    ]
-  },
-  {
     "Id": "LAKE SAMMAMISH STATE PARK",
     "Name": "LAKE SAMMAMISH STATE PARK",
     "img": "https://www.parks.wa.gov/ImageRepository/Document?documentID=8524",
@@ -43,48 +15,40 @@
       5,
       5,
       5,
-      5,
-      5,
-      5,
-      5,
       5
     ],
     "Address": "2010 N.W. Sammamish Road Issaquah, WA 98027",
     "Phone": "(425) 455-7010",
     "Park_system": "WA State Parks",
-    "Activities": [
-      "1.5 miles of biking trails",
-      "1.5 miles of hiking trails",
-      "Boating",
-      "Fishing",
-      "Kayak and paddleboard rentals",
-      "Personal watercraft use",
-      "Swimming",
-      "Watercraft launches",
-      "Waterskiing"
-    ],
+    "Activities": "1.5 miles of biking trails, 1.5 miles of hiking trails, Boating, Fishing",
     "Map_brochure": "https://www.parks.wa.gov/DocumentCenter/View/1894/Lake-Sammamish-State-Park-PDF",
     "Permits": "Discover Pass required",
     "Comments": [
       [
-        "Bob",
+        "TestName",
         "2023-04-20 10:09:34",
-        "This is a nice park!",
-        "123"
-      ],
-      [
-        "Mike",
-        "2023-04-12 22:11:58",
-        "Highly recommended!",
-        "123"
-      ],
-      [
-        null,
-        "4/30/2023 12:06:02 AM",
-        null,
-        null
+        "This is a Test",
+        "100"
       ]
     ]
+  },
+  {
+    "Id": "BRIDLE TRAILS STATE PARK",
+    "Name": "BRIDLE TRAILS STATE PARK",
+    "img": "https://www.parks.wa.gov/ImageRepository/Document?documentID=8772",
+    "Url": "https://www.parks.wa.gov/481/Bridle-Trails",
+    "Title": "BRIDLE TRAILS STATE PARK",
+    "Description": "Bridle Trails State Park is a 489-acre day-use park with 28 miles of trails that welcomes equestrians, hikers and visitors. It does not offer bike trails or camping. The park is known as one of the top equestrian parks west of the Mississippi; it does not, however, offer horse rentals.",
+    "Ratings": [
+      1
+    ],
+    "Address": "5300 116th Ave. N.E. Kirkland, WA 98033",
+    "Phone": "(425) 455-7010",
+    "Park_system": "WA State Parks",
+    "Activities": "28 miles of hiking and horse trails",
+    "Map_brochure": "https://www.parks.wa.gov/DocumentCenter/View/9278",
+    "Permits": "Discover Pass required",
+    "Comments": null
   },
   {
     "Id": "FLAMING GEYSER STATE PARK",
@@ -97,21 +61,7 @@
     "Address": "23700 S.E. Flaming Geyser Road Auburn, WA 98092",
     "Phone": "(253) 735-8839",
     "Park_system": "WA State Parks",
-    "Activities": [
-      "1 mile of horse trails",
-      "4.3 miles of hiking trails",
-      "Fishing",
-      "Kayaking",
-      "Swimming",
-      "White-water kayaking",
-      "Bird watching",
-      "Fire circles",
-      "Fire circles, sheltered",
-      "Interpretive walks",
-      "Radio-controlled aircraft flying area",
-      "Volleyball fields",
-      "Wildlife viewing"
-    ],
+    "Activities": "1 mile of horse trails, 4.3 miles of hiking trails, Fishing, Volleyball fields",
     "Map_brochure": "https://www.parks.wa.gov/DocumentCenter/View/9288/Flaming-Geyser-State-Park",
     "Permits": "Discover Pass required",
     "Comments": null
@@ -129,27 +79,17 @@
     "Address": "Manchester, WA 98353",
     "Phone": "(360) 731-8330",
     "Park_system": "WA State Parks",
-    "Activities": [
-      "1,500 feet of moorage",
-      "Boating",
-      "Clamming",
-      "Crabbing",
-      "Diving",
-      "Fishing (saltwater)",
-      "7.5 miles of bike trails",
-      "8 miles of hiking trails",
-      "Beach exploration",
-      "Bird watching",
-      "Interpretive activities",
-      "Mountain biking",
-      "Fire circles (2 sheltered)",
-      "Horseshoe pits (2)",
-      "Volleyball field",
-      "Wildlife viewing"
-    ],
+    "Activities": "1,500 feet of moorage, Boating, Clamming, Crabbing, Diving",
     "Map_brochure": "https://www.parks.wa.gov/DocumentCenter/View/9339",
     "Permits": "Discover Pass required",
-    "Comments": null
+    "Comments": [
+      [
+        "Nicholas McNamara                                            ",
+        "2023-05-05 13:47:40",
+        "peeerrrrkkkks ",
+        "22"
+      ]
+    ]
   },
   {
     "Id": "SAINT EDWARD STATE PARK",
@@ -167,13 +107,7 @@
     "Address": "14445 Juanita Drive N.E. Kenmore, WA 98028",
     "Phone": "(425) 823-2992",
     "Park_system": "WA State Parks",
-    "Activities": [
-      "Boating",
-      "Fishing (freshwater)",
-      "Personal watercraft use",
-      "Swimming",
-      "Waterskiing"
-    ],
+    "Activities": "Boating, Swimming, Waterskiing",
     "Map_brochure": "https://www.parks.wa.gov/DocumentCenter/View/871/Saint-Edward-State-Park",
     "Permits": "Discover Pass required",
     "Comments": null
@@ -191,9 +125,7 @@
     "Address": "203 Lake Street South, Kirkland 98033",
     "Phone": "425-587-3300",
     "Park_system": "City Parks",
-    "Activities": [
-      "Boating"
-    ],
+    "Activities": "Boating",
     "Map_brochure": "https://www.kirklandwa.gov/files/sharedassets/public/parks-amp-comm-services/pdfs/2018parks_trails-guide.pdf",
     "Permits": "Free",
     "Comments": null
@@ -207,28 +139,22 @@
     "Description": "Doris Cooper Houghton Beach Park is a waterfront community park featuring a playground, picnic areas, sand volleyball court, and seasonal swimming area.",
     "Ratings": [
       5,
-      5,
-      5,
       5
     ],
     "Address": "5811 Lake Washington Blvd, Kirkland 98033",
     "Phone": "425-587-3300",
     "Park_system": "City Parks",
-    "Activities": [
-      "BBQ",
-      "Boat Launch \u2013 Hand-carried non-motorized boats",
-      "Dock",
-      "Picnic Area/Shelter \u2013 Reservable",
-      "Picnic Tables",
-      "Playground",
-      "Parking Lot",
-      "Swimming Beach - Lifeguarded",
-      "Volleyball",
-      "Wildlife Viewing"
-    ],
+    "Activities": "BBQ, Picnic Tables",
     "Map_brochure": "https://www.kirklandwa.gov/files/sharedassets/public/parks-amp-comm-services/pdfs/2018parks_trails-guide.pdf",
     "Permits": "Free",
-    "Comments": null
+    "Comments": [
+      [
+        "Nicholas McNamaraasd                                            ",
+        "2023-05-05 17:54:31",
+        "d ddd",
+        "2"
+      ]
+    ]
   },
   {
     "Id": "Juanita Beach Park",
@@ -237,37 +163,11 @@
     "Url": "https://www.kirklandwa.gov/Government/Departments/Parks-and-Community-Services/Find-a-Park/Juanita-Beach-Park",
     "Title": "Juanita Beach Park",
     "Description": "Juanita Beach Park features a playground, bathhouse with restrooms, sand volleyball courts, ballfields, tennis courts, walking path, picnic shelters and a seasonal swimming area. This park includes areas on both sides of Juanita Drive and includes 1,000 feet of Lake Washington shoreline. ",
-    "Ratings": [
-      5,
-      5,
-      5,
-      5,
-      5
-    ],
+    "Ratings": null,
     "Address": "9703 NE Juanita Dr, Kirkland 98034",
     "Phone": "425-587-3300",
     "Park_system": "City Parks",
-    "Activities": [
-      "Baseball/Softball",
-      "BBQ",
-      "Boat Launch \u2013 Hand-carried non-motorized boats",
-      "Drinking Fountain (Seasonal)",
-      "Dog Off-Leash Area",
-      "Fishing",
-      "Interpretive Walk",
-      "Picnic Area/Shelter \u2013 Reservable",
-      "Picnic Tables",
-      "Playground",
-      "Parking Lot",
-      "Public Art",
-      "Restoration Area",
-      "Restrooms (Year-round)",
-      "Swimming Beach - Lifeguarded",
-      "Tennis",
-      "Trail",
-      "Volleyball",
-      "Wildlife Viewing"
-    ],
+    "Activities": "Baseball/Softball, BBQ, Fishing, Picnic Tables, Playground, Parking Lot, Public Art",
     "Map_brochure": "https://www.kirklandwa.gov/files/sharedassets/public/parks-amp-comm-services/pdfs/2018parks_trails-guide.pdf",
     "Permits": "Free",
     "Comments": null
@@ -288,15 +188,7 @@
     "Address": "25 Lakeshore Plaza Drive, Kirkland 98033",
     "Phone": "425-587-3300",
     "Park_system": "City Parks",
-    "Activities": [
-      "Boat Launch \u2013 Motorized boats",
-      "Boat Launch \u2013 Hand-carried non-motorized boats",
-      "Dock",
-      "Picnic Area/Shelter \u2013 Reservable",
-      "Parking Lot",
-      "Public Art",
-      "Restrooms (Year-round)"
-    ],
+    "Activities": "Dock, Parking Lot, Public Art,Restrooms (Year-round)",
     "Map_brochure": "https://www.kirklandwa.gov/files/sharedassets/public/parks-amp-comm-services/pdfs/2018parks_trails-guide.pdf",
     "Permits": "Free",
     "Comments": null
@@ -312,16 +204,7 @@
     "Address": "9703 NE Juanita Dr, Kirkland 98034",
     "Phone": "425-587-3300",
     "Park_system": "City Parks",
-    "Activities": [
-      "Boat Launch \u2013 Hand-carried non-motorized boats",
-      "Drinking Fountain (Seasonal)",
-      "Fishing",
-      "Interpretive Walk",
-      "Picnic Tables",
-      "Parking Lot",
-      "Public Art",
-      "Restrooms (Year-round)"
-    ],
+    "Activities": "Dock, Parking Lot, Public Art,Restrooms (Year-round)",
     "Map_brochure": "https://www.kirklandwa.gov/files/sharedassets/public/parks-amp-comm-services/pdfs/2018parks_trails-guide.pdf",
     "Permits": "Free",
     "Comments": null
@@ -339,31 +222,10 @@
     "Address": "55210 238th Avenue East Ashford, WA 98304",
     "Phone": "360-569-2211",
     "Park_system": "National Parks",
-    "Activities": [
-      "Hiking",
-      "Climbing",
-      "Camping",
-      "Wildlife viewing",
-      "Scenic drives",
-      "Skiing and snowboarding",
-      "Snowshoeing",
-      "Fishing",
-      "Ranger-led programs",
-      "Photography",
-      "Wildflower viewing",
-      "Biking",
-      "Horseback riding",
-      "Ranger-led star gazing"
-    ],
+    "Activities": "Dock, Parking Lot, Public Art,Restrooms (Year-round)",
     "Map_brochure": "https://www.nps.gov/mora/planyourvisit/upload/Mount-Rainier-Brochure-final_Combo_508_v2023.pdf",
     "Permits": "Entrance Fee Required",
     "Comments": [
-      [
-        "Mike",
-        "2023-04-12 22:11:58",
-        "Highly recommended!",
-        "123"
-      ],
       [
         "TestName",
         "2023-04-20 10:09:34",
@@ -385,23 +247,7 @@
     "Address": "810 State Route 20 Sedro-Woolley, WA 98284",
     "Phone": "360-854-7200",
     "Park_system": "National Parks",
-    "Activities": [
-      "Hiking",
-      "Camping",
-      "Fishing",
-      "Boating",
-      "Canoeing and kayaking",
-      "Wildlife viewing",
-      "Scenic drives",
-      "Backcountry camping",
-      "Mountaineering",
-      "Rock climbing",
-      "Bird watching",
-      "Snowshoeing",
-      "Cross-country skiing",
-      "Photography",
-      "Ranger-led programs"
-    ],
+    "Activities": "Dock, Parking Lot, Public Art,Restrooms (Year-round)",
     "Map_brochure": "https://npmaps.com/wp-content/uploads/north-cascades-map.pdf",
     "Permits": "Entrance Fee Required",
     "Comments": null
@@ -417,25 +263,7 @@
     "Address": "3002 Mount Angeles Road Port Angeles , WA 98362",
     "Phone": "(360) 565-3130",
     "Park_system": "National Parks",
-    "Activities": [
-      "Hiking",
-      "Camping",
-      "Backpacking",
-      "Fishing",
-      "Boating",
-      "Canoeing and kayaking",
-      "Wildlife viewing",
-      "Scenic drives",
-      "Beachcombing",
-      "Tidepooling",
-      "Bird watching",
-      "Mountaineering",
-      "Rock climbing",
-      "Snowshoeing",
-      "Cross-country skiing",
-      "Photography",
-      "Ranger-led programs"
-    ],
+    "Activities": "Dock, Parking Lot, Public Art,Restrooms (Year-round)",
     "Map_brochure": "https://www.nps.gov/npgallery/GetAsset/d8dcb91a-4eba-467d-861f-16cf66c69272",
     "Permits": "Entrance Fee Required",
     "Comments": null
@@ -447,30 +275,11 @@
     "Url": "https://www.nps.gov/sajh/index.htm",
     "Title": "San Juan Island National Historical Park",
     "Description": "San Juan Island National Historical Park is composed of 2,141 acres of woodland, prairie and saltwater shoreline in two units on San Juan Island, one of the 172 named islands and reefs in San Juan County, Washington State.",
-    "Ratings": [
-      5,
-      5,
-      5,
-      5
-    ],
+    "Ratings": null,
     "Address": "4668 Cattle Point Rd. Friday Harbor, WA 98250",
     "Phone": "360-378-2240",
     "Park_system": "National Parks",
-    "Activities": [
-      "Hiking",
-      "Bird watching",
-      "Wildlife viewing",
-      "Picnicking",
-      "Beachcombing",
-      "Tidepooling",
-      "Ranger-led tours",
-      "Historical reenactments",
-      "Kayaking",
-      "Boating",
-      "Fishing",
-      "Scenic drives",
-      "Photography"
-    ],
+    "Activities": "Dock, Parking Lot, Public Art,Restrooms (Year-round)",
     "Map_brochure": "https://sanjuanislandtrails.org/wp/wp-content/uploads/2022/12/SJI-Trails5b.pdf",
     "Permits": "Free",
     "Comments": [
@@ -499,5 +308,48 @@
         "6"
       ]
     ]
+  },
+  {
+    "Id": "Lake Roosevelt National Recreation Area",
+    "Name": "Lake Roosevelt National Recreation Area",
+    "img": "https://www.nps.gov/common/uploads/grid_builder/laro/crop16_9/2918AE05-F3F6-AB3B-6B8DEBA14F5743D4.jpg?width=640\u0026quality=90\u0026mode=crop",
+    "Url": "https://www.nps.gov/laro/index.htm",
+    "Title": "Lake Roosevelt National Recreation Area",
+    "Description": "San Juan Island National Historical Park is composed of 2,141 acres of woodland, prairie and saltwater shoreline in two units on San Juan Island, one of the 172 named islands and reefs in San Juan County, Washington State.",
+    "Ratings": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "Address": "1008 Crest Drive Coulee Dam, WA 99116",
+    "Phone": "360-378-2240",
+    "Park_system": "National Parks",
+    "Activities": "Dock, Parking Lot, Public Art,Restrooms (Year-round)",
+    "Map_brochure": "https://www.nps.gov/laro/planyourvisit/publications.htm",
+    "Permits": "Free",
+    "Comments": null
+  },
+  {
+    "Id": "Helloooooooooooo",
+    "Name": "Helloooooooooooo",
+    "img": "HHHEEELP",
+    "Url": "HHHEEELP",
+    "Title": "Helloooooooooooo",
+    "Description": "HHHEEELP",
+    "Ratings": null,
+    "Address": "HHHEEELP",
+    "Phone": "5094606913",
+    "Park_system": "City Parks",
+    "Activities": "Dock, Parking Lot, Public Art,Restrooms (Year-round)",
+    "Map_brochure": "HHHEEELP",
+    "Permits": "HHHEEELP",
+    "Comments": null
   }
 ]
