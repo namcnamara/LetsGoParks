@@ -49,13 +49,9 @@ namespace LetsGoPark.WebSite.Pages
         /// <returns></returns>
         public IActionResult OnPost()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
+            //calls DeleteData method in JsonFileParksService
             ParksService.DeleteData(Park.Id);
-
+            //Redirect to the home page
             return RedirectToPage("./Index");
         }
     }

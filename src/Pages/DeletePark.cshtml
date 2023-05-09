@@ -9,36 +9,16 @@
 
 <h1>Delete</h1>
 
-<div class="container">
+<div class="readpageformat">
     <form method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         @Html.HiddenFor(x => x.Park.Id)
-
-        <div class="form-group">
-            <label asp-for="Park.Title" class="control-label"></label>
-            <input asp-for="Park.Title" class="form-control" />
-            <span asp-validation-for="Park.Title" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Park.Description" class="control-label"></label>
-            <input asp-for="Park.Description" class="form-control" />
-            <span asp-validation-for="Park.Description" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Park.Url" class="control-label"></label>
-            <input asp-for="Park.Url" class="form-control" />
-            <span asp-validation-for="Park.Url" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Park.Image" class="control-label"></label>
-            <input asp-for="Park.Image" class="form-control" />
-            <span asp-validation-for="Park.Image" class="text-danger"></span>
-        </div>
-
-        <h1>Confirm Delete of this item</h1>
+        
+        @Html.DisplayFor(x => x.Park.Id) <br />
+        @Html.DisplayFor(x => x.Park.Description) <br />
+        @Html.DisplayFor(x => x.Park.Activities) <br />
+        
+        <h1>Are you sure you want to delete this park?</h1>
         <div class="form-group">
             <input type="submit" value="Delete" class="btn btn-primary" />
         </div>
