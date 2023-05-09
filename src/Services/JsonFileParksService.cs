@@ -142,18 +142,18 @@ namespace LetsGoPark.WebSite.Services
         }
 
         //This function adds a rating to a park defined by the argument ParkId.
-        public bool AddRating(string productId, int rating)
+        public bool AddRating(string parkId, int rating)
         {
             // If the ParkID is invalid, return
-            if (string.IsNullOrEmpty(productId))
+            if (string.IsNullOrEmpty(parkId))
             {
                 return false;
             }
 
             var parks = GetParks();
 
-            // Look up the product, if it does not exist, return
-            var data = parks.FirstOrDefault(x => x.Id.Equals(productId));
+            // Look up the park, if it does not exist, return
+            var data = parks.FirstOrDefault(x => x.Id.Equals(parkId));
             if (data == null)
             {
                 return false;
@@ -323,28 +323,18 @@ namespace LetsGoPark.WebSite.Services
 
 
         /// <summary>
-        /// Create a new product using default values
+        /// Create a new park using default values
         /// After create the user can update to set values
         /// </summary>
         /// <returns></returns>
         public ParksModel CreateData(ParksModel parkIn)
         {
             var newPark = parkIn;
-            var data = new ParksModel()
+           
+            if (parkIn.Id == "" || parkIn.Id == null)
             {
-                Url = "Enter URL",
-                Image = "Enter Image URL",
-                Description = "Enter Description",
-                Ratings = null,
-                Address = "Enter Park Address",
-                Phone = "Enter Park Agency Phone Number",
-                Park_system = "Enter \"National\", \"City\", Or \"WA State\"",
-                Activities = "Enter activites separated by a comma, or NA",
-                Map_brochure = "Enter Map brochure URL or NA",
-                Permits = "Enter any fees associated with park",
-                Comments = null,
-            };
-            if (newPark == data) { return newPark; }
+                return null;
+            }
             // Get the current set, and append the new record to it
             var dataSet = GetParks();
             dataSet = dataSet.Append(newPark);
@@ -365,6 +355,8 @@ namespace LetsGoPark.WebSite.Services
             var dataSet = GetParks();
             var data = dataSet.FirstOrDefault(m => m.Id.Equals(id));
 
+            //If The data isn't in the dataset, return null
+            if (data == null) { return null; }
             var newDataSet = GetParks().Where(m => m.Id.Equals(id) == false);
 
             SaveData(newDataSet);
