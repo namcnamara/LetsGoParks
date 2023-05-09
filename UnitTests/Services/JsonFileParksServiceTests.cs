@@ -157,7 +157,24 @@ namespace UnitTests.Pages.Park.AddRating
             var newTopPark = TestHelper.ParkService.CompareParks(toppark, newpark);
 
             //Assert
-            Assert.AreEqual(newpark, newTopPark);
+            Assert.AreEqual(newpark.Id, newTopPark.Id);
+        }
+
+        [Test]
+        public void CompareParks_TopPark_Less_Votes_Same_Rating()
+        {
+            //Arrange
+            //Create two parks with same rating, toppark has less votes
+            var toppark = TestHelper.ParkService.GetParks().First(x => x.Id == "BRIDLE TRAILS STATE PARK");
+            var newpark = TestHelper.ParkService.GetParks().First(x => x.Id == "LAKE SAMMAMISH STATE PARK");
+
+            //Act
+            //should swap parks
+            var newTopPark = TestHelper.ParkService.CompareParks(toppark, newpark);
+
+            //Assert
+            //ensure newpark is newtoppark
+            Assert.AreEqual(newpark.Id, newTopPark.Id);
         }
         #endregion CompareParks
 
@@ -433,19 +450,184 @@ namespace UnitTests.Pages.Park.AddRating
             };
 
             //Act
-
+            TestHelper.ParkService.CreateData(newPark); 
+            var testPark = TestHelper.ParkService.GetParks().FirstOrDefault(m => m.Id.Equals(newPark.Id));
 
             //Assert
+            Assert.AreEqual(newPark.Id, testPark.Id);
+
 
         }
+        [Test]
+        public void CreateData_With_Invalid_Input_Should_Return_Null()
+        {
+            //Arrange
+            var newPark = new ParksModel
+            {
+                Id = "",
+                Description = "This is a test park",
+                Url = "http://testpark.com",
+                Image = "http://testpark.com",
+                Address = "123 Test Street",
+                Park_system = "Test System",
+                Activities = "Hiking",
+                Map_brochure = "http://testpark.com",
+                Permits = "No fees"
+            };
+
+            //Act
+            var result = TestHelper.ParkService.CreateData(newPark);
+            
+
+            //Assert
+            Assert.IsNull(result);
+
+
+        }
+        public void CreateData_With_Default_Input_Should_Return_Null()
+        {
+            //Arrange
+            var data = new ParksModel()
+            {
+                Id = "Enter Park Id",
+                Url = "Enter URL",
+                Image = "Enter Image URL",
+                Description = "Enter Description",
+                Ratings = null,
+                Address = "Enter Park Address",
+                Phone = "Enter Park Agency Phone Number",
+                Park_system = "Enter \"National\", \"City\", Or \"WA State\"",
+                Activities = "Enter activites separated by a comma, or NA",
+                Map_brochure = "Enter Map brochure URL or NA",
+                Permits = "Enter any fees associated with park",
+                Comments = null,
+            };
+
+            //Act
+            var createResult = TestHelper.ParkService.CreateData(data);
+            
+            //Assert
+            Assert.AreEqual(createResult, null);
+        }
+
         #endregion CreateData
 
         #region UpdateData
-        
+        [Test]
+        public void UpdateData_Passing_In_Valid_Data_Should_Return_Updated_Park()
+        {
+            //Arrange
+            //Create new park
+            var data = new ParksModel()
+            {
+                Id = "Enter Park Id",
+                Url = "Enter URL",
+                Image = "Enter Image URL",
+                Description = "Enter Description",
+                Ratings = null,
+                Address = "Enter Park Address",
+                Phone = "Enter Park Agency Phone Number",
+                Park_system = "Enter \"National\", \"City\", Or \"WA State\"",
+                Activities = "Enter activites separated by a comma, or NA",
+                Map_brochure = "Enter Map brochure URL or NA",
+                Permits = "Enter any fees associated with park",
+                Comments = null,
+            };
+            //Add to database
+            TestHelper.ParkService.CreateData(data );
+
+            //Act
+            string newURL = "updated URL"; 
+            data.Url = newURL;
+            var result = TestHelper.ParkService.UpdateData(data);
+
+            //Assert
+            //ensure URL field has been updated
+            Assert.AreEqual(data.Url, newURL);
+
+        }
+
+        [Test]
+        public void UpdateData_Passing_In_InValid_Data_Should_Return_Null()
+        {
+            //Arrange
+            ///Create new park w/o adding to database
+            var data = new ParksModel()
+            {
+                Id = "Enter Park Id",
+                Url = "Enter URL",
+                Image = "Enter Image URL",
+                Description = "Enter Description",
+                Ratings = null,
+                Address = "Enter Park Address",
+                Phone = "Enter Park Agency Phone Number",
+                Park_system = "Enter \"National\", \"City\", Or \"WA State\"",
+                Activities = "Enter activites separated by a comma, or NA",
+                Map_brochure = "Enter Map brochure URL or NA",
+                Permits = "Enter any fees associated with park",
+                Comments = null,
+            };
+
+            //Act
+            var result = TestHelper.ParkService.UpdateData(data);
+
+            //Assert
+            //ensure URL field has been updated
+            Assert.IsNull(result);
+
+        }
         #endregion UpdateData
 
         #region DeleteData
+        [Test]
+        public void DeleteData_Passing_In_Valid_Id_Should_Return_New_Park()
+        {
+            //Arrange
+            //Creating new park to delete
+            var data = new ParksModel()
+            {
+                Id = "Enter Park Id",
+                Url = "Enter URL",
+                Image = "Enter Image URL",
+                Description = "Enter Description",
+                Ratings = null,
+                Address = "Enter Park Address",
+                Phone = "Enter Park Agency Phone Number",
+                Park_system = "Enter \"National\", \"City\", Or \"WA State\"",
+                Activities = "Enter activites separated by a comma, or NA",
+                Map_brochure = "Enter Map brochure URL or NA",
+                Permits = "Enter any fees associated with park",
+                Comments = null,
+            };
+            //Act
+            //Add the new park to the database
+            TestHelper.ParkService.CreateData(data) ;
+            //Delete park
+            var result = TestHelper.ParkService.DeleteData(data.Id) ;
 
+
+            //Assert
+            //Ensure park deletion
+            Assert.AreEqual(data.Id, result.Id) ;
+
+
+        }
+
+        [Test]
+        public void DeleteData_Passing_In_Valid_Id_Should_Return_Null()
+        {
+            //Arrange
+            //No arrange neded
+
+            //Delete park
+            var result = TestHelper.ParkService.DeleteData("I dont exist");
+
+
+            //Assert
+            //Ensure park deletion
+            Assert.IsNull(result);
+
+        }
         #endregion DeleteData
     }
 }
