@@ -114,8 +114,8 @@
                                             &dateTime=@comment[1] &description=@comment[2] &token=@comment[3]">
                                             <u>Delete Comment</u>
                                         </a>
-
-
+                                        <br />
+                                        <br />
                                     }
                                     <br>
                                 }
@@ -123,7 +123,6 @@
                                 <!--comment record structure: [User, Time, Comment, Token]-->
                                 <strong>Write a comment:</strong> <br>
 
-                                <h1>Add a Comment!</h1>
                                 <!--Recieves input from user and saves via SubmitComment method. The date is updated in the function.-->
                                 <form method="post" @onsubmit="@(e => { SubmitComment(currentComment); })">
                                     <div class="comments">
@@ -144,6 +143,7 @@
                                     <button type="submit">Submit</button>
                                 </form>
 
+                                
 
                             </p>
                         </div>
