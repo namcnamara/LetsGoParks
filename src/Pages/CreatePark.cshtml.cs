@@ -23,17 +23,23 @@ namespace LetsGoPark.WebSite.Pages
         }
 
         // The data to show
-        public ParksModel Park;
+        [BindProperty]
+        public ParksModel Park { get; set; }
 
-        /// <summary>
-        /// REST Get request
-        /// </summary>
-        /// <param name="id"></param>
-        public IActionResult OnGet()
+        //Method taken upon submission of post button
+        public IActionResult OnPost()
         {
-            Park = ParksService.CreateData();
 
-            return RedirectToPage("./UpdatePark", new { Id = Park.Id });
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
+            //Calls the CreateData function in JsonFileParksService.cs
+            ParksService.CreateData(Park);
+
+            //Redirects to index upon completion of created park
+            return RedirectToPage("./Index");
         }
     }
 }
