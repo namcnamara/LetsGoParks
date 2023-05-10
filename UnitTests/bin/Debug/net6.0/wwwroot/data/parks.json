@@ -6,7 +6,9 @@
     "Description": "A 531-acre, day-use park with 6,858 feet of waterfront on Lake Sammamish. The area around the lake carries cultural significance as a gathering place for at least four Native American tribes.",
     "Ratings": [
       5,
-      1,
+      5,
+      5,
+      5,
       5,
       5
     ],
@@ -17,12 +19,6 @@
     "Map_brochure": "https://www.parks.wa.gov/DocumentCenter/View/1894/Lake-Sammamish-State-Park-PDF",
     "Permits": "Discover Pass required",
     "Comments": [
-      [
-        "Nicholas McNamara",
-        "2023-05-05 13:34:59",
-        "asdaf",
-        "2rwr"
-      ],
       [
         "TestName",
         "2023-04-20 10:09:34",
@@ -37,7 +33,7 @@
     "Url": "https://www.parks.wa.gov/481/Bridle-Trails",
     "Description": "Bridle Trails State Park is a 489-acre day-use park with 28 miles of trails that welcomes equestrians, hikers and visitors. It does not offer bike trails or camping. The park is known as one of the top equestrian parks west of the Mississippi; it does not, however, offer horse rentals.",
     "Ratings": [
-      1
+      5
     ],
     "Address": "5300 116th Ave. N.E. Kirkland, WA 98033",
     "Phone": "(425) 455-7010",
@@ -333,6 +329,34 @@
     "Activities": "SuccsSuccs",
     "Map_brochure": "Succs",
     "Permits": "SuccsSuccs",
+    "Comments": null
+  },
+  {
+    "Id": "Test Park",
+    "img": "http://testpark.com",
+    "Url": "http://testpark.com",
+    "Description": "This is a test park",
+    "Ratings": null,
+    "Address": "123 Test Street",
+    "Phone": null,
+    "Park_system": "Test System",
+    "Activities": "Hiking",
+    "Map_brochure": "http://testpark.com",
+    "Permits": "No fees",
+    "Comments": null
+  },
+  {
+    "Id": "Enter Park Id",
+    "img": "Enter Image URL",
+    "Url": "updated URL",
+    "Description": "Enter Description",
+    "Ratings": null,
+    "Address": "Enter Park Address",
+    "Phone": "Enter Park Agency Phone Number",
+    "Park_system": "Enter \u0022National\u0022, \u0022City\u0022, Or \u0022WA State\u0022",
+    "Activities": "Enter activites separated by a comma, or NA",
+    "Map_brochure": "Enter Map brochure URL or NA",
+    "Permits": "Enter any fees associated with park",
     "Comments": null
   }
 ]
