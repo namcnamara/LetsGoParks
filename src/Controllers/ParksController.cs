@@ -13,7 +13,7 @@ namespace LetsGoPark.WebSite.Controllers
     {
         public ParksController(JsonFileParksService parkService)
         {
-            ParkService = ParkService;
+            ParkService = parkService;
         }
 
         public JsonFileParksService ParkService { get; }
