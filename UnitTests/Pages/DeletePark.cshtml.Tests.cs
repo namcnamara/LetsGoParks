@@ -33,19 +33,19 @@ namespace UnitTests.Pages.DeletePark
 
         #region OnGet
         [Test]
-        public void OnGet_Park_Id_Correctly_Retrieved_Return_True()
+        public void OnGet_Park_Id_Correctly_Retrieved_Park_Populated()
         {
             //Arrange
             //Id doesn't exist
-            string badId = "LAKE SAMMAMISH STATE PARK";
+            string Id = "LAKE SAMMAMISH STATE PARK";
 
             //Act
             //retrieve specified park
-            var result = pageModel.OnGet(badId);
+            pageModel.OnGet(Id);
 
             //Assert
             //Should return null
-            Assert.IsTrue(result);
+            Assert.AreEqual(pageModel.Park.Id, "LAKE SAMMAMISH STATE PARK");
         }
 
         [Test]
@@ -57,11 +57,11 @@ namespace UnitTests.Pages.DeletePark
 
             //Act
             //retrieve specified park
-            var result = pageModel.OnGet(badId);
+            pageModel.OnGet(badId);
 
             //Assert
             //Should return null
-            Assert.IsFalse(result);
+            Assert.IsNull(pageModel.Park);
         }
         #endregion OnGet
 

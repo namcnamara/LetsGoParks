@@ -35,11 +35,9 @@ namespace LetsGoPark.WebSite.Pages
         /// Loads the Data
         /// </summary>
         /// <param name="id"></param>
-        public bool OnGet(string id)
+        public void OnGet(string id)
         {
             Park = ParksService.GetParks().FirstOrDefault(m => m.Id.Equals(id));
-            if (Park == null) { return false; }
-            return true;
         }
 
         /// <summary>
