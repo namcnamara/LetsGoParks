@@ -36,7 +36,7 @@
             </div>
             <div class="homecard">
                 <small class="text-muted">
-                    <button @onclick="(e => SelectPark(Park.Id))"
+                    <button @onclick="(e => SelectPark(Park.Id))" id="MoreInfoButton_@Park.Id"
                         data-toggle="modal" data-target="#ParkModal" class="btn btn-primary">
                         @Park.Id
                     </button>
