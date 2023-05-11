@@ -17,12 +17,15 @@ namespace UnitTests.Pages.Update
         public void ModelIsRendered()
         {
             // Arrange
+            //Create mock logger
             var loggerMock = new Mock<ILogger<UpdateCommentModel>>();
 
             // Act
+            //Load page model using mock logger
             var model = new UpdateCommentModel(loggerMock.Object);
 
             // Assert
+            //Ensure page model created
             Assert.NotNull(model);
            
         }
@@ -31,13 +34,16 @@ namespace UnitTests.Pages.Update
         public void Logger_IsCalled_OnGet()
         {
             // Arrange
+            //use mock logger to create page model
             var loggerMock = new Mock<ILogger<UpdateCommentModel>>();
             var model = new UpdateCommentModel(loggerMock.Object);
 
             // Act
+            //Invoke OnGet function of page model
             model.OnGet();
 
             // Assert
+            //Ensure logger is working correctly
             loggerMock.Verify(
                 x => x.Log(
                     It.IsAny<LogLevel>(),

@@ -38,10 +38,13 @@ namespace UnitTests.Pages.ReadPark
             // Arrange
 
             // Act
+            //Grab data from Park.Id = Lake Sammamish State park
             pageModel.OnGet("LAKE SAMMAMISH STATE PARK");
 
             // Assert
+            //Ensure model is created from OnGet
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            //Ensure correct page has been loaded
             Assert.AreEqual("LAKE SAMMAMISH STATE PARK", pageModel.Park.Id);
         }
         #endregion OnGet

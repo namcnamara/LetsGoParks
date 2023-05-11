@@ -17,12 +17,15 @@ namespace UnitTests.Pages.Delete
         public void ModelIsRendered()
         {
             // Arrange
+            //create mock logger
             var loggerMock = new Mock<ILogger<DeleteCommentModel>>();
 
             // Act
+            //Create page model using mock logger
             var model = new DeleteCommentModel(loggerMock.Object);
 
             // Assert
+            //Ensure page created correctly
             Assert.NotNull(model);
            
         }
@@ -31,13 +34,16 @@ namespace UnitTests.Pages.Delete
         public void Logger_IsCalled_OnGet()
         {
             // Arrange
+            //Create logger
             var loggerMock = new Mock<ILogger<DeleteCommentModel>>();
             var model = new DeleteCommentModel(loggerMock.Object);
 
             // Act
+            //Invoke onGet method
             model.OnGet();
 
             // Assert
+            //assert logger is working correctly
             loggerMock.Verify(
                 x => x.Log(
                     It.IsAny<LogLevel>(),

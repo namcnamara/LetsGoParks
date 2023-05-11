@@ -36,15 +36,15 @@ namespace UnitTests.Pages.DeletePark
         public void OnGet_Park_Id_Correctly_Retrieved_Park_Populated()
         {
             //Arrange
-            //Id doesn't exist
+            //Id does exist
             string Id = "LAKE SAMMAMISH STATE PARK";
 
             //Act
-            //retrieve specified park
+            //retrieve specified park with existing id
             pageModel.OnGet(Id);
 
             //Assert
-            //Should return null
+            //Should create page, and the Id should match initial parameter passed in as Id
             Assert.AreEqual(pageModel.Park.Id, "LAKE SAMMAMISH STATE PARK");
         }
 

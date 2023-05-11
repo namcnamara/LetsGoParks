@@ -34,18 +34,21 @@ namespace UnitTests.Pages.Error
         public void OnGet_Valid_Activity_Set_Should_Return_RequestId()
         {
             // Arrange
-
+            //Create new activity
             Activity activity = new Activity("activity");
             activity.Start();
 
             // Act
+            //call OnGet method
             pageModel.OnGet();
 
             // Reset
             activity.Stop();
 
             // Assert
+            //ensure model is valid
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            //ensure Ids match and was correctly used
             Assert.AreEqual(activity.Id, pageModel.RequestId);
         }
 

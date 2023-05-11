@@ -38,9 +38,11 @@ namespace UnitTests.Pages.UpdatePark
             // Arrange
 
             // Act
+            //Pass in valid park Id to OnGet function
             pageModel.OnGet("LAKE SAMMAMISH STATE PARK");
 
             // Assert
+            //Ensure model is valid, and the correct park was loaded per Id passed
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual("LAKE SAMMAMISH STATE PARK", pageModel.Park.Id);
         }
@@ -51,6 +53,7 @@ namespace UnitTests.Pages.UpdatePark
         public void OnPost_Valid_Should_Return_Parks()
         {
             // Arrange
+            //Create new park model
             pageModel.Park = new ParksModel
             {
                 Id = "LAKE SAMMAMISH STATE PARK 2",
@@ -68,9 +71,11 @@ namespace UnitTests.Pages.UpdatePark
             };
 
             // Act
+            //Gather pageModel as return type for a successful OnPost call
             var result = pageModel.OnPost() as RedirectToPageResult;
 
             // Assert
+            // Ensure model is valid, and the redirect goes to the correct index page
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual(true, result.PageName.Contains("Index"));
         }
@@ -79,14 +84,15 @@ namespace UnitTests.Pages.UpdatePark
         public void OnPost_InValid_Model_NotValid_Return_Page()
         {
             // Arrange
-
             // Force an invalid error state
             pageModel.ModelState.AddModelError("bogus", "bogus error");
 
             // Act
+            //Call OnPost method and get ActionResult
             var result = pageModel.OnPost() as ActionResult;
 
             // Assert
+            //Ensure page model is in an invalid state
             Assert.AreEqual(false, pageModel.ModelState.IsValid);
         }
         #endregion OnPost

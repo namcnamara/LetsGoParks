@@ -69,6 +69,7 @@ namespace UnitTests.Pages.CreatePark
             var result = pageModel.OnPost() as ActionResult;
 
             // Assert
+            //ensure model recieved is invalid
             Assert.AreEqual(false, pageModel.ModelState.IsValid);
         }
 
@@ -99,7 +100,9 @@ namespace UnitTests.Pages.CreatePark
             pageModel.OnPost();
 
             // Assert
+                //Assert model is valid
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
+                //Assert park count is increased
             Assert.AreEqual(oldCount + 1, TestHelper.ParkService.GetParks().Count());
         }
 

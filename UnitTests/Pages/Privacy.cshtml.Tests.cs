@@ -17,12 +17,15 @@ namespace UnitTests.Pages.Privacy
         public void ModelIsRendered()
         {
             // Arrange
+            //Create mock logger
             var loggerMock = new Mock<ILogger<PrivacyModel>>();
 
             // Act
+            //Invoke privacy model
             var model = new PrivacyModel(loggerMock.Object);
 
             // Assert
+            //Ensure model is created
             Assert.NotNull(model);
            
         }
@@ -32,13 +35,16 @@ namespace UnitTests.Pages.Privacy
         public void Logger_IsCalled_OnGet()
         {
             // Arrange
+            //Create mock logger to create privacy page model
             var loggerMock = new Mock<ILogger<PrivacyModel>>();
             var model = new PrivacyModel(loggerMock.Object);
 
             // Act
+            //Invoke OnGet
             model.OnGet();
 
             // Assert
+            //verify correct usage of logger
             loggerMock.Verify(
                 x => x.Log(
                     It.IsAny<LogLevel>(),
