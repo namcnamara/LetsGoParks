@@ -11,9 +11,17 @@ using System;
 
 namespace UnitTests.Pages.Delete
 {
+    /// <summary>
+    /// Unit tests for DeleteCommentModel class
+    /// </summary>
     public class DeleteCommentModelTests
     {
         [Test]
+        /// <summary>
+        /// Creates a loggerMock
+        /// Create page model using mock logger
+        /// Tests if the model is null
+        /// </summary>
         public void ModelIsRendered()
         {
             // Arrange
@@ -31,6 +39,12 @@ namespace UnitTests.Pages.Delete
         }
 
         [Test]
+        /// <summary>
+        /// Creates a loggerMock
+        /// Create page model using mock logger
+        /// Invoke onGet method
+        /// Tests if the logger is working correctly
+        /// </summary>
         public void Logger_IsCalled_OnGet()
         {
             // Arrange

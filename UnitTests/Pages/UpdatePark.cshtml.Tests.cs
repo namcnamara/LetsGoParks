@@ -16,9 +16,15 @@ using System;
 
 namespace UnitTests.Pages.UpdatePark
 {
+    /// <summary>
+    /// Unit tests for UpdatePark
+    /// </summary>
     public class UpdateParkTests
     {
         #region TestSetup
+        /// <summary>
+        /// Test Setup
+        /// </summary>
         public static UpdateParkModel pageModel;
 
         [SetUp]
@@ -33,6 +39,10 @@ namespace UnitTests.Pages.UpdatePark
 
         #region OnGet
         [Test]
+        /// <summary>
+        /// Invoke OnGet by a park id
+        /// Tests if the Ids are equal
+        /// </summary>
         public void OnGet_Valid_Should_Return_Parks()
         {
             // Arrange
@@ -50,6 +60,11 @@ namespace UnitTests.Pages.UpdatePark
 
         #region OnPost
         [Test]
+        /// <summary>
+        /// Create new park model
+        /// Gather pageModel as return type for a successful OnPost call
+        /// Tests if the model is valid, and the redirect goes to the correct index page
+        /// </summary>
         public void OnPost_Valid_Should_Return_Parks()
         {
             // Arrange
@@ -81,6 +96,11 @@ namespace UnitTests.Pages.UpdatePark
         }
 
         [Test]
+        /// <summary>
+        /// Force an invalid error state
+        /// Call OnPost method and get ActionResult
+        /// Tests if the page model is in an invalid state
+        /// </summary>
         public void OnPost_InValid_Model_NotValid_Return_Page()
         {
             // Arrange

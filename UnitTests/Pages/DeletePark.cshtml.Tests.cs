@@ -16,9 +16,15 @@ using System;
 
 namespace UnitTests.Pages.DeletePark
 {
+    /// <summary>
+    /// Unit tests for DeletePark
+    /// </summary>
     public class DeleteParkTests
     {
         #region TestSetup
+        /// <summary>
+        /// Test Setup
+        /// </summary>
         public static DeleteParkModel pageModel;
 
         [SetUp]
@@ -33,6 +39,11 @@ namespace UnitTests.Pages.DeletePark
 
         #region OnGet
         [Test]
+        /// <summary>
+        /// Use an existed Id
+        /// Retrieve specified park with existing id
+        /// Tests if page created, and the Id should match initial parameter passed in as Id
+        /// </summary>
         public void OnGet_Park_Id_Correctly_Retrieved_Park_Populated()
         {
             //Arrange
@@ -49,6 +60,11 @@ namespace UnitTests.Pages.DeletePark
         }
 
         [Test]
+        /// <summary>
+        /// Use an not existed Id
+        /// Retrieve specified park with the id
+        /// Tests if pageModel.Park returns null
+        /// </summary>
         public void OnGet_Park_Id_Not_Retrieved_Return_False()
         {
             //Arrange
@@ -67,6 +83,13 @@ namespace UnitTests.Pages.DeletePark
 
         #region OnPost
         [Test]
+        /// <summary>
+        /// Create new park to database
+        /// Gets original number of parks in database
+        /// Adds park to database without URL field, will be invalid field
+        /// Try to delete park
+        /// Tests if park counts before and after are equal
+        /// </summary>
         public void OnPost_Delete_Should_Reduce_Park_Count()
         {
             // Arrange

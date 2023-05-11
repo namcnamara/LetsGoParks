@@ -12,6 +12,9 @@ namespace UnitTests.Pages.Error
 {
     public class ErrorTests
     {
+        /// <summary>
+        /// Unit tests for pageModel
+        /// </summary>
         #region TestSetup
         public static ErrorModel pageModel;
 
@@ -31,6 +34,11 @@ namespace UnitTests.Pages.Error
 
         #region OnGet
         [Test]
+        /// <summary>
+        /// Creates a new activity
+        /// Call OnGet method then reset
+        /// Tests if the model is valid and Ids match and was correctly used
+        /// </summary>
         public void OnGet_Valid_Activity_Set_Should_Return_RequestId()
         {
             // Arrange
@@ -53,6 +61,10 @@ namespace UnitTests.Pages.Error
         }
 
         [Test]
+        /// <summary>
+        /// Call OnGet method when activity is null
+        /// Tests if the model is invalid and Id matches desired value 
+        /// </summary>
         public void OnGet_InValid_Activity_Null_Should_Return_TraceIdentifier()
         {
             // Arrange

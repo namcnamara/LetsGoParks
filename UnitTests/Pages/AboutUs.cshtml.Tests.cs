@@ -11,8 +11,16 @@ using System;
 
 namespace UnitTests.Pages.AboutUs
 {
+    /// <summary>
+    /// Unit tests for AboutUsModel
+    /// </summary>
     public class AboutUsModelTests
     {
+        /// <summary>
+        /// Creates a loggerMock
+        /// Invoke model
+        /// Tests if the model is null
+        /// </summary>
         [Test]
         public void ModelIsRendered()
         {

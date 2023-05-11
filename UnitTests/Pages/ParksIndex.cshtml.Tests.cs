@@ -11,24 +11,40 @@ using System;
 
 namespace UnitTests.Pages
 {
+    /// <summary>
+    /// Unit tests for ParksIndexModel
+    /// </summary>
     public class ParksIndexModelTests
     {
         [Test]
+        /// <summary>
+        /// Creates a logger mocker, an env mocker and set up parkService
+        /// Invoke model
+        /// Tests if the model is null
+        /// </summary>
         public void ModelIsRendered()
         {
             // Arrange
+            // Creates a logger mocker, an env mocker and set up parkService
             var loggerMock = new Mock<ILogger<ParksIndexModel>>();
             var envMock = new Mock<IWebHostEnvironment>();
             var parkService = new JsonFileParksService(envMock.Object);
 
             // Act
+            // Invoke model
             var model = new ParksIndexModel(loggerMock.Object, parkService);
 
             // Assert
+            // Tests if the model is null
             Assert.NotNull(model);
         }
 
         [Test]
+        /// <summary>
+        /// Creates a logger mocker, an env mocker and set up parkService
+        /// Invoke model
+        /// Tests if the model is null
+        /// </summary>
         public void ParkService_Is_Loaded()
         {
             // Arrange
@@ -47,6 +63,11 @@ namespace UnitTests.Pages
         }
 
         [Test]
+        /// <summary>
+        /// Creates a logger mocker, an env mocker and set up parkService
+        /// Call OnGet
+        /// Tests if the model is null
+        /// </summary>
         public void Parks_Are_Loaded()
         {
             // Arrange

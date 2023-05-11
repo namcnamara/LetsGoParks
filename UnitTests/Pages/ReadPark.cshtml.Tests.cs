@@ -16,8 +16,14 @@ using System;
 
 namespace UnitTests.Pages.ReadPark
 {
+    /// <summary>
+    /// Unit tests for ReadPark
+    /// </summary>
     public class ReadParkTests
     {
+        /// <summary>
+        /// Test Setup
+        /// </summary>
         #region TestSetup
         public static ReadParkModel pageModel;
 
@@ -33,6 +39,10 @@ namespace UnitTests.Pages.ReadPark
 
         #region OnGet
         [Test]
+        /// <summary>
+        /// Invoke OnGet and grab data from a park id
+        /// Tests if the model is created from OnGet and correct page has been loaded
+        /// </summary>
         public void OnGet_Valid_Should_Return_Products()
         {
             // Arrange

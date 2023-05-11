@@ -11,9 +11,17 @@ using System;
 
 namespace UnitTests.Pages
 {
+    /// <summary>
+    /// Unit tests for IndexModel
+    /// </summary>
     public class IndexModelTests
     {
         [Test]
+        /// <summary>
+        /// Create mock variables to instantiate park service
+        /// Create index model object
+        /// Tests if model was created.
+        /// </summary>
         public void ModelIsRendered()
         {
             // Arrange
@@ -32,6 +40,11 @@ namespace UnitTests.Pages
         }
 
         [Test]
+        /// <summary>
+        /// Create mock variables
+        /// Create new model with mock variables
+        /// Tests if Parkservice variable is created
+        /// </summary>
         public void ParkService_Is_Loaded()
         {
             // Arrange
@@ -50,6 +63,12 @@ namespace UnitTests.Pages
         }
 
         [Test]
+        /// <summary>
+        /// Create variables to mock logger and set up environment
+        /// Incoke parkservice using mock environment with access to root path
+        /// Call model and onGet function
+        /// Tests if enumerable has parks filled
+        /// </summary>
         public void Parks_Are_Loaded()
         {
             // Arrange

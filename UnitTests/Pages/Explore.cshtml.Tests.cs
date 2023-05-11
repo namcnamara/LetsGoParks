@@ -11,9 +11,17 @@ using System;
 
 namespace UnitTests.Pages
 {
+    /// <summary>
+    /// Unit tests for ExploreModel
+    /// </summary>
     public class ExploreModelTests
     {
         [Test]
+        /// <summary>
+        /// Create mock variables, and invoke JsonFileParksService.
+        /// Uses mock logger and webhost to create model.
+        /// Tests if the model was correclty rendered.
+        /// </summary>
         public void ModelIsRendered()
         {
             // Arrange
@@ -32,6 +40,11 @@ namespace UnitTests.Pages
         }
 
         [Test]
+        /// <summary>
+        /// Create mock variables
+        /// Create new model with mock variables
+        /// Ensure Parkservice variable is created
+        /// </summary>
         public void ParkService_Is_Loaded()
         {
             // Arrange
@@ -50,6 +63,13 @@ namespace UnitTests.Pages
         }
 
         [Test]
+        /// <summary>
+        /// Create variables to mock logger and environment
+        /// Create root path for database 
+        /// Incoke parkservice using mock environment with access to root path
+        /// Call model and onGet function
+        /// Ensure enumerable has parks filled
+        /// </summary>
         public void Parks_Are_Loaded()
         {
             // Arrange

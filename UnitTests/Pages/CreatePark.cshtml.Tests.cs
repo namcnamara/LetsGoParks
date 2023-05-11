@@ -11,8 +11,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace UnitTests.Pages.CreatePark
 {
+    /// <summary>
+    /// Unit tests for CreateParkModel
+    /// </summary>
     public class CreateParkTests
     {
+        /// <summary>
+        /// Test Setup
+        /// </summary>
         #region TestSetup
         public static CreateParkModel pageModel;
 
@@ -27,6 +33,12 @@ namespace UnitTests.Pages.CreatePark
         #endregion TestSetup
 
         #region OnPost
+        /// <summary>
+        /// Gets original number of parks in database 
+        /// Adds park to database without URL field, will be invalid field
+        /// Try to create park, should fail
+        /// Tests if the counts before and after are equal
+        /// </summary>
         [Test]
         public void OnPost_Invalid_Model_Should_Not_Increase_Count()
         {
@@ -60,6 +72,11 @@ namespace UnitTests.Pages.CreatePark
         }
 
         [Test]
+        /// <summary>
+        /// Force an invalid error state
+        /// Get the action result
+        /// Tests if the model state is valid
+        /// </summary>
         public void OnPost_Force_Bad_State()
         {
             // Force an invalid error state
@@ -74,6 +91,11 @@ namespace UnitTests.Pages.CreatePark
         }
 
         [Test]
+        /// <summary>
+        /// Gets original number of parks in database 
+        /// Adds park to database
+        /// Tests if the counts before and after are equal
+        /// </summary>
         public void OnPost_Valid_Should_Return_Incremented_Parks_Count()
         {
             // Arrange
@@ -100,9 +122,9 @@ namespace UnitTests.Pages.CreatePark
             pageModel.OnPost();
 
             // Assert
-                //Assert model is valid
+            //Assert model is valid
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-                //Assert park count is increased
+            //Assert park count is increased
             Assert.AreEqual(oldCount + 1, TestHelper.ParkService.GetParks().Count());
         }
 

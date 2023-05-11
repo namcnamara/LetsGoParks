@@ -1,9 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
-
 using NUnit.Framework;
-
 using Moq;
-
 using LetsGoPark.WebSite.Pages;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -11,9 +8,17 @@ using System;
 
 namespace UnitTests.Pages.Privacy
 {
+    /// <summary>
+    /// Unit tests for PrivacyModel
+    /// </summary>
     public class PrivacyModelTests
     {
         [Test]
+        /// <summary>
+        /// Creates a loggerMock
+        /// Invoke model
+        /// Tests if the model is null
+        /// </summary>
         public void ModelIsRendered()
         {
             // Arrange
@@ -32,6 +37,11 @@ namespace UnitTests.Pages.Privacy
 
 
         [Test]
+        /// <summary>
+        /// Creates a loggerMock
+        /// Invoke OnGet
+        /// Verify correct usage of logger
+        /// </summary>
         public void Logger_IsCalled_OnGet()
         {
             // Arrange
