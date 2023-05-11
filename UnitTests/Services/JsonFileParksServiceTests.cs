@@ -10,10 +10,15 @@ using System.Collections.Generic;
 
 namespace UnitTests.Pages.Park.AddRating
 {
+    /// <summary>
+    /// Unit tests for JsonFileParksService
+    /// </summary>
     public class JsonFileParksServiceTests
     {
         #region TestSetup
-
+        /// <summary>
+        /// Test Setup
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
@@ -22,6 +27,11 @@ namespace UnitTests.Pages.Park.AddRating
         #endregion TestSetup
 
         #region AddRating
+        /// <summary>
+        /// Gather park to test
+        /// Pass in bad value to function
+        /// Tests if the function fails, returns false
+        /// </summary>
         [Test]
         public void AddRating_InValid_Boundary_Below_0_Valid_ID_Should_Return_False()
         {
@@ -39,6 +49,11 @@ namespace UnitTests.Pages.Park.AddRating
         }
 
         [Test]
+        /// <summary>
+        /// Gather park to test
+        /// Pass in bad value to function
+        /// Tests if the function fails, returns false
+        /// </summary>
         public void AddRating_InValid_Boundary_Above_5_Valid_ID_Should_Return_False()
         {
             // Arrange
@@ -55,6 +70,11 @@ namespace UnitTests.Pages.Park.AddRating
         }
 
         [Test]
+        /// <summary>
+        /// Gather park to test
+        /// Try to add a rating to park that doesn't exist
+        /// Tests if the function fails, returns false
+        /// </summary>
         public void AddRating_InValid_Park_Null_Valid_Rating_Should_Return_False()
         {
             // Arrange
@@ -68,6 +88,11 @@ namespace UnitTests.Pages.Park.AddRating
         }
 
         [Test]
+        /// <summary>
+        /// Gather park to test
+        /// Pass in bad value to function
+        /// Tests if the function fails, returns false
+        /// </summary>
         public void AddRating_InValid_Park_ID_Valid_Rating_Should_Return_False()
         {
             // Arrange
@@ -82,6 +107,11 @@ namespace UnitTests.Pages.Park.AddRating
         }
 
         [Test]
+        /// <summary>
+        /// Gather park to test
+        /// Pass in Id with empty ratings
+        /// Tests if the function fails, returns false
+        /// </summary>
         public void AddRating_Empty_ParkArray_Rating_Valid_Should_Return_True()
         {
             // Arrange
@@ -97,6 +127,11 @@ namespace UnitTests.Pages.Park.AddRating
         }
 
         [Test]
+        /// <summary>
+        /// Gather park to test
+        /// Pass in bad value to function
+        /// Tests if the function fails, returns false
+        /// </summary>
         public void AddRating_Valid_Park_Valid_Rating_Valid_Should_Return_True()
         {
             // Arrange
@@ -121,6 +156,10 @@ namespace UnitTests.Pages.Park.AddRating
 
         #region GetHighestRatedPark
         [Test]
+        /// <summary>
+        /// Gather highest rated park
+        /// Tests if the park Id is as desired
+        /// </summary>
         public void GetHighestRatedPark_Ensure_Correct_Park_Returned()
         {
             //Arrange
@@ -138,6 +177,10 @@ namespace UnitTests.Pages.Park.AddRating
 
         #region GetHighestRatedParks
         [Test]
+        /// <summary>
+        /// Gather highest rated park
+        /// Tests if the park Id is as desired
+        /// </summary>
         public void GetHighestRatedParks_Ensure_Correct_Park_Returned()
         {
             //Act
@@ -157,6 +200,11 @@ namespace UnitTests.Pages.Park.AddRating
 
         #region CompareParks
         [Test]
+        /// <summary>
+        /// Grab park with null rating, assign as top park
+        /// Compare parks
+        /// Tests if the parks were switched
+        /// </summary>
         public void CompareParks_TopPark_Null_park_Not_Null()
         {
             //Arrange
@@ -175,6 +223,11 @@ namespace UnitTests.Pages.Park.AddRating
         }
 
         [Test]
+        /// <summary>
+        /// Create two parks with same rating, toppark has less votes
+        /// Swap parks
+        /// Tests if the newpark is newtoppark
+        /// </summary>
         public void CompareParks_TopPark_Less_Votes_Same_Rating()
         {
             //Arrange
@@ -194,6 +247,11 @@ namespace UnitTests.Pages.Park.AddRating
 
         #region AddComment
         [Test]
+        /// <summary>
+        /// Create new comment
+        /// Get park and add new comment to selected park
+        /// Tests if the 4 values in the comment array are equal to the passed in values
+        /// </summary>
         public void AddComment_Comment_Added_To_Empty_Array()
         {
             //Arrange
@@ -216,6 +274,12 @@ namespace UnitTests.Pages.Park.AddRating
         }
 
         [Test]
+        /// <summary>
+        /// Create new comment array and gather first park in national Parks
+        /// Attempt to add comment
+        /// Regrab park with updated comment
+        /// Tests if the comment grabbed is the same one just created in the park
+        /// </summary>
         public void AddComment_Comment_Added_To_Populated_Array()
         {
             //Arrange
@@ -246,6 +310,10 @@ namespace UnitTests.Pages.Park.AddRating
 
 
         [Test]
+        /// <summary>
+        /// Create new comment and update
+        /// Tests if the comment update was successful
+        /// </summary>
         public void UpdateComment_With_Valid_Comment_Returns_True()
         {
             // Arrange
@@ -266,6 +334,10 @@ namespace UnitTests.Pages.Park.AddRating
         }
 
         [Test]
+        /// <summary>
+        /// Create new comment and update with null value entries
+        /// Tests if the comment update was failed
+        /// </summary>
         public void UpdateComment_With_Null_Comment_Returns_False()
         {
             // Arrange
@@ -285,6 +357,10 @@ namespace UnitTests.Pages.Park.AddRating
         }
 
         [Test]
+        /// <summary>
+        /// Create new comment and update with Non-existent park ID
+        /// Tests if the comment update was failed
+        /// </summary>
         public void UpdateComment_With_Invalid_ParkId_Returns_False()
         {
             // Arrange
@@ -303,6 +379,10 @@ namespace UnitTests.Pages.Park.AddRating
         }
 
         [Test]
+        /// <summary>
+        /// Create new comment and update with a comment index that doesn't exist
+        /// Tests if the comment update was failed
+        /// </summary>
         public void UpdateComment_With_Invalid_CommentIndex_Returns_False()
         {
             // Arrange
@@ -322,6 +402,10 @@ namespace UnitTests.Pages.Park.AddRating
         }
 
         [Test]
+        /// <summary>
+        /// Create new comment and update and update with a new comment
+        /// Tests if the comment was updated
+        /// </summary>
         public void UpdateComment_Updates_Comment_Successfully()
         {
             // Arrange
@@ -344,6 +428,10 @@ namespace UnitTests.Pages.Park.AddRating
 
 
         [Test]
+        /// <summary>
+        /// Create new comment and update and update with index less than comment count
+        /// Tests if the comment was updated
+        /// </summary>
         public void UpdateComment_With_Index_Less_Than_Comment_Count_Updates_Successfully()
         {
             // Arrange
@@ -368,6 +456,10 @@ namespace UnitTests.Pages.Park.AddRating
         }
 
         [Test]
+        /// <summary>
+        /// Create new comment and update and update with index greater than comment count
+        /// Tests if the comment was not updated
+        /// </summary>
         public void UpdateComment_With_Index_Greater_Than_Comment_Count_Returns_False()
         {
             // Arrange
@@ -382,6 +474,10 @@ namespace UnitTests.Pages.Park.AddRating
             Assert.IsFalse(result);
         }
         [Test]
+        /// <summary>
+        /// Create new comment and update and update with null values
+        /// Tests if the comment was not updated
+        /// </summary>
         public void UpdateComment_Pass_Null_Value_Return_False()
         {
             // Arrange
@@ -400,6 +496,10 @@ namespace UnitTests.Pages.Park.AddRating
 
         #region DeleteComment
         [Test]
+        /// <summary>
+        /// Delete a comment with null value
+        /// Tests if the delete is failed
+        /// </summary>
         public void DeleteComment_Pass_Null_Value_Return_False()
         {
             // Arrange
@@ -415,6 +515,10 @@ namespace UnitTests.Pages.Park.AddRating
             Assert.AreEqual(result, false);
         }
         [Test]
+        /// <summary>
+        /// Delete a comment when at least one comment in the array left
+        /// Tests if the delete is successful
+        /// </summary>
         public void DeleteComment_Comments_Deleted_Successfully_At_Least_1_Comment_In_Array_Left()
         {
             //Arrange
@@ -439,6 +543,10 @@ namespace UnitTests.Pages.Park.AddRating
         }
 
         [Test]
+        /// <summary>
+        /// Delete a comment 
+        /// Tests if the comment was deleted
+        /// </summary>
         public void DeleteComment_Remove_Only_Comment()
         {
             // Arrange
@@ -457,6 +565,10 @@ namespace UnitTests.Pages.Park.AddRating
        
 
         [Test]
+        /// <summary>
+        /// Delete a comment that doesn't exsit
+        /// Tests if the delete failed
+        /// </summary>
         public void DeleteComment_Requested_Park_ID_Does_Not_Exist_Return_False()
         {
             // Arrange
@@ -471,6 +583,10 @@ namespace UnitTests.Pages.Park.AddRating
         }
 
         [Test]
+        /// <summary>
+        /// Delete a comment that with negative index
+        /// Tests if the delete failed
+        /// </summary>
         public void DeleteComment_Passing_Negative_Index_Return_False()
         {
 
@@ -487,6 +603,10 @@ namespace UnitTests.Pages.Park.AddRating
 
         #region CreateData
         [Test]
+        /// <summary>
+        /// Create data with valid input
+        /// Tests if the park entry is created 
+        /// </summary>
         public void CreateData_With_Valid_Input_Should_Create_New_Park()
         {
             //Arrange
@@ -513,6 +633,10 @@ namespace UnitTests.Pages.Park.AddRating
 
         }
         [Test]
+        /// <summary>
+        /// Create data with invalid input
+        /// Tests if the park entry is created 
+        /// </summary>
         public void CreateData_With_Invalid_Input_Should_Return_Null()
         {
             //Arrange
@@ -538,6 +662,11 @@ namespace UnitTests.Pages.Park.AddRating
 
 
         }
+        [Test]
+        /// <summary>
+        /// Create data with default input
+        /// Tests if the park entry is created 
+        /// </summary>
         public void CreateData_With_Default_Input_Should_Return_Null()
         {
             //Arrange
@@ -568,6 +697,10 @@ namespace UnitTests.Pages.Park.AddRating
 
         #region UpdateData
         [Test]
+        /// <summary>
+        /// Update data with valid input
+        /// Tests if the update is successful
+        /// </summary>
         public void UpdateData_Passing_In_Valid_Data_Should_Return_Updated_Park()
         {
             //Arrange
@@ -604,6 +737,10 @@ namespace UnitTests.Pages.Park.AddRating
         }
 
         [Test]
+        /// <summary>
+        /// Update data with null values included in the input
+        /// Tests if the update is successful
+        /// </summary>
         public void UpdateData_Passing_In_InValid_Data_Should_Return_Null()
         {
             //Arrange
@@ -637,6 +774,10 @@ namespace UnitTests.Pages.Park.AddRating
 
         #region DeleteData
         [Test]
+        /// <summary>
+        /// Delete data with valid Id
+        /// Tests if the delete is successful
+        /// </summary>
         public void DeleteData_Passing_In_Valid_Id_Should_Return_New_Park()
         {
             //Arrange
@@ -671,6 +812,10 @@ namespace UnitTests.Pages.Park.AddRating
         }
 
         [Test]
+        /// <summary>
+        /// Delete data with invalid Id
+        /// Tests if the delete is successful
+        /// </summary>
         public void DeleteData_Passing_In_Valid_Id_Should_Return_Null()
         {
             //Arrange
