@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace UnitTests.Components
 {
-    public class ParksListTests : BunitTestContext
+    public class HomepageTests : BunitTestContext
     {
         #region TestSetup
 
@@ -27,8 +27,8 @@ namespace UnitTests.Components
             Services.AddSingleton<JsonFileParksService>(TestHelper.ParkService);
 
             // Act
-            //Render the ParksList page
-            var page = RenderComponent<ParksList>();
+            //Render the Homepage page
+            var page = RenderComponent<Homepage>();
 
             // Get the Cards retrned
             var result = page.Markup;
@@ -46,7 +46,7 @@ namespace UnitTests.Components
             Services.AddSingleton<JsonFileParksService>(TestHelper.ParkService);
             var id = "MoreInfoButton_LAKE SAMMAMISH STATE PARK";
 
-            var page = RenderComponent<ParksList>();
+            var page = RenderComponent<Homepage>();
 
             // Find the Buttons (more info)
             var buttonList = page.FindAll("Button");
@@ -65,5 +65,6 @@ namespace UnitTests.Components
             Assert.AreEqual(true, pageMarkup.Contains("531"));
         }
         #endregion SelectPark
+
     }
 }
