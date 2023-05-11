@@ -8,10 +8,15 @@ using System.Linq;
 
 namespace UnitTests.Components
 {
+    /// <summary>
+    /// Unit tests for ParksList
+    /// </summary>
     public class ParksListTests : BunitTestContext
     {
         #region TestSetup
-
+        /// <summary>
+        /// Test Setup
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
@@ -20,6 +25,12 @@ namespace UnitTests.Components
         #endregion TestSetup
 
         [Test]
+        /// <summary>
+        /// Creates a singleton of the file service
+        /// Render the ParksList page
+        /// Get the Cards retrned
+        /// Ensure a valid Id is present
+        /// </summary>
         public void ParkList_Default_Should_Return_Content()
         {
             // Arrange
@@ -40,6 +51,12 @@ namespace UnitTests.Components
 
         #region SelectPark
         [Test]
+        /// <summary>
+        /// Find the Buttons (more info)
+        /// Find the one that matches the ID looking for and click it
+        /// Get the markup to use for the assert
+        /// Ensure the acerage of "LAKE SAMMAMISH STATE PARK" is within the markup
+        /// </summary>
         public void SelectPark_Valid_ID_Lake_Sammamish_Should_Return_Content()
         {
             // Arrange
