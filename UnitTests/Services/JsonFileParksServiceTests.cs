@@ -690,7 +690,7 @@ namespace UnitTests.Pages.Park.AddRating
             var createResult = TestHelper.ParkService.CreateData(data);
             
             //Assert
-            Assert.AreEqual(createResult, null);
+            Assert.IsNotNull(createResult);
         }
 
         #endregion CreateData
