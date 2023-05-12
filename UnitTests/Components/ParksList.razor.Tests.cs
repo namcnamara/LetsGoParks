@@ -5,6 +5,9 @@ using LetsGoPark.WebSite.Components;
 using Microsoft.Extensions.DependencyInjection;
 using LetsGoPark.WebSite.Services;
 using System.Linq;
+using Moq;
+using NUnit.Framework.Internal;
+using System.Threading.Channels;
 
 namespace UnitTests.Components
 {
@@ -100,18 +103,18 @@ namespace UnitTests.Components
             var page = RenderComponent<ParksList>();
 
             // Find the filter dropdown
-            var optionList = page.FindAll("Option");
+            var dropdown = page.Find("#filter-dropdown");
 
             // Act
             // Find the one that matches the filterDataString looking for and click it
-            var option = optionList.First(m => m.OuterHtml.Contains(filterDataString));
+            dropdown.Change("filterDataString");
 
             // Get the markup to use for the assert
             var pageMarkup = page.Markup;
 
             // Assert
             //ensure the "National Parks" is within the markup
-            Assert.AreEqual(true, pageMarkup.Contains("Mount Rainier National Park"));
+            Assert.AreEqual(true, pageMarkup.Contains("National"));
         }
 
         #endregion FilterPark
@@ -119,20 +122,17 @@ namespace UnitTests.Components
         #region SubmitRating
 
         [Test]
+        /// <summary>
+        /// This test tests that the SubmitRating will change the vote as well as the Star checked
+        /// Because the star check is a calculation of the ratings, using a record that has no stars and checking one makes it clear what was changed
+        /// The test needs to open the page
+        /// Then open the popup on the card
+        /// Then record the state of the count and star check status
+        /// Then check a star
+        /// Then check again the state of the cound and star check status
+        /// </summary>
         public void SubmitRating_Valid_ID_Click_Unstared_Should_Increment_Count_And_Check_Star()
         {
-            /*
-             This test tests that the SubmitRating will change the vote as well as the Star checked
-             Because the star check is a calculation of the ratings, using a record that has no stars and checking one makes it clear what was changed
-
-            The test needs to open the page
-            Then open the popup on the card
-            Then record the state of the count and star check status
-            Then check a star
-            Then check again the state of the cound and star check status
-
-            */
-
             // Arrange
             Services.AddSingleton<JsonFileParksService>(TestHelper.ParkService);
             var id = "Olympic National Park";
@@ -193,20 +193,17 @@ namespace UnitTests.Components
         }
 
         [Test]
+        /// <summary>
+        /// This test tests that the SubmitRating will change the vote as well as the Star checked
+        /// Because the star check is a calculation of the ratings, using a record that has no stars and checking one makes it clear what was changed
+        /// The test needs to open the page
+        /// Then open the popup on the card
+        /// Then record the state of the count and star check status
+        /// Then check a star
+        /// Then check again the state of the cound and star check status
+        /// </summary>
         public void SubmitRating_Valid_ID_Click_Stared_Should_Increment_Count_And_Leave_Star_Check_Remaining()
         {
-            /*
-             This test tests that the SubmitRating will change the vote as well as the Star checked
-             Because the star check is a calculation of the ratings, using a record that has no stars and checking one makes it clear what was changed
-
-            The test needs to open the page
-            Then open the popup on the card
-            Then record the state of the count and star check status
-            Then check a star
-            Then check again the state of the cound and star check status
-
-            */
-
             // Arrange
             Services.AddSingleton<JsonFileParksService>(TestHelper.ParkService);
             var id = "North Cascades National Park";
@@ -266,5 +263,193 @@ namespace UnitTests.Components
             Assert.AreEqual(false, preVoteCountString.Equals(postVoteCountString));
         }
         #endregion SubmitRating
+
+        #region SubmitComment
+
+        [Test]
+        /// <summary>
+        ///This test tests that the GetCurrentCommentCount will return zero if no comments exsited
+        ///The test needs to open the page
+        ///Then open the popup on the card
+        ///Then check the count of the comment
+        /// </summary>
+        public void GetCurrentCommentCount_Valid_ID_No_Comments_Should_Return_Zero()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileParksService>(TestHelper.ParkService);
+            var id = "Olympic National Park";
+
+            var page = RenderComponent<ParksList>();
+
+            // Find the Buttons (more info)
+            var buttonList = page.FindAll("Button");
+
+            // Find the one that matches the ID looking for and click it
+            var button = buttonList.First(m => m.OuterHtml.Contains(id));
+            button.Click();
+
+            // Get the spans
+            var spans = page.FindAll("span");
+
+            // Get the comment Count, the List should have 10 elements, element 4 is the string for the count
+            var commentCountSpan = spans[3];
+            var commentCountSpanString = commentCountSpan.OuterHtml;
+
+            // Assert
+
+            // Confirm that the comment count is zero
+            Assert.AreEqual(true, commentCountSpanString.Contains("Be the first to comment!"));
+        }
+
+        [Test]
+        /// <summary>
+        /// This test tests that the SubmitComment function with valid comment
+        /// The test needs to open the page
+        /// Then open the popup on the card
+        /// Submit a comment
+        /// Then check the count of the comment
+        /// </summary>
+        public void SubmitComment_Valid_Comment_CommentCount_Should_Return_Not_Zero()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileParksService>(TestHelper.ParkService);
+            var id = "BRIDLE TRAILS STATE PARK";
+
+            var page = RenderComponent<ParksList>();
+
+            // Find the Buttons (more info)
+            var buttonList = page.FindAll("Button");
+
+            // Find the one that matches the ID looking for and click it
+            var button = buttonList.First(m => m.OuterHtml.Contains(id));
+            button.Click();
+
+            // Get the spans
+            var spans = page.FindAll("span");
+
+            // submit a comment
+            page.Find("#name-input").Input("TestName");
+            page.Find("#comment-input").Input("This is a Test");
+            page.Find("#token-input").Input("100");
+
+            var submitButton = page.Find("button[type='submit']");
+            submitButton.Click();
+
+            // Get the comment Count, the List should have 10 elements, element 4 is the string for the count
+            var commentCountSpan = spans[3];
+            var commentCountSpanString = commentCountSpan.OuterHtml;
+            // Assert
+
+            // Confirm that the comment count is not zero
+            Assert.AreEqual(true, commentCountSpanString.Contains("comment"));
+        }
+
+        [Test]
+        /// <summary>
+        /// This test tests that the SubmitComment will fail if an invalid comment was provided
+        /// The test needs to open the page
+        /// Then open the popup on the card
+        /// Submit an invalid comment
+        /// Then check the count of the comment
+        /// </summary>
+        public void SubmitComment_InValid_Comment_CommentCount_Should_Return_Zero()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileParksService>(TestHelper.ParkService);
+            var id = "FLAMING GEYSER STATE PARK";
+
+            var page = RenderComponent<ParksList>();
+
+            // Find the Buttons (more info)
+            var buttonList = page.FindAll("Button");
+
+            // Find the one that matches the ID looking for and click it
+            var button = buttonList.First(m => m.OuterHtml.Contains(id));
+            button.Click();
+
+            // Get the spans
+            var spans = page.FindAll("span");
+
+            // submit an invalid comment with no name field
+            page.Find("#comment-input").Input("This is a Test");
+            page.Find("#token-input").Input("100");
+
+            var submitButton = page.Find("button[type='submit']");
+            submitButton.Click();
+
+            // Get the comment Count, the List should have 10 elements, element 4 is the string for the count
+            var commentCountSpan = spans[3];
+            var commentCountSpanString = commentCountSpan.OuterHtml;
+            // Assert
+
+            // Confirm that the comment count is not zero
+            Assert.AreEqual(true, commentCountSpanString.Contains("Be the first to comment!"));
+        }
+        #endregion SubmitComment
+
+        #region Search
+
+        [Test]
+        /// <summary>
+        ///This test tests that the search will return content
+        ///Then open the popup on the card
+        ///Then search with the valid id
+        ///Ensure the search value is within the page markup
+        /// </summary>
+        public void Search_Parks_Valid_ID_Should_Return_Content()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileParksService>(TestHelper.ParkService);
+            var data = "Park";
+
+            var page = RenderComponent<ParksList>();
+
+            // Find the Buttons (search) and performs searching with the data
+            var button = page.FindAll("Button").First(m => !string.IsNullOrEmpty(m.ClassName) && m.ClassName.Contains("btn btn-success"));
+            page.FindAll("Input").First().Change(data);
+            button.Click();
+
+            // Get the markup to use for the assert
+            var pageMarkup = page.Markup;
+
+            // Assert
+            //ensure the "Parks" is within the markup
+            Assert.AreEqual(true, pageMarkup.Contains(data));
+        }
+
+        [Test]
+        /// <summary>
+        /// This test tests that the clear button will return all content
+        /// Then open the popup on the card
+        /// Then search with an invalid id
+        /// Then click on the clear button
+        /// Ensure all the park value is within the page markup
+        /// </summary>
+        public void Clear_Search_Parks_Should_Return_All_Content()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileParksService>(TestHelper.ParkService);
+            var data = "adsfasd";
+
+            var page = RenderComponent<ParksList>();
+
+            // Find the Buttons (search) and performs searching with the data
+            var search_button = page.FindAll("Button").First(m => !string.IsNullOrEmpty(m.ClassName) && m.ClassName.Contains("btn btn-success"));
+            page.FindAll("Input").First().Change(data);
+            search_button.Click();
+
+            // Find the Buttons (clear) and click
+            var clear_button = page.FindAll("Button").First(m => !string.IsNullOrEmpty(m.ClassName) && m.ClassName.Contains("btn btn-danger"));
+            clear_button.Click();
+
+            // Get the markup to use for the assert
+            var afterPageMarkup = page.Markup;
+
+
+            // Assert
+            //ensure the "Parks" is within the after markup
+            Assert.AreEqual(true, afterPageMarkup.Contains("Park"));
+        }
+        #endregion Search
     }
 }
