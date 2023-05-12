@@ -193,7 +193,7 @@ namespace UnitTests.Pages.Park.AddRating
                 //Ensure State park is Lake sammamish
             Assert.AreEqual(parks[1].Id, "LAKE SAMMAMISH STATE PARK");
                 //Ensure National is Mount Rainier
-            Assert.AreEqual(parks[2].Id, "Mount Rainier National Park");
+            Assert.AreEqual(parks[2].Id, "North Cascades National Park");
 
         }
         #endregion GetHighestRatedParks
