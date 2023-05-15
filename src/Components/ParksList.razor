@@ -17,12 +17,18 @@
             }
     </select>
 
+    <!--The following block creates a search bar filter that allows a user to search parks by park name.
+    -->
     <div class="row">
         <div class="col">
             <span class="readpageformat"><strong>Or search for a park </strong></span>
             <input type="text" @onchange="(e) => UpdateFilterText(e.Value.ToString())" value="@FilterDataString" />
             <button @onclick="(e => EnableFilterData())" class="btn btn-success">Search</button>
             <button @onclick="(e => ClearFilterData())" class="btn btn-danger">Clear</button>
+            <div class="sort-container">
+                <button @onclick="(e => SortByNameAsc())" class="btn btn-sort">Sort A-Z</button>
+                <button @onclick="(e => SortByNameDesc())" class="btn btn-sort">Sort Z-A</button>
+            </div>
         </div>
     </div>
  </div>
@@ -34,14 +40,28 @@
 -->
 <div class="card-columns">
     @{
+        // filter by park system
         var parkListGroup = ParkService.GetParks().Where(x => (string.IsNullOrEmpty(SelectedFilterOption) || x.Park_system == SelectedFilterOption));
+        
+        // search by park name
         if (FilterData)
         {
             parkListGroup = parkListGroup.Where(x => (x.Id.ToLower().Contains(FilterDataString.ToLower())));
         }
-        
+
+        // sort by park name
+        if (IsAscOrder)
+        {
+            parkListGroup = parkListGroup.OrderBy(x => x.Id.ToLower());
+        }
+        else
+        {
+            parkListGroup = parkListGroup.OrderByDescending(x => x.Id.ToLower());
+        }
+
         foreach (var park in parkListGroup)
         {
+
             <div class="card">
                 <div class="card-img" style="background-image: url('@park.Image');">
                 </div>
@@ -327,5 +347,18 @@
     {
         // If the Filter is enabled, set the filter flag
         FilterData = false;
+    }
+
+    // the displaying order for the park cards
+    Boolean IsAscOrder = true;
+
+    void SortByNameAsc()
+    {
+        IsAscOrder = true;
+    }
+
+    void SortByNameDesc()
+    {
+        IsAscOrder = false;
     }
 }
