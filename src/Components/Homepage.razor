@@ -152,11 +152,7 @@
                 <!--The following block shows the rating for the current park, and allows a user to update the current vote.-->
                 <div class="modal-footer">
                     <!--If no votes are currently in json's Ratings array:-->
-                    @if (voteCount == 0)
-                    {
-                        <span>Be the first to vote!</span>
-                    }
-                    else
+                    @if (voteCount != 0)
                     {
                         <span>@voteCount @voteLabel</span>
                     }
