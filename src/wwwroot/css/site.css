@@ -15,7 +15,15 @@ table {
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 .card {
-    background: black;
+    background: rgba(0, 0, 255, 0);
+    border: none;
+    flex: 0 0 calc(33.33% - 30px);
+}
+
+.card-columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .card-columns .card:hover .card-img {
@@ -220,6 +228,7 @@ homepageformat div {
     color: white;
     border-color: #e9a8a6;
     border-radius: 10px;
+    flex: 0 0 calc(33.33% - 20px);
 }
 
 /*Formatting for the about us and privacy pages*/
@@ -267,3 +276,22 @@ homepageformat div {
 .table {
     color: white;
 }
+
+/*Formating for the sort buttons on Explore page*/
+.sort-container {
+    position: absolute;
+    top: 0;
+    right: 60px;
+}
+
+.btn-sort {
+    color: #fff;
+    background-color: #006400;
+    border-color: #252152;
+}
+
+    .btn-sort:hover {
+        color: #fff;
+        background-color: #e9a8a6;
+        border-color: #e9a8a6;
+    }
