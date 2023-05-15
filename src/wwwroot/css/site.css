@@ -199,10 +199,14 @@ ul {
     color: white;
 }
 
-    .homepageformat span {
-        font-weight: bold;
-        color: white;
-    }
+.homepageformat span {
+    font-weight: bold;
+     color: white;
+}
+
+homepageformat div {
+    text-align: center;
+}
 
 .homepageh5 {
     text-align: center;
