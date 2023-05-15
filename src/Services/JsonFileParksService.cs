@@ -53,15 +53,18 @@ namespace LetsGoPark.WebSite.Services
         {
             using (var jsonFileReader = File.OpenText(JsonFileName))
             {
+                //Parks is a list of all parks objects in parks.json
                 IEnumerable<ParksModel> Parks = JsonSerializer.Deserialize<ParksModel[]>(jsonFileReader.ReadToEnd(),
                     new JsonSerializerOptions
                     {
                         PropertyNameCaseInsensitive = true
                     });
+                //Grabs the first park in the list and sets it to the top park
                 ParksModel topPark = Parks.FirstOrDefault();
                 //Uses the CompareParks() function to select the highest rated park from parks.json
                 foreach (var park in Parks)
                 {
+                    //Compares rating for each park, and swaps them if necessary
                     topPark = CompareParks(topPark, park);
                 }
                 return topPark;
@@ -73,6 +76,7 @@ namespace LetsGoPark.WebSite.Services
         {
             using (var jsonFileReader = File.OpenText(JsonFileName))
             {
+                //Parks is a list of all parks objects in parks.json
                 IEnumerable<ParksModel> Parks = JsonSerializer.Deserialize<ParksModel[]>(jsonFileReader.ReadToEnd(),
                     new JsonSerializerOptions
                     {
@@ -121,6 +125,7 @@ namespace LetsGoPark.WebSite.Services
         //If two parks have the highest rating, the one with the highest vote count wins.
         public ParksModel CompareParks(ParksModel topPark, ParksModel currentPark)
         {
+            //Sets the returning park to toPark parameter
             ParksModel newTopPark = topPark;
             //If the current top rated park has no ratings, the current park is considered the top park.
             if (topPark.Ratings == null) { newTopPark = currentPark; }
@@ -149,7 +154,7 @@ namespace LetsGoPark.WebSite.Services
             {
                 return false;
             }
-
+            //parks is a list of all parks objects in parks.json
             var parks = GetParks();
 
             // Look up the park, if it does not exist, return
@@ -188,7 +193,7 @@ namespace LetsGoPark.WebSite.Services
             return true;
         }
 
-        //This function saves all updated data to parks.json
+        //This function saves all updated data to parks.json by creating a new json from the parks enumerable object
         private void SaveData(IEnumerable<ParksModel> parks)
         {
 
