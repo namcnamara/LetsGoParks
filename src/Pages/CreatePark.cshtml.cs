@@ -20,24 +20,10 @@ namespace LetsGoPark.WebSite.Pages
         public CreateParkModel(JsonFileParksService parkService)
         {
             ParksService = parkService;
-            Park = new ParksModel()
-            {
-                Id = "",
-                Url = "",
-                Image = "",
-                Description = "",
-                Ratings = null,
-                Address = "",
-                Phone = "",
-                Park_system = "",
-                Activities = "",
-                Map_brochure = "",
-                Permits = "",
-                Comments = null,
-            };
         }
 
-        // The data to show
+        // The data to show, bind to it for the post
+        [BindProperty]
         public ParksModel Park { get; set; }
 
         //Method taken upon submission of post button
