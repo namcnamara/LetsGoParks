@@ -169,10 +169,6 @@
                         {
                             <span class="fa fa-star checked" @onclick="(e => SubmitRating(currentStar))"></span>
                         }
-                        else
-                        {
-                            <span class="fa fa-star" @onclick="(e => SubmitRating(currentStar))"></span>
-                        }
                     }
                 </div>
             </div>
@@ -216,12 +212,7 @@
     void GetCurrentRating()
     {
         //An empty Ratings array is declared as null in the parks.json file.
-        if (selectedPark.Ratings == null)
-        {
-            currentRating = 0;
-            voteCount = 0;
-        }
-        else
+        if (selectedPark.Ratings != null)
         {
             voteCount = selectedPark.Ratings.Count();
             voteLabel = voteCount > 1 ? "Votes" : "Vote";
