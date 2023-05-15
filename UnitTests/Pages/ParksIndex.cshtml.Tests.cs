@@ -49,13 +49,13 @@ namespace UnitTests.Pages
         {
             // Arrange
             //Create mock variables
-            var loggerMock = new Mock<ILogger<ExploreModel>>();
+            var loggerMock = new Mock<ILogger<ParksIndexModel>>();
             var envMock = new Mock<IWebHostEnvironment>();
             var parkService = new JsonFileParksService(envMock.Object);
 
             // Act
             //Create new model with mock variables
-            var model = new ExploreModel(loggerMock.Object, parkService);
+            var model = new ParksIndexModel(loggerMock.Object, parkService);
 
             // Assert
             //Ensure Parkservice variable is created
@@ -72,7 +72,7 @@ namespace UnitTests.Pages
         {
             // Arrange
             //Create variables to mock logger and environment
-            var loggerMock = new Mock<ILogger<ExploreModel>>();
+            var loggerMock = new Mock<ILogger<ParksIndexModel>>();
             //Create root path for database 
             string wwwRootPath = Path.Combine(AppContext.BaseDirectory, "wwwroot");
             var envMock = new Mock<IWebHostEnvironment>();
@@ -83,7 +83,7 @@ namespace UnitTests.Pages
 
             // Act
             //Call model and onGet function
-            var model = new ExploreModel(loggerMock.Object, parkService);
+            var model = new ParksIndexModel(loggerMock.Object, parkService);
             model.OnGet();
 
             // Assert
