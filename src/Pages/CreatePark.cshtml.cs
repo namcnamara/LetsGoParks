@@ -26,7 +26,11 @@ namespace LetsGoPark.WebSite.Pages
         [BindProperty]
         public ParksModel Park { get; set; }
 
-        //Method taken upon submission of post button
+
+        /// <summary>
+        /// //Method taken upon submission of post button
+        /// </summary>
+        /// <returns>Returns a RedirectToPage object</returns>
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
