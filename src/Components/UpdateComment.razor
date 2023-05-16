@@ -5,22 +5,24 @@
 @inject NavigationManager NavigationManager
 
 @code {
-    //Parameter list passed in from Update.cshtml
+    //Parameter list passed in from DeleteComment.cshtml
+
+    //Index of the comment within Comments array
     [Parameter]
     public int CommentIndex { get; set; }
-
+    //String ID related to a park in the database
     [Parameter]
     public string SelectedParkId { get; set; }
-
+    //Name of the comment maker
     [Parameter]
     public string Name { get; set; }
-
+    //Date time the comment was made
     [Parameter]
     public string Datetime { get; set; }
-
+    //Comment contents
     [Parameter]
     public string Description { get; set; }
-
+    //Numeric number associated with the comment
     [Parameter]
     public string Token { get; set; }
 
@@ -32,6 +34,10 @@
     private string parkId;
     int commentIndex;
 
+    /// <summary>
+    /// Function called upon page render.
+    /// Sets the ####String variables.
+    /// </summary>
     protected override void OnInitialized()
     {
         nameString = Name.ToString();
@@ -42,21 +48,40 @@
         commentIndex = int.Parse(CommentIndex.ToString());
     }
     }
-
+<!--Body that covers function creating.-->
 @functions {
+    /// <summary>
+    ///This function updates a specified comment if the 
+    /// </summary>
+    /// <param name="name"></param>
+    /// <param name="dateTime"></param>
+    /// <param name="description"></param>
+    /// <param name="token"></param>
+    /// <param name="parkId"></param>
+    /// <param name="commentIndex"></param>
+    /// <returns>returns a bool, false if comment wasn't updated and true if it was successfully.</returns>
     bool SubmitUpdatedComment(string name, string dateTime, string description, string token, string parkId, int commentIndex){
         //If any fields are empty, do nothing
+        if (name == "" || dateTime == "" || description == "") { return false; }
         string[] comment = { convertToString(name), convertToString(dateTime), convertToString(description), convertToString(token) };
-        Console.WriteLine("asdfasdfa");
         string newId = convertToString(parkId);
-        
         var Parks = ParkService.GetParks();
+        var park = Parks.First(m => m.Id == newId);
+
+        // If park is null, return false:
+        if (park == null) { return false; }
+
         //Updates the date time on comment
         comment[1] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         ParkService.UpdateComment(newId, comment, commentIndex);
         return true;
     }
-    //This helper function converts a ReadOnlySpan into a string
+
+    /// <summary>
+    /// This helper function converts a ReadOnlySpan into a string
+    /// </summary>
+    /// <param name="convert"></param>
+    /// <returns></returns>
     string convertToString(string convert)
     {
         string newValue = "";
