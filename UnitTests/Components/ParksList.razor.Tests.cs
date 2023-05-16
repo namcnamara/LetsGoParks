@@ -451,5 +451,67 @@ namespace UnitTests.Components
             Assert.AreEqual(true, afterPageMarkup.Contains("Park"));
         }
         #endregion Search
+
+        #region SortPark
+        [Test]
+        /// <summary>
+        /// Creates a singleton of the file service
+        /// Render the ParksList page
+        /// Click on the sort ascending order button
+        /// Get the Cards retrned
+        /// Ensure a valid Id is present
+        /// </summary>
+        public void ParkList_Sort_Ascending_Order_Should_Return_Content()
+        {
+            // Arrange
+            //Creates a singleton of the file service
+            Services.AddSingleton<JsonFileParksService>(TestHelper.ParkService);
+
+            // Act
+            //Render the ParksList page
+            var page = RenderComponent<ParksList>();
+
+            // Find the Button (Sort A-Z)
+            var button = page.FindAll("Button").First(m => !string.IsNullOrEmpty(m.ClassName) && m.ClassName.Contains("btn btn-sort"));
+            button.Click();
+
+            // Get the Cards retrned
+            var result = page.Markup;
+
+            // Assert
+            //Ensure a valid Id is present
+            Assert.AreEqual(true, result.Contains("LAKE SAMMAMISH STATE PARK"));
+        }
+
+        [Test]
+        /// <summary>
+        /// Creates a singleton of the file service
+        /// Render the ParksList page
+        /// Click on the sort descending order button
+        /// Get the Cards retrned
+        /// Ensure a valid Id is present
+        /// </summary>
+        public void ParkList_Sort_Descending_Order_Should_Return_Content()
+        {
+            // Arrange
+            //Creates a singleton of the file service
+            Services.AddSingleton<JsonFileParksService>(TestHelper.ParkService);
+
+            // Act
+            //Render the ParksList page
+            var page = RenderComponent<ParksList>();
+
+            // Find the Button (Sort Z-A)
+            var button = page.FindAll("Button").Last(m => !string.IsNullOrEmpty(m.ClassName) && m.ClassName.Contains("btn btn-sort"));
+            button.Click();
+
+            // Get the Cards retrned
+            var result = page.Markup;
+
+            // Assert
+            //Ensure a valid Id is present
+            Assert.AreEqual(true, result.Contains("LAKE SAMMAMISH STATE PARK"));
+        }
+        #endregion SortPark
     }
 }
