@@ -23,6 +23,9 @@ namespace LetsGoPark.WebSite.Pages
         public JsonFileParksService ParkService { get; }
         public IEnumerable<ParksModel> Parks { get; private set; }
 
+        /// <summary>
+        /// Populates the ParksService with park objects from parks.json
+        /// </summary>
         public void OnGet()
         {
             Parks = ParkService.GetParks();
