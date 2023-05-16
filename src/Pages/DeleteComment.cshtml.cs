@@ -12,6 +12,9 @@ namespace LetsGoPark.WebSite.Pages
             _logger = logger;
         }
 
+        /// <summary>
+        /// Calls logger and submits the action of OnGet message to it
+        /// </summary>
         public void OnGet()
         {
             _logger.LogInformation("Request DeleteComment.cshtml");
