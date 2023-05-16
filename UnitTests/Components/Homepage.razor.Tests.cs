@@ -5,6 +5,10 @@ using LetsGoPark.WebSite.Components;
 using Microsoft.Extensions.DependencyInjection;
 using LetsGoPark.WebSite.Services;
 using System.Linq;
+using Castle.DynamicProxy.Generators.Emitters.SimpleAST;
+using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
+using Microsoft.VisualBasic;
 
 namespace UnitTests.Components
 {
@@ -212,6 +216,7 @@ namespace UnitTests.Components
 
             // Find the Buttons (more info)
             var buttonList = page.FindAll("Button");
+            
 
             // Find the one that matches the ID looking for and click it
             var button = buttonList.First(m => m.OuterHtml.Contains(id));
@@ -225,7 +230,9 @@ namespace UnitTests.Components
             page.Find("#comment-input").Input("This is a Test");
             page.Find("#token-input").Input("100");
 
-            var submitButton = page.Find("button[type='submit']");
+            //Get a list of all submit type buttons. The last is the one for comment changes
+            var submitButtons = page.FindAll("button[type='submit']");
+            var submitButton = submitButtons.Last();
             submitButton.Click();
 
             // Get the comment Count
@@ -255,9 +262,10 @@ namespace UnitTests.Components
 
             // Find the Buttons (more info)
             var buttonList = page.FindAll("Button");
+           
 
-            // Find the one that matches the ID looking for and click it
-            var button = buttonList.First(m => m.OuterHtml.Contains(id));
+        // Find the one that matches the ID looking for and click it
+        var button = buttonList.First(m => m.OuterHtml.Contains(id) && !m.OuterHtml.Contains("Explore"));
             button.Click();
 
             // Get the spans
@@ -267,7 +275,9 @@ namespace UnitTests.Components
             page.Find("#comment-input").Input("This is a Test");
             page.Find("#token-input").Input("100");
 
-            var submitButton = page.Find("button[type='submit']");
+            //Get a list of all submit type buttons. The last is the one for comment changes
+            var submitButtons = page.FindAll("button[type='submit']");
+            var submitButton = submitButtons.Last();
             submitButton.Click();
 
             // Get the comment Count, the List should have 10 elements, element 4 is the string for the count
