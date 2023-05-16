@@ -6,21 +6,23 @@
 
 @code {
     //Parameter list passed in from DeleteComment.cshtml
+
+    //Index of the comment within Comments array
     [Parameter]
     public int CommentIndex { get; set; }
-
+    //String ID related to a park in the database
     [Parameter]
     public string SelectedParkId { get; set; }
-
+    //Name of the comment maker
     [Parameter]
     public string Name { get; set; }
-
+    //Date time the comment was made
     [Parameter]
     public string Datetime { get; set; }
-
+    //Comment contents
     [Parameter]
     public string Description { get; set; }
-
+    //Numeric number associated with the comment
     [Parameter]
     public string Token { get; set; }
 
@@ -32,6 +34,10 @@
     private string parkId;
     int commentIndex;
 
+    /// <summary>
+    /// Function called upon page render. 
+    /// Sets the ####String variables.
+    /// </summary>
     protected override void OnInitialized()
     {
         nameString = Name.ToString();
@@ -43,11 +49,20 @@
     }
 }
 
+<!--Body that covers function creating.-->
 @functions {
-    bool DeleteCurrentComment(string parkId, int commentIndex){
+    /// <summary>
+    /// This function deletes a selected comment from park object
+    /// </summary>
+    /// <param name="parkId"></param> The string ID of the park who contains the comment
+    /// <param name="commentIndex"></param> The index of the desired comment to be deleted
+    /// <returns>returns a bool, false if comment wasn't deleted and true if it was successfully.</returns>
+    public bool DeleteCurrentComment(string parkId, int commentIndex){
         string newId = convertToString(parkId);
         int index = commentIndex;
         var Parks = ParkService.GetParks();
+        var park = Parks.First(m => m.Id == newId);
+        if (park == null) return false;
         //Updates the date time on comment
         ParkService.DeleteComment(newId, index);
         return true;
@@ -63,6 +78,7 @@
         return newValue;
     }
 }
+<!--Displays comment information-->
 <body>
     <p class="updateAndDelete">
         Comment:
@@ -72,7 +88,7 @@
         Are you sure you want to delete this comment?:
     </p>
 
-
+<!--Creates buttons for comment deletion-->
 <form method="get" action ="/Explore" onsubmit="@DeleteCurrentComment(parkId, commentIndex)">
         <button type="submit" @onclick="@(() => NavigationManager.NavigateTo("~/Pages/Explore"))">Delete Comment</button>
     </form>
