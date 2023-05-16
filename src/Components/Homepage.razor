@@ -191,7 +191,9 @@
     //Current comment.
     string[] currentComment = new string[4];
 
-    //This function is called once the "More Info" button is clicked in the card grid.
+    ///This function is called once the "More Info" button is clicked in the card grid.
+    /// </summary>
+    /// <param name="ParkId"></param> <summary>
     void SelectPark(string ParkId)
     {
         //Sets the argument Id as the selectedparkId.
@@ -211,7 +213,10 @@
     //Is used to set the word displayed as either Vote or Votes depending on the current vote count.
     string voteLabel;
 
-    //This function determines the current rating for the currently selected park.
+
+    /// </summary> 
+    /// This function determines the current rating for the currently selected park.
+    ///  /<summary>
     void GetCurrentRating()
     {
         //An empty Ratings array is declared as null in the parks.json file.
@@ -225,7 +230,10 @@
         System.Console.WriteLine($"Current rating for {selectedPark.Id}: {currentRating}");
     }
 
-    //This allows a user to submit a rating vote. It commits that vote to the json database for the currently selected park.
+
+    /// </summary>
+    /// This allows a user to submit a rating vote. It commits that vote to the json database for the currently selected park.
+    /// <param name="rating"></param> <summary>
     void SubmitRating(int rating)
     {
         System.Console.WriteLine($"Rating received for {selectedPark.Id}: {rating}");
@@ -237,7 +245,9 @@
     //The number of comments currently in a park's Comments array.
     int commentCount = 0;
 
-    //This function determines the current rating for the currently selected park.
+    /// <summary>
+    /// This function determines the current rating for the currently selected park.
+    /// </summary>
     void GetCurrentCommentCount()
     {
         //An empty Comments array is declared as null in the parks.json file.
@@ -251,7 +261,11 @@
         }
     }
 
-    //This allows a user to submit a comment record. It commits that comment to the json database for the currently selected park.
+    /// <summary>
+    /// This allows a user to submit a comment record. It commits that comment to the json database for the currently selected park.
+    /// </summary>
+    /// <param name="comment"></param>
+    /// <returns></returns>
     bool SubmitComment(string[] comment)
     {
         //If any fields are empty, do nothing
