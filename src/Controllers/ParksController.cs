@@ -11,19 +11,30 @@ namespace LetsGoPark.WebSite.Controllers
     [Route("[controller]")]
     public class ParksController : ControllerBase
     {
+        /// <summary>
+        /// Creates an instance of ParksController using a JsonFileParksService object
+        /// </summary>
+        /// <param name="parkService"></param>
         public ParksController(JsonFileParksService parkService)
         {
             ParkService = parkService;
         }
 
+        //ParkService to manipulate Json database parks.json
         public JsonFileParksService ParkService { get; }
 
+        //Sends a get request to get all parks in the parks.json database
         [HttpGet]
         public IEnumerable<ParksModel> Get()
         {
             return ParkService.GetParks();
         }
 
+        /// <summary>
+        /// Adds a patch to update rating
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPatch]
         public ActionResult Patch([FromBody] RatingRequest request)
         {
@@ -32,6 +43,9 @@ namespace LetsGoPark.WebSite.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Manipulates and retrieves rating information for a given park
+        /// </summary>
         public class RatingRequest
         {
             public string ParkId { get; set; }
