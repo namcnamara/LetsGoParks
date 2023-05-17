@@ -318,6 +318,7 @@ namespace LetsGoPark.WebSite.Services
             var park = Parks.FirstOrDefault(x => x.Id == selectedParkId);
 
             if (park == null) { return false; }
+            if (Parks.First(x => x.Id == selectedParkId).Comments == null) { return false; }    
             var comments = Parks.First(x => x.Id == selectedParkId).Comments.ToList();
             //If you remove the only comment, set comments to null
             if (comments.Count == 1)
