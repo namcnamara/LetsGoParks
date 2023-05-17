@@ -98,7 +98,6 @@ namespace UnitTests.Components
         {
             // Arrange
             Services.AddSingleton<JsonFileParksService>(TestHelper.ParkService);
-            var filterDataString = "National Parks";
 
             var page = RenderComponent<ParksList>();
 
