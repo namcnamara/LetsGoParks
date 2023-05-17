@@ -22,7 +22,7 @@ namespace UnitTests.Pages.Delete
         /// Create page model using mock logger
         /// Tests if the model is null
         /// </summary>
-        public void ModelIsRendered()
+        public void Model_Is_Rendered_Model_Should_Not_Be_Null()
         {
             // Arrange
             //create mock logger
@@ -45,7 +45,7 @@ namespace UnitTests.Pages.Delete
         /// Invoke onGet method
         /// Tests if the logger is working correctly
         /// </summary>
-        public void Logger_IsCalled_OnGet()
+        public void Logger_IsCalled_OnGet_Logger_Should_Contain_Message()
         {
             // Arrange
             //Create logger
