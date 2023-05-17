@@ -63,11 +63,10 @@
     bool SubmitUpdatedComment(string name, string dateTime, string description, string token, string parkId, int commentIndex){
         //If any fields are empty, do nothing
         if (name == "" || dateTime == "" || description == "") { return false; }
-        string[] comment = { convertToString(name), convertToString(dateTime), convertToString(description), convertToString(token) };
-        string newId = convertToString(parkId);
+        string[] comment = { name.ToString(), dateTime.ToString(), description.ToString(), token.ToString() };
+        string newId = parkId.ToString();
         var Parks = ParkService.GetParks();
-        var park = Parks.First(m => m.Id == newId);
-
+        var park = Parks.FirstOrDefault(m => m.Id == newId);
         // If park is null, return false:
         if (park == null) { return false; }
 
@@ -77,20 +76,6 @@
         return true;
     }
 
-    /// <summary>
-    /// This helper function converts a ReadOnlySpan into a string
-    /// </summary>
-    /// <param name="convert"></param>
-    /// <returns></returns>
-    string convertToString(string convert)
-    {
-        string newValue = "";
-        for (int i = 0; i < convert.Length; i++)
-        {
-            newValue += convert[i];
-        }
-        return newValue;
-    }
 }
 
 <div class="readpageformat">
