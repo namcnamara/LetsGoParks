@@ -52,7 +52,8 @@
 <!--Body that covers function creating.-->
 @functions {
     /// <summary>
-    /// This function deletes a selected comment from park object
+    /// This function deletes a selected comment from park object.
+    /// If the speciied Park object isn't valid, the error is caught in DeleteComment()
     /// </summary>
     /// <param name="parkId"></param> The string ID of the park who contains the comment
     /// <param name="commentIndex"></param> The index of the desired comment to be deleted
@@ -61,13 +62,12 @@
         string newId = parkId.ToString();
         int index = commentIndex;
         var Parks = ParkService.GetParks();
-        var park = Parks.FirstOrDefault(m => m.Id == newId);
-        if (park == null) return false;
-        //Updates the date time on comment
+        //Delete comment using function from ParkService
         ParkService.DeleteComment(newId, index);
         return true;
     }
-   
+    
+    
 }
 <!--Displays comment information-->
 <body>
