@@ -58,7 +58,7 @@
     /// <param name="commentIndex"></param> The index of the desired comment to be deleted
     /// <returns>returns a bool, false if comment wasn't deleted and true if it was successfully.</returns>
     public bool DeleteCurrentComment(string parkId, int commentIndex){
-        string newId = convertToString(parkId);
+        string newId = parkId.ToString();
         int index = commentIndex;
         var Parks = ParkService.GetParks();
         var park = Parks.FirstOrDefault(m => m.Id == newId);
@@ -67,16 +67,7 @@
         ParkService.DeleteComment(newId, index);
         return true;
     }
-    //This helper function converts a ReadOnlySpan into a string
-    string convertToString(string convert)
-    {
-        string newValue = "";
-        for (int i = 0; i < convert.Length; i++)
-        {
-            newValue += convert[i];
-        }
-        return newValue;
-    }
+   
 }
 <!--Displays comment information-->
 <body>
