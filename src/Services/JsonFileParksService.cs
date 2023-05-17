@@ -31,7 +31,10 @@ namespace LetsGoPark.WebSite.Services
             get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "parks.json"); }
         }
 
-        //Function returns a IEnumerable container of all parks found within the json file. 
+        /// <summary>
+        /// Function returns a IEnumerable container of all parks found within the json file. 
+        /// </summary>
+        /// <returns>Returns an enumerable of parks objects</returns>
         public IEnumerable<ParksModel> GetParks()
         {
             //Opens the json file
@@ -47,8 +50,11 @@ namespace LetsGoPark.WebSite.Services
             }
         }
 
-        //Function returns only the Highest Rated Park found within the json file.
+        /// <summary>
+        /// Function returns only the Highest Rated Park found within the json file.
         //If two parks have the same rating, it returns the park with the highest vote count.
+        /// </summary>
+        /// <returns>Returns highest rated park</returns>
         public ParksModel GetHighestRatedPark()
         {
             using (var jsonFileReader = File.OpenText(JsonFileName))
@@ -71,7 +77,12 @@ namespace LetsGoPark.WebSite.Services
             }
         }
 
-        //This function returns an array of size 3 that holds the top city, state, and national park by rating. 
+        /// <summary>
+        /// This function compares all park objects in the parks.json database. It saves the highest parks in each of the following 3 catagories:
+        /// National Parks, WA State Parks, City Parks
+        ///
+        /// </summary>
+        /// <returns>This function returns an array of size 3 that holds the top city, state, and national park by rating. </returns>
         public ParksModel[] GetHighestRatedParks()
         {
             using (var jsonFileReader = File.OpenText(JsonFileName))
@@ -121,8 +132,13 @@ namespace LetsGoPark.WebSite.Services
             }
         }
 
-        //Helper function that compares parks and returns the one with the highest rating.
+        /// <summary>
+        /// Helper function that compares parks and returns the one with the highest rating.
         //If two parks have the highest rating, the one with the highest vote count wins.
+        /// </summary>
+        /// <param name="topPark"></param>
+        /// <param name="currentPark"></param>
+        /// <returns>Returns the park with a higher rating</returns>
         public ParksModel CompareParks(ParksModel topPark, ParksModel currentPark)
         {
             //Sets the returning park to toPark parameter
@@ -146,7 +162,13 @@ namespace LetsGoPark.WebSite.Services
             return newTopPark;
         }
 
-        //This function adds a rating to a park defined by the argument ParkId.
+
+        /// <summary>
+        /// This function adds a rating to a park defined by the argument ParkId.
+        /// </summary>
+        /// <param name="parkId"></param>
+        /// <param name="rating"></param>
+        /// <returns>Returns true if successfully added a rating</returns>
         public bool AddRating(string parkId, int rating)
         {
             // If the ParkID is invalid, return
@@ -193,7 +215,10 @@ namespace LetsGoPark.WebSite.Services
             return true;
         }
 
-        //This function saves all updated data to parks.json by creating a new json from the parks enumerable object
+        /// <summary>
+        /// This function saves all updated data to parks.json by creating a new json from the parks enumerable object
+        /// </summary>
+        /// <param name="parks"></param>
         private void SaveData(IEnumerable<ParksModel> parks)
         {
 
@@ -210,7 +235,11 @@ namespace LetsGoPark.WebSite.Services
             }
         }
 
-        //This function adds a comment to a park defined by the argument ParkId.
+        /// <summary>
+        /// This function adds a comment to a park defined by the argument ParkId.
+        /// </summary>
+        /// <param name="ParkId"></param>
+        /// <param name="comment"></param>
         public void AddComment(string ParkId, string[] comment)
         {
             //Gets all parks in the json file
@@ -234,7 +263,13 @@ namespace LetsGoPark.WebSite.Services
             SaveData(Parks);
         }
 
-        //Updates a current comment
+        /// <summary>
+        /// Updates a current comment for the selected ParkId.
+        /// </summary>
+        /// <param name="selectedParkId"></param>
+        /// <param name="comment"></param>
+        /// <param name="oldCommentIndex"></param>
+        /// <returns>If a comment is unable to update, returns false, otherwise return true</returns>
         public bool UpdateComment(string selectedParkId, string[] comment, int oldCommentIndex)
         {
             if(comment == null || comment.Length == 0)
@@ -263,7 +298,12 @@ namespace LetsGoPark.WebSite.Services
             }
             
         }
-
+        /// <summary>
+        /// This function removes a comment from a specified park, chosen by ParkId
+        /// </summary>
+        /// <param name="selectedParkId"></param>
+        /// <param name="commentIndex"></param>
+        /// <returns>Return true if comment was successfully deleted, false otherwise</returns>
         public bool DeleteComment(string selectedParkId, int commentIndex)
         {
             if (selectedParkId == null)
@@ -368,8 +408,5 @@ namespace LetsGoPark.WebSite.Services
 
             return data;
         }
-
-
-
     }
 }
