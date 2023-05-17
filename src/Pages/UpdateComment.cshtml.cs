@@ -12,6 +12,9 @@ namespace LetsGoPark.WebSite.Pages
             _logger = logger;
         }
 
+        /// <summary>
+        /// Sends to the logger the UpdateComment logger message
+        /// </summary>
         public void OnGet()
         {
             _logger.LogInformation("UpdateComment.cshtml Requested");
