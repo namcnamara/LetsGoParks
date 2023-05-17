@@ -22,7 +22,7 @@ namespace UnitTests.Pages
         /// Create index model object
         /// Tests if model was created.
         /// </summary>
-        public void ModelIsRendered()
+        public void Model_Is_Rendered_Model_Should_Not_Be_Null()
         {
             // Arrange
             // Create mock variables to instantiate park service
@@ -45,7 +45,7 @@ namespace UnitTests.Pages
         /// Create new model with mock variables
         /// Tests if Parkservice variable is created
         /// </summary>
-        public void ParkService_Is_Loaded()
+        public void ParkService_Is_Loaded_Model_Should_Not_Be_Null()
         {
             // Arrange
             //Create mock variables
@@ -69,7 +69,7 @@ namespace UnitTests.Pages
         /// Call model and onGet function
         /// Tests if enumerable has parks filled
         /// </summary>
-        public void Parks_Are_Loaded()
+        public void ParkService_Is_Loaded_Model_Should_Not_Be_Null()
         {
             // Arrange
             //Create variables to mock logger and environment
