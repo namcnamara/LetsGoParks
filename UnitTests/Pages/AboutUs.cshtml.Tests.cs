@@ -22,7 +22,7 @@ namespace UnitTests.Pages.AboutUs
         /// Tests if the model is null
         /// </summary>
         [Test]
-        public void ModelIsRendered()
+        public void Model_Is_Rendered_Model_Should_Not_Be_Null()
         {
             // Arrange
             //Create mock logger
