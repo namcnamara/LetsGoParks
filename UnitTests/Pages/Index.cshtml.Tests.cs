@@ -69,7 +69,7 @@ namespace UnitTests.Pages
         /// Call model and onGet function
         /// Tests if enumerable has parks filled
         /// </summary>
-        public void ParkService_Is_Loaded_Model_Should_Not_Be_Null()
+        public void ParkService_Is_Loaded_Parks_Lsit_Should_Not_Be_Null()
         {
             // Arrange
             //Create variables to mock logger and environment
