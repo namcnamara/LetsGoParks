@@ -19,7 +19,7 @@ namespace UnitTests.Pages.Privacy
         /// Invoke model
         /// Tests if the model is null
         /// </summary>
-        public void ModelIsRendered()
+        public void ParkService_Is_Loaded_Model_Should_Not_Be_Null()
         {
             // Arrange
             //Create mock logger
@@ -42,7 +42,7 @@ namespace UnitTests.Pages.Privacy
         /// Invoke OnGet
         /// Verify correct usage of logger
         /// </summary>
-        public void Logger_IsCalled_OnGet()
+        public void Parks_Are_Loaded_Parks_List_Should_Not_Be_Null()
         {
             // Arrange
             //Create mock logger to create privacy page model
