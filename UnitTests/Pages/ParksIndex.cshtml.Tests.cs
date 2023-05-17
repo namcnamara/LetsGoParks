@@ -22,7 +22,7 @@ namespace UnitTests.Pages
         /// Invoke model
         /// Tests if the model is null
         /// </summary>
-        public void ModelIsRendered()
+        public void Model_Is_Rendered_Model_Should_Not_Be_Null()
         {
             // Arrange
             // Creates a logger mocker, an env mocker and set up parkService
@@ -45,7 +45,7 @@ namespace UnitTests.Pages
         /// Invoke model
         /// Tests if the model is null
         /// </summary>
-        public void ParkService_Is_Loaded()
+        public void ParkService_Is_Loaded_Model_Should_Not_Be_Null()
         {
             // Arrange
             //Create mock variables
@@ -68,7 +68,7 @@ namespace UnitTests.Pages
         /// Call OnGet
         /// Tests if the model is null
         /// </summary>
-        public void Parks_Are_Loaded()
+        public void Parks_Are_Loaded_Parks_List_Should_Not_Be_Null()
         {
             // Arrange
             //Create variables to mock logger and environment
