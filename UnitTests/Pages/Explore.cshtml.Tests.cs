@@ -22,7 +22,7 @@ namespace UnitTests.Pages
         /// Uses mock logger and webhost to create model.
         /// Tests if the model was correclty rendered.
         /// </summary>
-        public void ModelIsRendered()
+        public void Model_Is_Rendered_Model_Should_Not_Be_Null()
         {
             // Arrange
             //Create mock variables, and invoke JsonFileParksService.
@@ -45,7 +45,7 @@ namespace UnitTests.Pages
         /// Create new model with mock variables
         /// Ensure Parkservice variable is created
         /// </summary>
-        public void ParkService_Is_Loaded()
+        public void ParkService_Is_Loaded_Model_Should_Not_Be_Null()
         {
             // Arrange
             //Create mock variables
@@ -70,7 +70,7 @@ namespace UnitTests.Pages
         /// Call model and onGet function
         /// Ensure enumerable has parks filled
         /// </summary>
-        public void Parks_Are_Loaded()
+        public void Parks_Are_Loaded_ParkList_Should_Not_Be_Null()
         {
             // Arrange
             //Create variables to mock logger and environment
