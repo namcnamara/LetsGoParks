@@ -160,7 +160,7 @@ namespace UnitTests.Pages.Park.AddRating
         /// Gather highest rated park
         /// Tests if the park Id is as desired
         /// </summary>
-        public void GetHighestRatedPark_Ensure_Correct_Park_Returned()
+        public void GetHighestRatedPark_Ensure_Correct_Park_Returned_Should_Be_Lake_Sammamish()
         {
             //Arrange
 
@@ -181,7 +181,7 @@ namespace UnitTests.Pages.Park.AddRating
         /// Gather highest rated park
         /// Tests if the park Id is as desired
         /// </summary>
-        public void GetHighestRatedParks_Ensure_Correct_Park_Returned()
+        public void GetHighestRatedParks_Ensure_Correct_Park_Returned_Should_Return_Array_Size_3()
         {
             //Act
             //Get top three parks
@@ -205,7 +205,7 @@ namespace UnitTests.Pages.Park.AddRating
         /// Compare parks
         /// Tests if the parks were switched
         /// </summary>
-        public void CompareParks_TopPark_Null_park_Not_Null()
+        public void CompareParks_TopPark_Null_park_Not_Null_Should_Update_Top_Park()
         {
             //Arrange
             //Grab park with null rating, assign as top park
@@ -228,7 +228,7 @@ namespace UnitTests.Pages.Park.AddRating
         /// Swap parks
         /// Tests if the newpark is newtoppark
         /// </summary>
-        public void CompareParks_TopPark_Less_Votes_Same_Rating()
+        public void CompareParks_TopPark_Less_Votes_Same_Rating_Should_Switch_To_Newpark()
         {
             //Arrange
             //Create two parks with same rating, toppark has less votes
@@ -252,7 +252,7 @@ namespace UnitTests.Pages.Park.AddRating
         /// Get park and add new comment to selected park
         /// Tests if the 4 values in the comment array are equal to the passed in values
         /// </summary>
-        public void AddComment_Comment_Added_To_Empty_Array()
+        public void AddComment_Comment_Added_To_Empty_Array_Should_Create_Comment()
         {
             //Arrange
             //Create new comment
@@ -280,7 +280,7 @@ namespace UnitTests.Pages.Park.AddRating
         /// Regrab park with updated comment
         /// Tests if the comment grabbed is the same one just created in the park
         /// </summary>
-        public void AddComment_Comment_Added_To_Populated_Array()
+        public void AddComment_Comment_Added_To_Populated_Array_Should_Create_New_Comment()
         {
             //Arrange
             //Create new comment array and gather first park in national Parks
@@ -314,7 +314,7 @@ namespace UnitTests.Pages.Park.AddRating
         /// Create new comment and update
         /// Tests if the comment update was successful
         /// </summary>
-        public void UpdateComment_With_Valid_Comment_Returns_True()
+        public void UpdateComment_With_Valid_Comment_Should_Return_True()
         {
             // Arrange
             //Create noew comment
@@ -338,7 +338,7 @@ namespace UnitTests.Pages.Park.AddRating
         /// Create new comment and update with null value entries
         /// Tests if the comment update was failed
         /// </summary>
-        public void UpdateComment_With_Null_Comment_Returns_False()
+        public void UpdateComment_With_Null_Comment_Should_Return_False()
         {
             // Arrange
             //Create comment and grab park to send it to
@@ -361,7 +361,7 @@ namespace UnitTests.Pages.Park.AddRating
         /// Create new comment and update with Non-existent park ID
         /// Tests if the comment update was failed
         /// </summary>
-        public void UpdateComment_With_Invalid_ParkId_Returns_False()
+        public void UpdateComment_With_Invalid_ParkId_Should_Return_False()
         {
             // Arrange
             // Create new comment
@@ -383,7 +383,7 @@ namespace UnitTests.Pages.Park.AddRating
         /// Create new comment and update with a comment index that doesn't exist
         /// Tests if the comment update was failed
         /// </summary>
-        public void UpdateComment_With_Invalid_CommentIndex_Returns_False()
+        public void UpdateComment_With_Invalid_CommentIndex_Should_Return_False()
         {
             // Arrange
             //Comment creation
@@ -406,7 +406,7 @@ namespace UnitTests.Pages.Park.AddRating
         /// Create new comment and update and update with a new comment
         /// Tests if the comment was updated
         /// </summary>
-        public void UpdateComment_Updates_Comment_Successfully()
+        public void UpdateComment_Updates_Comment_Successfully_Should_Display_Expected_String()
         {
             // Arrange
             //Create comment and choose which park to test
@@ -432,7 +432,7 @@ namespace UnitTests.Pages.Park.AddRating
         /// Create new comment and update and update with index less than comment count
         /// Tests if the comment was updated
         /// </summary>
-        public void UpdateComment_With_Index_Less_Than_Comment_Count_Updates_Successfully()
+        public void UpdateComment_With_Index_Less_Than_Comment_Count_Should_Update_Successfully()
         {
             // Arrange
             //Select park and create comment
@@ -460,7 +460,7 @@ namespace UnitTests.Pages.Park.AddRating
         /// Create new comment and update and update with index greater than comment count
         /// Tests if the comment was not updated
         /// </summary>
-        public void UpdateComment_With_Index_Greater_Than_Comment_Count_Returns_False()
+        public void UpdateComment_With_Index_Greater_Than_Comment_Count_Should_Return_False()
         {
             // Arrange
             var selectedParkId = "San Juan Island National Historical Park";
@@ -478,7 +478,7 @@ namespace UnitTests.Pages.Park.AddRating
         /// Create new comment and update and update with null values
         /// Tests if the comment was not updated
         /// </summary>
-        public void UpdateComment_Pass_Null_Value_Return_False()
+        public void UpdateComment_Pass_Null_Value_Should_Return_False()
         {
             // Arrange
             string[] comment = { "New comment", "New comment", "New comment", "New comment" };
@@ -500,7 +500,7 @@ namespace UnitTests.Pages.Park.AddRating
         /// Delete a comment with null value
         /// Tests if the delete is failed
         /// </summary>
-        public void DeleteComment_Pass_Null_Value_Return_False()
+        public void DeleteComment_Pass_Null_Value_Should_Return_False()
         {
             // Arrange
             //
@@ -519,7 +519,7 @@ namespace UnitTests.Pages.Park.AddRating
         /// Delete a comment when at least one comment in the array left
         /// Tests if the delete is successful
         /// </summary>
-        public void DeleteComment_Comments_Deleted_Successfully_At_Least_1_Comment_In_Array_Left()
+        public void DeleteComment_Comments_Deleted_Successfully_At_Least_1_Comment_In_Array_Left_Count_Should_Be_Equal()
         {
             //Arrange
             //Get Initial comment count
@@ -547,9 +547,10 @@ namespace UnitTests.Pages.Park.AddRating
         /// Delete a comment 
         /// Tests if the comment was deleted
         /// </summary>
-        public void DeleteComment_Remove_Only_Comment()
+        public void DeleteComment_Remove_Only_Comment_Comments_Attribute_Should_Be_Null()
         {
             // Arrange
+            //Grab desired park with only 1 comment
             int countInitial = TestHelper.ParkService.GetParks().First
                    (x => x.Id == "San Juan Island National Historical Park").Comments.Length;
             var selectedParkId = "San Juan Island National Historical Park";
@@ -558,7 +559,9 @@ namespace UnitTests.Pages.Park.AddRating
             // Act
             TestHelper.ParkService.DeleteComment(selectedParkId, commentIndex);
             var Comments = TestHelper.ParkService.GetParks().First(x => x.Id == "San Juan Island National Historical Park").Comments;
+            
             // Assert
+            //Comments should have gone from an array to null
             Assert.AreEqual(null, Comments);
         }
 
@@ -569,13 +572,14 @@ namespace UnitTests.Pages.Park.AddRating
         /// Delete a comment that doesn't exsit
         /// Tests if the delete failed
         /// </summary>
-        public void DeleteComment_Requested_Park_ID_Does_Not_Exist_Return_False()
+        public void DeleteComment_Requested_Park_ID_Does_Not_Exist_Should_Return_False()
         {
             // Arrange
             var selectedParkId = "San Juanito extremely hugely big Island National Historical Park";
             var commentIndex = 0;
 
             // Act
+            //Deletes an invalid comment from a park with no comments
             bool retVal = TestHelper.ParkService.DeleteComment(selectedParkId, commentIndex);
 
             //Assert
@@ -587,15 +591,17 @@ namespace UnitTests.Pages.Park.AddRating
         /// Delete a comment that with negative index
         /// Tests if the delete failed
         /// </summary>
-        public void DeleteComment_Passing_Negative_Index_Return_False()
+        public void DeleteComment_Passing_Negative_Index_Should_Return_False()
         {
 
             // Arrange
             string selectedParkId = "San Juan Island National Historical Park";
+            //Index value that isn't valid for the specified park
             int commentIndex = -1;
             bool retVal = TestHelper.ParkService.DeleteComment(selectedParkId, commentIndex);
 
             // Act and Assert
+            //Ensure the function failed due to poor index passed.
             Assert.IsFalse(retVal);
         }
 
@@ -624,10 +630,12 @@ namespace UnitTests.Pages.Park.AddRating
             };
 
             //Act
+            //Creates a new park with valid data
             TestHelper.ParkService.CreateData(newPark); 
             var testPark = TestHelper.ParkService.GetParks().FirstOrDefault(m => m.Id.Equals(newPark.Id));
 
             //Assert
+            //Ensure pulled park is the one we just created
             Assert.AreEqual(newPark.Id, testPark.Id);
 
 
@@ -667,7 +675,7 @@ namespace UnitTests.Pages.Park.AddRating
         /// Create data with default input
         /// Tests if the park entry is created 
         /// </summary>
-        public void CreateData_With_Default_Input_Should_Return_Null()
+        public void CreateData_With_Default_Input_Should_Return_Not_Null()
         {
             //Arrange
             var data = new ParksModel()
