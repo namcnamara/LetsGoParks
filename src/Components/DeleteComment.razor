@@ -61,7 +61,7 @@
         string newId = convertToString(parkId);
         int index = commentIndex;
         var Parks = ParkService.GetParks();
-        var park = Parks.First(m => m.Id == newId);
+        var park = Parks.FirstOrDefault(m => m.Id == newId);
         if (park == null) return false;
         //Updates the date time on comment
         ParkService.DeleteComment(newId, index);
