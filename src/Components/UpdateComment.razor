@@ -51,7 +51,8 @@
 <!--Body that covers function creating.-->
 @functions {
     /// <summary>
-    ///This function updates a specified comment if the 
+    ///This function updates a specified comment.
+    /// If the park Id selected isn't valid, the error is caught in UpdateComment().
     /// </summary>
     /// <param name="name"></param>
     /// <param name="dateTime"></param>
@@ -65,11 +66,7 @@
         if (name == "" || dateTime == "" || description == "") { return false; }
         string[] comment = { name.ToString(), dateTime.ToString(), description.ToString(), token.ToString() };
         string newId = parkId.ToString();
-        var Parks = ParkService.GetParks();
-        var park = Parks.FirstOrDefault(m => m.Id == newId);
-        // If park is null, return false:
-        if (park == null) { return false; }
-
+        
         //Updates the date time on comment
         comment[1] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         ParkService.UpdateComment(newId, comment, commentIndex);
