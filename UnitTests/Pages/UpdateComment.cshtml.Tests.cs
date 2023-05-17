@@ -22,7 +22,7 @@ namespace UnitTests.Pages.Update
         /// Invoke model
         /// Tests if the model is null
         /// </summary>
-        public void ModelIsRendered()
+        public void Page_Model_Created_Model_Should_Not_Be_Null()
         {
             // Arrange
             //Create mock logger
@@ -44,7 +44,7 @@ namespace UnitTests.Pages.Update
         /// Invoke OnGet
         /// Tests if the logger is working correctly
         /// </summary>
-        public void Logger_IsCalled_OnGet()
+        public void Logger_IsCalled_OnGet_Should_Properly_Pass_Message_To_Logger()
         {
             // Arrange
             //use mock logger to create page model
@@ -68,8 +68,5 @@ namespace UnitTests.Pages.Update
                 Times.Once
             );
         }
-
-
-
     }
 }
