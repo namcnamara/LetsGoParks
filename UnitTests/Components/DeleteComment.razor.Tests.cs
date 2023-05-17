@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Xml.Linq;
 using System;
+using Microsoft.AspNetCore.Components;
 
 namespace UnitTests.Components
 {
@@ -35,33 +36,41 @@ namespace UnitTests.Components
 
         #endregion TestSetup
 
-        #region DeleteCurrentComment
+        #region ModelRendered
         /// <summary>
         /// This test uses valid parameters and should return true
         /// It Creates a parkService from a mocked webhost,
         /// then passes in values to the renderComponent function
         /// </summary>
         [Test]
-        public void DeleteCurrentComment_Passed_Valid_Parameters_Should_Return_True()
+        public void DeleteComment_Page_Passed_Parameters_Should_Return_Page()
         {
             // Arrange
-            //Create mock variables
-            var loggerMock = new Mock<ILogger<ExploreModel>>();
-            var envMock = new Mock<IWebHostEnvironment>();
-            var parkService = new JsonFileParksService(envMock.Object);
-            //Create a test context
-
-            //Populate component paraments for OnInitialize
-
-
+            Services.AddSingleton<JsonFileParksService>(TestHelper.ParkService);
+            //Populate bunit component parameter dictionary: 
+            var commentIndex = ComponentParameter.CreateParameter(nameof(DeleteComment.CommentIndex), 0);
+            var parkId = ComponentParameter.CreateParameter(nameof(DeleteComment.SelectedParkId), "LAKE SAMMAMISH STATE PARK");
+            var name = ComponentParameter.CreateParameter(nameof(DeleteComment.Name), "Nick");
+            var datetime = ComponentParameter.CreateParameter(nameof(DeleteComment.Datetime), "2022-10-01");
+            var desc = ComponentParameter.CreateParameter(nameof(DeleteComment.Description), "Test description");
+            var token = ComponentParameter.CreateParameter(nameof(DeleteComment.Token), "0");
+            //Create parameter variable to hold component parameters
+            var parameters = new[]
+            {
+                commentIndex, parkId, name, datetime, desc, token
+            };
 
             // Act
-            var result = true;
+            //Render webpage passing in parameters list
+            var page = RenderComponent<DeleteComment>(parameters);
 
             // Assert
-            Assert.True(result);
+            //Check to see if page is loaded in a valid state
+            Assert.NotNull(page);
         }
+        #endregion ModelRendered
 
+        #region DeleteCurrentComment
         /// <summary>
         /// 
         /// </summary>
