@@ -44,7 +44,7 @@ namespace UnitTests.Pages.DeletePark
         /// Retrieve specified park with existing id
         /// Tests if page created, and the Id should match initial parameter passed in as Id
         /// </summary>
-        public void OnGet_Park_Id_Correctly_Retrieved_Park_Populated()
+        public void OnGet_Park_Id_Correctly_Retrieved_Park_Should_Be_Populated()
         {
             //Arrange
             //Id does exist
@@ -65,7 +65,7 @@ namespace UnitTests.Pages.DeletePark
         /// Retrieve specified park with the id
         /// Tests if pageModel.Park returns null
         /// </summary>
-        public void OnGet_Park_Id_Not_Retrieved_Return_False()
+        public void OnGet_Park_Id_Not_Retrieved_Should_Return_False()
         {
             //Arrange
             //Id doesn't exist
