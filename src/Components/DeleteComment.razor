@@ -81,6 +81,6 @@
 
 <!--Creates buttons for comment deletion-->
 <form method="get" action ="/Explore" onsubmit="@DeleteCurrentComment(parkId, commentIndex)">
-        <button type="submit" @onclick="@(() => NavigationManager.NavigateTo("~/Pages/Explore"))">Delete Comment</button>
+        <button type="submit" id ="DeleteButton" @onclick="@(() => NavigationManager.NavigateTo("~/Pages/Explore"))">Delete Comment</button>
     </form>
 </body>
