@@ -73,10 +73,17 @@ namespace UnitTests.Components
 
         #region DeleteCurrentComment
         /// <summary>
-        /// 
+        /// This function checks to see if a comment was deleted on button click
+        /// It creates four string values for comment creation
+        /// It uses those strings to create BUnit parameters
+        /// It Creates a new comment for the specified park using the comment created previously
+        /// It gathers all comments for the specified park
+        /// It renders the webpage using BUnit parameters
+        /// It gathers the button, then preforms a Click() action
+        /// A new list of comments is gathered to ensure the second comment list is different from the first
         /// </summary>
         [Test]
-        public void DeleteCurrentComment_Passed_Invalid_Parameters_Should_Return_False()
+        public void DeleteCurrentComment_Click_Delete_Button_Should_Remove_Comment_From_List()
         {
             // Arrange
             Services.AddSingleton<JsonFileParksService>(TestHelper.ParkService);
