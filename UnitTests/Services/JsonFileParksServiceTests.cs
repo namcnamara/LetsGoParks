@@ -258,12 +258,12 @@ namespace UnitTests.Pages.Park.AddRating
             //Create new comment
             string[] comment = new string[] {"TestName", "2023-04-20 10:09:34", "This is a Test", "100" };
             //Get park
-            var park = TestHelper.ParkService.GetParks().First();
+            var park = TestHelper.ParkService.GetParks().First(x => x.Id == "Marsh Park");
 
             //Act
             //Add new comment to selected park
             TestHelper.ParkService.AddComment(park.Id, comment);
-            string[] addedComment = TestHelper.ParkService.GetParks().First().Comments.First();
+            string[] addedComment = TestHelper.ParkService.GetParks().First(x => x.Id == "Marsh Park").Comments.First();
 
             //Assert
             //Ensure the 4 values in the comment array are equal to the passed in values
