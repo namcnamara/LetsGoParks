@@ -48,7 +48,9 @@ namespace LetsGoPark.WebSite.Controllers
         /// </summary>
         public class RatingRequest
         {
+            //Id of park to get the rating of
             public string ParkId { get; set; }
+            //Rating of park selected
             public int Rating { get; set; }
         }
     }
