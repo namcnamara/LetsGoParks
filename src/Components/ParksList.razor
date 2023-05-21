@@ -107,8 +107,6 @@
                             <p class="card-text">
                                 <!--Links brochure of selected park-->
                                 <a href=@selectedPark.Map_brochure><strong>Park Brochure</strong></a> <br>
-                                <!--Loads Address of selected park-->
-                                <strong>Address: </strong> @selectedPark.Address <br>
                                 <!--Loads Phone number of selected park-->
                                 <strong>Phone #: </strong> @selectedPark.Phone <br>
                                 <!--Loads park owner of selected park-->
@@ -119,6 +117,10 @@
                                 <strong>Activities: </strong>@selectedPark.Activities <br>
                                 <!--Loads Description of selected park-->
                                 <strong>Park description:</strong> <br> @selectedPark.Description <br><br>
+                                <!--Loads Address of selected park-->
+                                <strong>Address: </strong> @selectedPark.Address <br>
+                                <!--Loads map location of selected park-->
+                                <img src=@GetStaticMapImageUrl(selectedPark.Address) alt="Park Location" /> <br>
                                 <!--Loads Comments of selected park-->
                                 <strong>Comments: </strong> <br>
                                 @if (commentCount == 0)
@@ -392,5 +394,17 @@
     void SortByNameDesc()
     {
         IsAscOrder = false;
+    }
+
+    /// <summary>
+    /// Convers an address to map img url. 
+    /// </summary>
+    /// <param name="address"> The park address. </param>
+    /// <returns> The map img url. </returns>
+    private string GetStaticMapImageUrl(string address)
+    {
+        string apiKey = "AIzaSyDwfKJAEp8cR38HxIT1yyzX4Ot6N5NCiIg";
+        string addressUrl = address.Replace(" ", "+");
+        return "https://maps.googleapis.com/maps/api/staticmap?center=" + addressUrl + "&zoom=13&size=400x400&maptype=roadmap&key=" + apiKey;
     }
 }
