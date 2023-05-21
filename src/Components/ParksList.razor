@@ -418,7 +418,7 @@
         string defaultImageUrl = "/data/defaultPark.jpg";
 
         // Check if the image URL is valid or null
-        if (string.IsNullOrWhiteSpace(imageUrl) || !Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
+        if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
         {
             // If invalid or null, return the image URL to the default image
             return defaultImageUrl;
