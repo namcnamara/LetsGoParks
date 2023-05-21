@@ -63,7 +63,7 @@
         {
 
             <div class="card">
-                <div class="card-img" style="background-image: url('@park.Image');">
+                <div class="card-img" style="background-image: url('@GetImageUrl(park.Image)');">
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">@park.Id</h5>
@@ -101,7 +101,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="card">
-                        <div class="card-img" style="background-image: url('@selectedPark.Image');">
+                        <div class="card-img" style="background-image: url('@GetImageUrl(selectedPark.Image)');">
                         </div>
                         <div class="card-body">
                             <p class="card-text">
@@ -126,7 +126,7 @@
                                 @if (commentCount == 0)
                                 {
                                     <span>Be the first to comment!</span>
-                                    <br>
+                                    <br> 
                                 }
                                 else
                                 {
@@ -406,5 +406,23 @@
         string apiKey = "AIzaSyDwfKJAEp8cR38HxIT1yyzX4Ot6N5NCiIg";
         string addressUrl = address.Replace(" ", "+");
         return "https://maps.googleapis.com/maps/api/staticmap?center=" + addressUrl + "&zoom=13&size=400x400&maptype=roadmap&key=" + apiKey;
+    }
+
+    /// <summary>
+    /// Validates the image url of a park.
+    /// </summary>
+    /// <param name="imageUrl">The passed in image url of a park.</param>
+    /// <returns>Default image url if the passed in image url is invalid, otherwise return the passed in url.</returns>
+    private string GetImageUrl(string imageUrl)
+    {
+        string defaultImageUrl = "/data/defaultPark.jpg";
+
+        // Check if the image URL is valid or null
+        if (string.IsNullOrWhiteSpace(imageUrl) || !Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
+        {
+            // If invalid or null, return the image URL to the default image
+            return defaultImageUrl;
+        }
+        return imageUrl;
     }
 }
