@@ -4,11 +4,29 @@
 @model LetsGoPark.WebSite.Pages.ReadParkModel
 @{
     ViewData["Title"] = "Read page";
+
+    /// <summary>
+    /// Validates the image url of a park.
+    /// </summary>
+    /// <param name="imageUrl">The passed in image url of a park.</param>
+    /// <returns>Default image url if the passed in image url is invalid, otherwise return the passed in url.</returns>
+    string GetImageUrl(string imageUrl)
+    {
+        string defaultImageUrl = "/data/defaultPark.jpg";
+
+        // Check if the image URL is valid or null
+        if (string.IsNullOrWhiteSpace(imageUrl) || !Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
+        {
+            // If invalid or null, return the image URL to the default image
+            return defaultImageUrl;
+        }
+        return imageUrl;
+    }
 }
 <div class="homepageformat" >
     <h5 class="title, txt-color" id="parkTitle">@Model.Park.Id</h5>
 
-    <img class="card-visible" src='@Model.Park.Image' alt='Image for @Model.Park.Id'>
+    <img class="card-visible" src='@GetImageUrl(Model.Park.Image)' alt='Image for @Model.Park.Id'>
 
 
 </div>
