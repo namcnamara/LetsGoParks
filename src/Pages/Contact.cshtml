@@ -1,0 +1,21 @@
+@page
+@using LetsGoPark.WebSite.Components
+
+<!--Links our site.css style sheet to the document-->
+<link rel="stylesheet" type="text/css" href="~/css/site.css">
+
+@{
+    //Saves the title of the webpage
+    ViewData["Title"] = "Contact Us";
+}
+
+<!--Displays the title of the page-->
+<h1>@ViewData["Title"]</h1>
+
+<!--Writes the text of About Us page-->
+<body class="aboutUsAndPrivacyFormat">
+    <!--Displays the contact information-->
+    <section>
+        <p> <br /> Email: <a href="mailto:contact@letsgopark.azurewebsites.net">contact@letsgopark.azurewebsites.net</a><br /></p>
+    </section>
+</body>
