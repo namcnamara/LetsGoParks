@@ -17,9 +17,16 @@ namespace LetsGoPark.WebSite.Pages
         //The specific Park the page is going to display
         public ParksModel Park;
         //Gets the specific park using parameters passed in during page render
-        public void OnGet(string id)
+        public IActionResult OnGet(string id)
         {
             Park = ParksService.GetParks().FirstOrDefault(m => m.Id.Equals(id));
+            
+            if (Park == null)
+            {
+                return RedirectToPage("./Explore");
+            }
+
+            return Page();
         }
     }
 }
