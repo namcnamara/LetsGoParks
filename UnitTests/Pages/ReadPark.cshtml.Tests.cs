@@ -57,6 +57,25 @@ namespace UnitTests.Pages.ReadPark
             //Ensure correct page has been loaded
             Assert.AreEqual("LAKE SAMMAMISH STATE PARK", pageModel.Park.Id);
         }
+
+        [Test]
+        /// <summary>
+        /// Invoke OnGet and grab data from an invalid park id
+        /// Should return to the Explore page
+        /// </summary>
+        public void OnGet_Invalid_Should_Redirect_To_Explore()
+        {
+            // Arrange
+            var data = "asdf";
+
+            // Act
+            //Grab data from the invalid id
+            pageModel.OnGet(data);
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual(null, pageModel.Park);
+        }
         #endregion OnGet
     }
 }
