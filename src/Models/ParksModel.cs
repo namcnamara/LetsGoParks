@@ -44,10 +44,8 @@ namespace LetsGoPark.WebSite.Models
         [StringLength(maximumLength: 15, MinimumLength = 1, ErrorMessage = "The {0} should have a length of more than {2} and less than {1}")]
         public string Phone { get; set; }
 
-        //Which system (city, state, federal) that the park belongs to 
-        [Required(ErrorMessage = "{0} is required!")]
-        [StringLength(maximumLength: 15, MinimumLength = 1, ErrorMessage = "The {0} should have a length of more than {2} and less than {1}")]
-        public string Park_system { get; set; }
+        //Which system (state, federal, city) that the park belongs to 
+        public ParkSystemEnum Park_system { get; set; } 
 
         //A list of strings highlighting activities that can be done at the park.
         [Required(ErrorMessage = "{0} is required!")]
