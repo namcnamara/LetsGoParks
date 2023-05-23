@@ -6,6 +6,7 @@ using System.Net;
 using System.Numerics;
 using System.Reflection;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Xml.Linq;
 using LetsGoPark.WebSite.Models;
 using LetsGoPark.WebSite.Pages;
@@ -95,33 +96,33 @@ namespace LetsGoPark.WebSite.Services
                     });
                 //topRatedParks is an array that holds the 3 highest rated parks for each catagory.
                 //Index 0 is for city parks, index 1 is for state parks, and index 2 is for national parks.
-                ParksModel[] topRatedParks = { Parks.FirstOrDefault(x => x.Park_system == "National Parks"), 
-                    Parks.FirstOrDefault(x => x.Park_system == "National Parks"), 
-                    Parks.FirstOrDefault(x => x.Park_system == "WA State Parks")};
+                ParksModel[] topRatedParks = { Parks.FirstOrDefault(x => x.Park_system == ParkSystemEnum.National), 
+                    Parks.FirstOrDefault(x => x.Park_system == ParkSystemEnum.National), 
+                    Parks.FirstOrDefault(x => x.Park_system == ParkSystemEnum.State)};
                 foreach (var park in Parks)
                 {
                     switch(park.Park_system)
                     {
                         //Compares top city park against potential contenders.
-                        case "City Parks":
+                        case ParkSystemEnum.City:
                             //If the current top city park doesn't actually belong to the city system, switch it with the current park.
-                            if (topRatedParks[0].Park_system != "City Parks")
+                            if (topRatedParks[0].Park_system != ParkSystemEnum.City)
                                 topRatedParks[0] = park;
                             else
                                 topRatedParks[0] = CompareParks(topRatedParks[0], park);
                             break;
                         //Compares top state park against potential contenders.
-                        case "WA State Parks":
+                        case ParkSystemEnum.State:
                             //If the current top state park doesn't actually belong to the state system, switch it with the current park.
-                            if (topRatedParks[1].Park_system != "WA State Parks")
+                            if (topRatedParks[1].Park_system != ParkSystemEnum.State)
                                 topRatedParks[1] = park;
                             else
                                 topRatedParks[1] = CompareParks(topRatedParks[1], park);
                             break;
                         //Compares the national heavyweight champion against possible contenders.
-                        case "National Parks":
+                        case ParkSystemEnum.National:
                             //If the current top national park doesn't actually belong to the national system, switch it with the current park.
-                            if (topRatedParks[2].Park_system != "National Parks")
+                            if (topRatedParks[2].Park_system != ParkSystemEnum.National)
                                 topRatedParks[2] = park;
                             else
                                 topRatedParks[2] = CompareParks(topRatedParks[2], park);
@@ -221,14 +222,14 @@ namespace LetsGoPark.WebSite.Services
         /// <param name="parks"></param>
         private void SaveData(IEnumerable<ParksModel> parks)
         {
-
+            
             using (var outputStream = File.Create(JsonFileName))
             {
                 JsonSerializer.Serialize<IEnumerable<ParksModel>>(
                     new Utf8JsonWriter(outputStream, new JsonWriterOptions
                     {
                         SkipValidation = true,
-                        Indented = true
+                        Indented = true,
                     }),
                     parks
                 );
