@@ -285,13 +285,13 @@ namespace UnitTests.Pages.Park.AddRating
             //Arrange
             //Create new comment array and gather first park in national Parks
             string[] comment = new string[] { "TestName", "2023-04-20 10:09:34", "This is a Test", "100" };
-            var park = TestHelper.ParkService.GetParks().FirstOrDefault(Park => Park.Park_system == "National Parks");
+            var park = TestHelper.ParkService.GetParks().FirstOrDefault(Park => Park.Park_system == ParkSystemEnum.National);
 
             //Act
             //Attempt to add comment
             TestHelper.ParkService.AddComment(park.Id, comment);
             //Regrab park with updated comment
-            park = TestHelper.ParkService.GetParks().FirstOrDefault(Park => Park.Park_system == "National Parks");
+            park = TestHelper.ParkService.GetParks().FirstOrDefault(Park => Park.Park_system == ParkSystemEnum.National);
             //Grab the last comment
             string[] addedComment = park.Comments[park.Comments.Length - 1];
 
@@ -623,7 +623,7 @@ namespace UnitTests.Pages.Park.AddRating
                 Url = "http://testpark.com",
                 Image = "http://testpark.com",
                 Address = "123 Test Street",
-                Park_system = "Test System",
+                Park_system = ParkSystemEnum.National,
                 Activities =  "Hiking" ,
                 Map_brochure = "http://testpark.com",
                 Permits = "No fees"
@@ -655,7 +655,7 @@ namespace UnitTests.Pages.Park.AddRating
                 Url = "http://testpark.com",
                 Image = "http://testpark.com",
                 Address = "123 Test Street",
-                Park_system = "Test System",
+                Park_system = ParkSystemEnum.National,
                 Activities = "Hiking",
                 Map_brochure = "http://testpark.com",
                 Permits = "No fees"
@@ -687,7 +687,7 @@ namespace UnitTests.Pages.Park.AddRating
                 Ratings = null,
                 Address = "Enter Park Address",
                 Phone = "Enter Park Agency Phone Number",
-                Park_system = "Enter \"National\", \"City\", Or \"WA State\"",
+                Park_system = ParkSystemEnum.National,
                 Activities = "Enter activites separated by a comma, or NA",
                 Map_brochure = "Enter Map brochure URL or NA",
                 Permits = "Enter any fees associated with park",
@@ -722,7 +722,7 @@ namespace UnitTests.Pages.Park.AddRating
                 Ratings = null,
                 Address = "Enter Park Address",
                 Phone = "Enter Park Agency Phone Number",
-                Park_system = "Enter \"National\", \"City\", Or \"WA State\"",
+                Park_system = ParkSystemEnum.National,
                 Activities = "Enter activites separated by a comma, or NA",
                 Map_brochure = "Enter Map brochure URL or NA",
                 Permits = "Enter any fees associated with park",
@@ -762,7 +762,7 @@ namespace UnitTests.Pages.Park.AddRating
                 Ratings = null,
                 Address = "Enter Park Address",
                 Phone = "Enter Park Agency Phone Number",
-                Park_system = "Enter \"National\", \"City\", Or \"WA State\"",
+                Park_system = ParkSystemEnum.National,
                 Activities = "Enter activites separated by a comma, or NA",
                 Map_brochure = "Enter Map brochure URL or NA",
                 Permits = "Enter any fees associated with park",
@@ -799,7 +799,7 @@ namespace UnitTests.Pages.Park.AddRating
                 Ratings = null,
                 Address = "Enter Park Address",
                 Phone = "Enter Park Agency Phone Number",
-                Park_system = "Enter \"National\", \"City\", Or \"WA State\"",
+                Park_system = ParkSystemEnum.National,
                 Activities = "Enter activites separated by a comma, or NA",
                 Map_brochure = "Enter Map brochure URL or NA",
                 Permits = "Enter any fees associated with park",
