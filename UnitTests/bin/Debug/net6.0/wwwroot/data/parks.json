@@ -260,33 +260,5 @@
     "Map_brochure": "https://www.nps.gov/laro/planyourvisit/publications.htm",
     "Permits": "Free",
     "Comments": null
-  },
-  {
-    "Id": "Success!",
-    "img": "Success!",
-    "Url": "Success!",
-    "Description": "Success!",
-    "Ratings": null,
-    "Address": "Success!",
-    "Phone": "Success!",
-    "Park_system": 2,
-    "Activities": "Success!",
-    "Map_brochure": "Success!",
-    "Permits": "Success!",
-    "Comments": null
-  },
-  {
-    "Id": "Succs",
-    "img": "Succs",
-    "Url": "Succs",
-    "Description": "Succs",
-    "Ratings": null,
-    "Address": "Succs",
-    "Phone": "Succs",
-    "Park_system": 2,
-    "Activities": "SuccsSuccs",
-    "Map_brochure": "Succs",
-    "Permits": "SuccsSuccs",
-    "Comments": null
   }
 ]
