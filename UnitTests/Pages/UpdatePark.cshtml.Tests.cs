@@ -78,7 +78,7 @@ namespace UnitTests.Pages.UpdatePark
                 Ratings = null,
                 Address = "a",
                 Phone = "1234567890",
-                Park_system = "City",
+                Park_system = ParkSystemEnum.National,
                 Activities = "Hiking, Camping",
                 Map_brochure = "a",
                 Permits = "a",
