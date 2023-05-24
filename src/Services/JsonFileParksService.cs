@@ -347,6 +347,7 @@ namespace LetsGoPark.WebSite.Services
                 return null;
             }
 
+            //Copy over variables
             parkData.Id = data.Id;
             parkData.Description = data.Description;
             parkData.Url = data.Url;
@@ -370,8 +371,10 @@ namespace LetsGoPark.WebSite.Services
         /// <returns></returns>
         public ParksModel CreateData(ParksModel parkIn)
         {
+            //New park passed in
             var newPark = parkIn;
            
+            // data isn't filled, return
             if (parkIn.Id == "" || parkIn.Id == null)
             {
                 return null;
