@@ -15,22 +15,4 @@ namespace LetsGoPark.WebSite.Models
         State = 1,
         National = 2,
     }
-    
-    public static class ParkSystemEnumExtensions
-    {
-        //Displays the data of the Enum
-        public static string DisplayName(this ParkSystemEnum data)
-        {
-            //Return switch for string representation
-            return data switch
-            {
-                ParkSystemEnum.City => "City Parks",
-                ParkSystemEnum.State => "WA State Parks",
-                ParkSystemEnum.National => "National Parks",
-
-                //Default value if nothing is specified
-                _ => "WA State Parks",
-            };
-        }
-    }
 }
