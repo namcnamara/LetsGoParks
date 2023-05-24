@@ -15,7 +15,7 @@ namespace LetsGoPark.WebSite.Models
         State = 1,
         National = 2,
     }
-
+    
     public static class ParkSystemEnumExtensions
     {
         //Displays the data of the Enum
@@ -25,8 +25,8 @@ namespace LetsGoPark.WebSite.Models
             return data switch
             {
                 ParkSystemEnum.City => "City Parks",
-                ParkSystemEnum.State => "WA StatE Parks",
-                ParkSystemEnum.National => "National 2 Parks",
+                ParkSystemEnum.State => "WA State Parks",
+                ParkSystemEnum.National => "National Parks",
 
                 //Default value if nothing is specified
                 _ => "WA State Parks",
