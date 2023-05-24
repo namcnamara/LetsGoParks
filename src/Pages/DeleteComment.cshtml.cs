@@ -5,10 +5,13 @@ namespace LetsGoPark.WebSite.Pages
 {
     public class DeleteCommentModel : PageModel
     {
+        //Adds logger to class
         private readonly ILogger<DeleteCommentModel> _logger;
 
+        //Contructor for DeleteCommentModel
         public DeleteCommentModel(ILogger<DeleteCommentModel> logger)
         {
+            //Assigns logger to class
             _logger = logger;
         }
 
