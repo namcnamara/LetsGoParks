@@ -22,6 +22,24 @@
         }
         return imageUrl;
     }
+
+    /// <summary>
+    /// Calculate the average rating of a park.
+    /// </summary>
+    /// <returns> The string representing of average rating of current park. 
+    string GetParkRating()
+    {
+        if (Model.Park.Ratings == null)
+        {
+            return "No ratings avaliable";
+        }
+
+        // Calculates the average rating
+        float ratingSum = Model.Park.Ratings.Sum();
+        float ratingCount = Model.Park.Ratings.Count();
+        float avgRating = ratingSum / ratingCount;
+        return avgRating.ToString("0.00");
+    }
 }
 <div class="homepageformat" >
     <h5 class="title, txt-color" id="parkTitle">@Model.Park.Id</h5>
@@ -43,6 +61,8 @@
     <strong>Permits and Fees: </strong>@Model.Park.Permits <br>
     <!--Loads Activities array of selected parks-->
     <strong>Activities: </strong>@Model.Park.Activities <br>
+    <!--Loads average rating of selected park-->
+    <strong>Park rating:</strong> @GetParkRating() <br>
     <!--Loads Description of selected park-->
     <strong>Park description:</strong> <br> @Model.Park.Description <br><br>
     <!--Loads Comments of selected park-->
