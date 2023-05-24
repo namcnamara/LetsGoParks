@@ -23,6 +23,10 @@
         return imageUrl;
     }
 
+    /// <summary>
+    /// Calculate the average rating of a park.
+    /// </summary>
+    /// <returns> The string representing of average rating of current park. 
     string GetParkRating()
     {
         if (Model.Park.Ratings == null)
@@ -30,6 +34,7 @@
             return "No ratings avaliable";
         }
 
+        // Calculates the average rating
         float ratingSum = Model.Park.Ratings.Sum();
         float ratingCount = Model.Park.Ratings.Count();
         float avgRating = ratingSum / ratingCount;
