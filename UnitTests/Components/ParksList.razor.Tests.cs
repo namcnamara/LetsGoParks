@@ -2,6 +2,7 @@
 using NUnit.Framework;
 
 using LetsGoPark.WebSite.Components;
+using LetsGoPark.WebSite.Models;
 using Microsoft.Extensions.DependencyInjection;
 using LetsGoPark.WebSite.Services;
 using System.Linq;
@@ -169,7 +170,7 @@ namespace UnitTests.Components
             // Assert
             //ensure the dropDownFilter" flag is true in the instance markup
             Assert.AreEqual(true, page.Instance.dropDownFilterActivated);
-            Assert.AreEqual("City", page.Instance.SelectedFilterOption);
+            Assert.AreEqual(ParkSystemEnum.City, page.Instance.SelectedFilterOption);
         }
 
         [Test]
@@ -196,7 +197,7 @@ namespace UnitTests.Components
             // Assert
             //ensure the dropDownFilter" flag is true in the instance markup
             Assert.AreEqual(true, page.Instance.dropDownFilterActivated);
-            Assert.AreEqual("State", page.Instance.SelectedFilterOption);
+            Assert.AreEqual(ParkSystemEnum.State, page.Instance.SelectedFilterOption);
         }
 
         [Test]
@@ -223,7 +224,7 @@ namespace UnitTests.Components
             // Assert
             //ensure the dropDownFilter" flag is true in the instance markup
             Assert.AreEqual(true, page.Instance.dropDownFilterActivated);
-            Assert.AreEqual("National", page.Instance.SelectedFilterOption);
+            Assert.AreEqual(ParkSystemEnum.National, page.Instance.SelectedFilterOption);
         }
 
         #endregion UpdateSelectedFilterOption
