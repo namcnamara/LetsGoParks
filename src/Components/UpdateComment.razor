@@ -63,7 +63,6 @@
     /// <returns>returns a bool, false if comment wasn't updated and true if it was successfully.</returns>
     bool SubmitUpdatedComment(string name, string dateTime, string description, string token, string parkId, int commentIndex){
         //If any fields are empty, do nothing
-        if (name == "" || dateTime == "" || description == "") { return false; }
         string[] comment = { name.ToString(), dateTime.ToString(), description.ToString(), token.ToString() };
         string newId = parkId.ToString();
         
@@ -88,10 +87,6 @@
             <div>
                 <label for="name-input">Name:</label>
             <input type="text" id="name-input" name="name" value="@nameString" @oninput="@((eventArgs) => nameString = eventArgs.Value.ToString())" />
-            </div>
-            <div>
-                <label for="date-time-input">Date and Time:</label>
-            <input type="text" id="date-time-input" name="dateTime" value="@datetimeString" @oninput="@((eventArgs) => datetimeString = eventArgs.Value.ToString())" />
             </div>
             <div>
                 <label for="description-input">Description:</label>
