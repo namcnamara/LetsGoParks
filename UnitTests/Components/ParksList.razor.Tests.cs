@@ -118,6 +118,161 @@ namespace UnitTests.Components
 
         #endregion FilterPark
 
+        #region UpdateSelectedFilterOption
+        [Test]
+        ///
+        /// This test selects All from the dropdown menu in ParksList razor and ensures the correct
+        /// fields are populated. 
+        ///
+        public void UpdateSelectedFilterOption_Select_All_Should_Set_Flag_To_False()
+        {
+            Services.AddSingleton<JsonFileParksService>(TestHelper.ParkService);
+
+            var page = RenderComponent<ParksList>();
+
+            // Find the filter dropdown
+            var dropdown = page.Find("#filter-dropdown");
+
+            // Act
+            // Find the one that matches the filterDataString looking for and click it
+            dropdown.Change("All");
+
+            // Get the markup to use for the assert
+            var pageMarkup = page.Markup;
+
+            // Assert
+            //ensure the set flag is false within the markup
+            Assert.AreEqual(false, page.Instance.dropDownFilterActivated);
+        }
+
+        [Test]
+        ///
+        /// This test selects City from the dropdown menu in ParksList razor and ensures the correct
+        /// fields are populated. 
+        ///
+        public void UpdateSelectedFilterOption_Select_City_Should_Select_City_Parks()
+        {
+            Services.AddSingleton<JsonFileParksService>(TestHelper.ParkService);
+
+            var page = RenderComponent<ParksList>();
+
+            // Find the filter dropdown
+            var dropdown = page.Find("#filter-dropdown");
+
+            // Act
+            // Select a value in the dropdown and click it
+            dropdown.Change("City");
+
+            // Get the markup to use for the assert
+            var pageMarkup = page.Markup;
+
+            // Assert
+            //ensure the dropDownFilter" flag is true in the instance markup
+            Assert.AreEqual(true, page.Instance.dropDownFilterActivated);
+            Assert.AreEqual("City", page.Instance.SelectedFilterOption);
+        }
+
+        [Test]
+        ///
+        /// This test selects State from the dropdown menu in ParksList razor and ensures the correct
+        /// fields are populated. 
+        ///
+        public void UpdateSelectedFilterOption_Select_State_Should_Select_State_Parks()
+        {
+            Services.AddSingleton<JsonFileParksService>(TestHelper.ParkService);
+
+            var page = RenderComponent<ParksList>();
+
+            // Find the filter dropdown
+            var dropdown = page.Find("#filter-dropdown");
+
+            // Act
+            // Select a value in the dropdown and click it
+            dropdown.Change("State");
+
+            // Get the markup to use for the assert
+            var pageMarkup = page.Markup;
+
+            // Assert
+            //ensure the dropDownFilter" flag is true in the instance markup
+            Assert.AreEqual(true, page.Instance.dropDownFilterActivated);
+            Assert.AreEqual("State", page.Instance.SelectedFilterOption);
+        }
+
+        [Test]
+        ///
+        /// This test selects National from the dropdown menu in ParksList razor and ensures the correct
+        /// fields are populated. 
+        ///
+        public void UpdateSelectedFilterOption_Select_National_Should_Select_National_Parks()
+        {
+            Services.AddSingleton<JsonFileParksService>(TestHelper.ParkService);
+
+            var page = RenderComponent<ParksList>();
+
+            // Find the filter dropdown
+            var dropdown = page.Find("#filter-dropdown");
+
+            // Act
+            // Select a value in the dropdown and click it
+            dropdown.Change("National");
+
+            // Get the markup to use for the assert
+            var pageMarkup = page.Markup;
+
+            // Assert
+            //ensure the dropDownFilter" flag is true in the instance markup
+            Assert.AreEqual(true, page.Instance.dropDownFilterActivated);
+            Assert.AreEqual("National", page.Instance.SelectedFilterOption);
+        }
+
+        #endregion UpdateSelectedFilterOption
+
+        #region GetImageURL
+        [Test]
+        /// <summary>
+        /// This test creates a highly rated park, and ensures it has no image so the default is used.
+        /// </summary>
+        public void RenderPage_Highly_Rated_Blank_Image_Should_Use_Default()
+        {
+            // Arrange
+            //Create singleton of parkService
+            Services.AddSingleton<JsonFileParksService>(TestHelper.ParkService);
+            //Alter park's image to a bad value
+            var park = TestHelper.ParkService.GetParks().FirstOrDefault(x => x.Id == "Mount Rainier National Park");
+            string imgURL = park.Image;
+            park.Image = "badURL";
+            //Id for button to click after page renders
+            var id = "MoreInfoButton_Mount Rainier National Park";
+            //Update poor url
+            TestHelper.ParkService.UpdateData(park);
+
+            //Act
+            //Renders the homepage with 3 highest rated parks
+            var page = RenderComponent<ParksList>();
+
+            // Find the Buttons (more info)
+            var buttonList = page.FindAll("Button");
+
+            // Find the one that matches the ID looking for and click it
+            var button = buttonList.First(m => m.OuterHtml.Contains(id));
+
+            // Act
+            button.Click();
+
+            // Get the markup to use for the assert
+            var pageMarkup = page.Markup;
+
+            // Assert
+            //ensure the acerage of "LAKE SAMMAMISH STATE PARK" is within the markup
+            Assert.AreEqual(true, pageMarkup.Contains("defaultPark.jpg"));
+            //Reset image value
+            park.Image = imgURL;
+            TestHelper.ParkService.UpdateData(park);
+
+        }
+        #endregion GetImageURL
+
         #region SubmitRating
 
         [Test]
