@@ -42,6 +42,9 @@ namespace LetsGoPark.WebSite
                 app.UseHsts();
             }
 
+            // handle the invalid request url
+            app.UseStatusCodePagesWithRedirects("/Error");
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
