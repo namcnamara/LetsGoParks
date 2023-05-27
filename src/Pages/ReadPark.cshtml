@@ -41,71 +41,86 @@
         return avgRating.ToString("0.00");
     }
 }
-<div class="homepageformat" >
-    <h5 class="title, txt-color" id="parkTitle">@Model.Park.Id</h5>
-
-    <img class="card-visible" src='@GetImageUrl(Model.Park.Image)' alt='Image for @Model.Park.Id'>
-
-
+<div class="homepageformat">
+  <h5 class="title, txt-color" id="parkTitle">@Model.Park.Id</h5>
+  <img class="card-visible" src='@GetImageUrl(Model.Park.Image)' alt='Image for @Model.Park.Id'>
 </div>
-<p class=" readpageformat">
+
+<table class="readpageformat table-style">
     <!--Links brochure of selected park-->
-    <a href=@Model.Park.Map_brochure><strong>Park Brochure</strong></a> <br>
+  <tr>
+    <td><strong>Park Brochure:</strong></td>
+    <td><a href="@Model.Park.Map_brochure">Park Brochure</a></td>
+  </tr>
     <!--Loads Address of selected park-->
-    <strong>Address: </strong> @Model.Park.Address <br>
+  <tr>
+    <td><strong>Address:</strong></td>
+    <td>@Model.Park.Address</td>
+  </tr>
     <!--Loads Phone number of selected park-->
-    <strong>Phone #: </strong> @Model.Park.Phone <br>
+  <tr>
+    <td><strong>Phone #:</strong></td>
+    <td>@Model.Park.Phone</td>
+  </tr>
     <!--Loads park owner of selected park-->
-    <strong>Park System: </strong>@Model.Park.Park_system <br>
+  <tr>
+    <td><strong>Park System:</strong></td>
+    <td>@Model.Park.Park_system</td>
+  </tr>
     <!--Loads permits and fees of selected park-->
-    <strong>Permits and Fees: </strong>@Model.Park.Permits <br>
+  <tr>
+    <td><strong>Permits and Fees:</strong></td>
+    <td>@Model.Park.Permits</td>
+  </tr>
     <!--Loads Activities array of selected parks-->
-    <strong>Activities: </strong>@Model.Park.Activities <br>
+  <tr>
+    <td><strong>Activities:</strong></td>
+    <td>@Model.Park.Activities</td>
+  </tr>
     <!--Loads average rating of selected park-->
-    <strong>Park rating:</strong> @GetParkRating() <br>
+  <tr>
+    <td><strong>Park rating:</strong></td>
+    <td>@GetParkRating()</td>
+  </tr>
     <!--Loads Description of selected park-->
-    <strong>Park description:</strong> <br> @Model.Park.Description <br><br>
+  <tr>
+    <td><strong>Park description:</strong></td>
+    <td>@Model.Park.Description</td>
+  </tr>
     <!--Loads Comments of selected park-->
-    <strong>Comments: </strong> <br>
-    @if (@Model.Park.Comments == null)
+    @if (@Model.Park.Comments != null)
     {
-        <span>Be the first to comment!</span>
-        <br>
-    }
-    else
-    {
-        @foreach (string[] comment in Model.Park.Comments)
-        {
-            <!--comment record structure: [User, Time, Comment, Token]-->
-            <div>
-                <div class="readpageformat">
-                    <em>@comment[0] </em>- @comment[1]: 
+        <tr>
+            <td><strong>Comments:</strong></td>
+            <td>
+            @foreach (string[] comment in Model.Park.Comments)
+            {
+                <!--comment record structure: [User, Time, Comment, Token]-->
+                <div>
+                        <p><strong>@comment[0] - @comment[1]: </strong>@comment[2]</p>
                 </div>
-                <div class="readpageformat">
-                    <p>&nbsp;&nbsp;@comment[2]</p>
+                <div>
+                    <!--Link to updateComment page-->
+                    <a href="/UpdateComment?commentIndex=@Array.IndexOf(Model.Park.Comments, comment)&selectedParkId=@Model.Park.Id&name=@comment[0]
+                    &dateTime=@comment[1]&description=@comment[2]&token=@comment[3]">
+                        <u>Update Comment</u>
+                    </a>
+                    <!--Link to DeleteComment page-->
+                    <a href="/DeleteComment?commentIndex=@Array.IndexOf(Model.Park.Comments, comment)&selectedParkId=@Model.Park.Id&name=@comment[0]
+                    &dateTime=@comment[1]&description=@comment[2]&token=@comment[3]">
+                        <u>Delete Comment</u>
+                    </a>
                 </div>
-            </div>
-            <!--Link to updateComment page-->
-            <a href="/UpdateComment?commentIndex=@Array.IndexOf(Model.Park.Comments, comment) &selectedParkId=@Model.Park.Id &name=@comment[0]
-                &dateTime=@comment[1] &description=@comment[2] &token=@comment[3]">
-                <u>Update Comment</u></a><br />
-
-            <!--Link to DeleteComment page-->
-            <a href="/DeleteComment?commentIndex=@Array.IndexOf(Model.Park.Comments, comment) &selectedParkId=@Model.Park.Id &name=@comment[0]
-                &dateTime=@comment[1] &description=@comment[2] &token=@comment[3]">
-                <u>Delete Comment</u>
-            </a>
-                                        
-                                        
-        }
-        <br>
+                <br />
+            }
+            </td>
+        </tr>
     }
-</p>
-
-<br />
-<br />
+  }
+</table>
+<br>
 
 <div class="row">
-    <a asp-page="UpdatePark" asp-route-id="@Model.Park.Id" class="btn btn-primary">Update</a>
-    <a asp-page="DeletePark" asp-route-id="@Model.Park.Id" class="btn btn-danger">Delete</a>
+  <a asp-page="UpdatePark" asp-route-id="@Model.Park.Id" class="btn btn-primary">Update Park</a>
+    <a asp-page="DeletePark" asp-route-id="@Model.Park.Id" class="btn btn-danger">Delete Park</a>
 </div>
