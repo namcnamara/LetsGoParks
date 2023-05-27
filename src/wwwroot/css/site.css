@@ -272,6 +272,16 @@ homepageformat div {
     color: white;
 }
 
+.table-style {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+    .table-style td {
+        border: 1px solid white;
+        padding: 8px;
+    }
+
 /*Formats table for ParksIndex.cshtml*/
 .table {
     color: white;
