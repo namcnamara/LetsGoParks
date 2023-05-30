@@ -17,12 +17,14 @@ namespace LetsGoPark.WebSite.Models
         //The Image that corresponds to the park's image.
         [Required(ErrorMessage = "{0} is required!")]
         [StringLength(maximumLength: 500, MinimumLength = 1, ErrorMessage = "The {0} should have a length of more than {2} and less than {1}")]
+        [RegularExpression(@"^(http:\/\/|https:\/\/).*", ErrorMessage = "The {0} must start with 'http://' or 'https://'")]
         [JsonPropertyName("img")]
         public string Image { get; set; }
         
         //Url to park's official website
         [Required(ErrorMessage = "{0} is required!")]
         [StringLength(maximumLength: 500, MinimumLength = 1, ErrorMessage = "The {0} should have a length of more than {2} and less than {1}")]
+        [RegularExpression(@"^(http:\/\/|https:\/\/).*", ErrorMessage = "The {0} must start with 'http://' or 'https://'")]
         public string Url { get; set; }
 
         
