@@ -44,6 +44,7 @@ namespace LetsGoPark.WebSite.Models
         //Phone number of the park's owner or governing agency.
         [Required(ErrorMessage = "{0} is required!")]
         [StringLength(maximumLength: 15, MinimumLength = 1, ErrorMessage = "The {0} should have a length of more than {2} and less than {1}")]
+        [RegularExpression("^[0-9]+$", ErrorMessage = "The {0} must be a numeric value.")] 
         public string Phone { get; set; }
 
         //Which system (state, federal, city) that the park belongs to 
