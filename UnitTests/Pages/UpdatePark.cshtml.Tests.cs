@@ -97,6 +97,46 @@ namespace UnitTests.Pages.UpdatePark
 
         [Test]
         /// <summary>
+        /// Create new park model
+        /// Gather pageModel as return type for a successful OnPost call
+        /// Keep Name the same but update other values
+        /// Tests if the model is valid, and the redirect goes to the correct index page
+        /// </summary>
+        public void OnPost_No_Name_Change_Should_Update_Park()
+        {
+            // Arrange
+            //Create new park model
+            pageModel.Park = new ParksModel
+            {
+                Id = "LAKE SAMMAMISH STATE PARK 2",
+                Image = "a",
+                Url = "a",
+                Description = "a",
+                Ratings = null,
+                Address = "a",
+                Phone = "1234567890",
+                Park_system = ParkSystemEnum.National,
+                Activities = "Hiking, Camping",
+                Map_brochure = "a",
+                Permits = "a",
+                Comments = null
+            };
+            pageModel.Name = "LAKE SAMMAMISH STATE PARK 2";
+
+            // Act
+            var page = pageModel;
+
+            // Gather pageModel as return type for a successful OnPost call
+            var result = page.OnPost() as RedirectToPageResult;
+
+            // Assert
+            // Ensure model is valid, and the redirect goes to the correct index page
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual(true, result.PageName.Contains("Index"));
+        }
+
+        [Test]
+        /// <summary>
         /// Force an invalid error state
         /// Call OnPost method and get ActionResult
         /// Tests if the page model is in an invalid state
