@@ -451,27 +451,16 @@
         }
 
         // Check if the image URL is an accessable image
-        try
-        {
-            var uri = new Uri(imageUrl);
-            var request = HttpWebRequest.Create(uri);
-            request.Method = "HEAD";
+        var uri = new Uri(imageUrl);
+        var request = HttpWebRequest.Create(uri);
+        request.Method = "HEAD";
 
-            using (var response = (HttpWebResponse)request.GetResponse())
+        using (var response = (HttpWebResponse)request.GetResponse())
+        {
+            if (response.ContentType.StartsWith("image/"))
             {
-                if (response.ContentType.StartsWith("image/"))
-                {
-                    return imageUrl;
-                }
+                return imageUrl;
             }
-        }
-        catch (UriFormatException)
-        {
-            return defaultImageUrl;
-        }
-        catch (WebException)
-        {
-            return defaultImageUrl;
         }
 
         return defaultImageUrl;
