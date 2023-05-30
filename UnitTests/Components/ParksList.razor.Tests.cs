@@ -272,6 +272,49 @@ namespace UnitTests.Components
             TestHelper.ParkService.UpdateData(park);
 
         }
+
+        [Test]
+        /// <summary>
+        /// This test creates a highly rated park, and ensures it has no image so the default is used.
+        /// </summary>
+        public void RenderPage_Unaccessable_Image_Should_Use_Default()
+        {
+            // Arrange
+            //Create singleton of parkService
+            Services.AddSingleton<JsonFileParksService>(TestHelper.ParkService);
+            //Alter park's image to a bad value
+            var park = TestHelper.ParkService.GetParks().FirstOrDefault(x => x.Id == "Mount Rainier National Park");
+            string imgURL = park.Image;
+            park.Image = "https://www.google.com";
+            //Id for button to click after page renders
+            var id = "MoreInfoButton_Mount Rainier National Park";
+            //Update poor url
+            TestHelper.ParkService.UpdateData(park);
+
+            //Act
+            //Renders the homepage with 3 highest rated parks
+            var page = RenderComponent<ParksList>();
+
+            // Find the Buttons (more info)
+            var buttonList = page.FindAll("Button");
+
+            // Find the one that matches the ID looking for and click it
+            var button = buttonList.First(m => m.OuterHtml.Contains(id));
+
+            // Act
+            button.Click();
+
+            // Get the markup to use for the assert
+            var pageMarkup = page.Markup;
+
+            // Assert
+            //ensure the acerage of "LAKE SAMMAMISH STATE PARK" is within the markup
+            Assert.AreEqual(true, pageMarkup.Contains("defaultPark.jpg"));
+            //Reset image value
+            park.Image = imgURL;
+            TestHelper.ParkService.UpdateData(park);
+
+        }
         #endregion GetImageURL
 
         #region SubmitRating
