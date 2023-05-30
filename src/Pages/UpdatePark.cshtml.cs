@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 using LetsGoPark.WebSite.Models;
 using LetsGoPark.WebSite.Services;
+using System.Xml.Linq;
 
 
 namespace LetsGoPark.WebSite.Pages
@@ -31,6 +32,9 @@ namespace LetsGoPark.WebSite.Pages
         // The data to show, bind to it for the post
         [BindProperty]
         public ParksModel Park { get; set; }
+        //New Id to be updated
+        [BindProperty]
+        public string Name { get; set; }
 
         /// <summary>
         /// REST Get request
@@ -40,6 +44,7 @@ namespace LetsGoPark.WebSite.Pages
         public void OnGet(string id)
         {
             Park = ParksService.GetParks().FirstOrDefault(m => m.Id.Equals(id));
+            Name = Park.Id;
         }
 
         /// <summary>
@@ -52,13 +57,24 @@ namespace LetsGoPark.WebSite.Pages
 
         public IActionResult OnPost()
         {
+            //If the model is in an inactive state
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-
-            ParksService.UpdateData(Park);
-
+            //If the ID hasn't been changed:
+            if(Name == Park.Id)
+            {
+                ParksService.UpdateData(Park);
+            }
+            //If the ID has been changed delete old park and create new park
+            else
+            {
+                ParksService.DeleteData(Park.Id);
+                Park.Id = Name;
+                ParksService.CreateData(Park);
+            }
+            //Redirect to Index page
             return RedirectToPage("./Index");
         }
     }
