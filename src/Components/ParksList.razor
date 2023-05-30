@@ -2,6 +2,7 @@
 @using LetsGoPark.WebSite.Services
 @using Microsoft.AspNetCore.Components.Web
 @using LetsGoPark.WebSite.Pages
+@using System.Net;
 @inject JsonFileParksService ParkService
 
 <!--The following block creates a dropdown filter that allows a user to filter parks by park system.
@@ -448,6 +449,31 @@
             // If invalid or null, return the image URL to the default image
             return defaultImageUrl;
         }
-        return imageUrl;
+
+        // Check if the image URL is an accessable image
+        try
+        {
+            var uri = new Uri(imageUrl);
+            var request = HttpWebRequest.Create(uri);
+            request.Method = "HEAD";
+
+            using (var response = (HttpWebResponse)request.GetResponse())
+            {
+                if (response.ContentType.StartsWith("image/"))
+                {
+                    return imageUrl;
+                }
+            }
+        }
+        catch (UriFormatException)
+        {
+            return defaultImageUrl;
+        }
+        catch (WebException)
+        {
+            return defaultImageUrl;
+        }
+
+        return defaultImageUrl;
     }
 }
