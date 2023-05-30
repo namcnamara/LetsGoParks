@@ -560,7 +560,7 @@ namespace UnitTests.Components
             var page = RenderComponent<ParksList>();
 
             // Find the Buttons (search) and performs searching with the data
-            var button = page.FindAll("Button").First(m => !string.IsNullOrEmpty(m.ClassName) && m.ClassName.Contains("btn btn-success"));
+            var button = page.FindAll("Button").First(m => m.ClassName.Contains("btn btn-success"));
             page.FindAll("Input").First().Change(data);
             button.Click();
 
@@ -589,12 +589,12 @@ namespace UnitTests.Components
             var page = RenderComponent<ParksList>();
 
             // Find the Buttons (search) and performs searching with the data
-            var search_button = page.FindAll("Button").First(m => !string.IsNullOrEmpty(m.ClassName) && m.ClassName.Contains("btn btn-success"));
+            var search_button = page.FindAll("Button").First(m => m.ClassName.Contains("btn btn-success"));
             page.FindAll("Input").First().Change(data);
             search_button.Click();
 
             // Find the Buttons (clear) and click
-            var clear_button = page.FindAll("Button").First(m => !string.IsNullOrEmpty(m.ClassName) && m.ClassName.Contains("btn btn-danger"));
+            var clear_button = page.FindAll("Button").First(m => m.ClassName.Contains("btn btn-danger"));
             clear_button.Click();
 
             // Get the markup to use for the assert
@@ -627,7 +627,7 @@ namespace UnitTests.Components
             var page = RenderComponent<ParksList>();
 
             // Find the Button (Sort A-Z)
-            var button = page.FindAll("Button").First(m => !string.IsNullOrEmpty(m.ClassName) && m.ClassName.Contains("btn btn-sort"));
+            var button = page.FindAll("Button").First(m => m.ClassName.Contains("btn btn-sort"));
             button.Click();
 
             // Get the Cards retrned
@@ -657,7 +657,7 @@ namespace UnitTests.Components
             var page = RenderComponent<ParksList>();
 
             // Find the Button (Sort Z-A)
-            var button = page.FindAll("Button").Last(m => !string.IsNullOrEmpty(m.ClassName) && m.ClassName.Contains("btn btn-sort"));
+            var button = page.FindAll("Button").Last(m => m.ClassName.Contains("btn btn-sort"));
             button.Click();
 
             // Get the Cards retrned
