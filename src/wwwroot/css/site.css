@@ -305,3 +305,77 @@ homepageformat div {
         background-color: #e9a8a6;
         border-color: #e9a8a6;
     }
+
+/*Formating for the About Us page*/
+aboutus-body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+aboutus-html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.aboutus-img {
+    width: 100%;
+}
+
+.aboutus-column {
+    float: left;
+    width: 45%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+}
+
+.aboutus-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+}
+
+.aboutus-section {
+    padding: 50px;
+    text-align: center;
+    background-color: darkgreen;
+    color: white;
+}
+
+.aboutus-container {
+    padding: 0 16px;
+}
+
+    .aboutus-container::after, .row::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+.aboutus-title {
+    color: grey;
+}
+
+.aboutus-button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+    .aboutus-button:hover {
+        background-color: #555;
+    }
+
+@media screen and (max-width: 650px) {
+    .aboutus-column {
+        width: 100%;
+        display: block;
+    }
+}
