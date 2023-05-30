@@ -328,7 +328,7 @@ aboutus-html {
     float: left;
     width: 45%;
     margin-bottom: 16px;
-    padding: 0 8px;
+    padding: 0 20px;
 }
 
 .aboutus-card {
@@ -337,7 +337,7 @@ aboutus-html {
 }
 
 .aboutus-section {
-    padding: 50px;
+    padding: 20px;
     text-align: center;
     background-color: darkgreen;
     color: white;
