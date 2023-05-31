@@ -176,7 +176,14 @@ ul {
     font-family: 'Nunito', sans-serif;
 }
 
+/*Backgrounds*/
+.bg-navbar {
+    background: linear-gradient(340deg, #3b3952 40%, #1a5c34 40%);
+}
 
+.bg-footer {
+    background: linear-gradient(340deg, #1a5c34 40%, #3b3952 40%);
+}
 
 /*formatting for portions of the home page and tis cards*/
 .homepageformat {
@@ -352,21 +359,18 @@ aboutus-html {
 }
 
 /*Sets the properties for table elements*/
-table {
-    color: white;
-}
-.dayFormatting-style td {
-        border: 1px solid black;
-        padding: 8px;
-    }
-
-/*Header/Footer Backgrounds*/
-.dayFormatting navbar {
-    background: linear-gradient(340deg, #3b3930 40%, #1a5c15 40%);
+.nightFormatting table {
+    color: black;
 }
 
-.dayFormatting footer {
-    background: linear-gradient(340deg, #1a5c29 40%, #3b3925 40%);
+.nightFormatting td {
+    border: 1px solid black;
+    padding: 8px;
+    color: black;
+}
+
+.nightFormatting tr {
+    color: black;
 }
 
 /*Basic color scheme for night view*/
@@ -379,20 +383,16 @@ table {
 }
 
 /*Sets the properties for table elements*/
-table {
+.nightFormatting table {
     color: white;
 }
 
-.nightFormatting-style td {
+.nightFormatting td {
     border: 1px solid white;
     padding: 8px;
+    color: white;
 }
 
-/*Header/Footer Backgrounds*/
-.nightFormatting navbar {
-    background: linear-gradient(340deg, #3b3952 40%, #1a5c34 40%);
-}
-
-.nightFormatting footer {
-    background: linear-gradient(340deg, #1a5c34 40%, #3b3952 40%);
+.nightFormatting tr {
+    color: white;
 }
