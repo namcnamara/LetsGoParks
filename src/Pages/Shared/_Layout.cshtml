@@ -13,10 +13,11 @@
 </head>
 
 @{
+    //Saves the formatting preference to the page's data
     ViewBag.Formatting = "dayFormatting";
 }
 
-<body class="ViewBag.Formatting">
+<body class="@ViewBag.Formatting">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-navbar border-bottom box-shadow mb-3">
             <div class="container">
@@ -46,10 +47,14 @@
 
                 <script>
                     function toggleFormatting() {
+                        //Gets the body tag that defines the layouts body
                         var bodyElement = document.getElementsByTagName("body")[0];
+                        //Allows for toggling between the two main format classes in site.css
                         bodyElement.classList.toggle('dayFormatting');
                         bodyElement.classList.toggle('nightFormatting');
+                        //? statement that defines the opposite format as the current format
                         var currentFormatting = bodyElement.classList.contains('dayFormatting') ? 'dayFormatting' : 'nightFormatting';
+                        //Returns the current formatting to the document
                         document.getElementById("toggleButton").className = currentFormatting;
                     }
                 </script>
