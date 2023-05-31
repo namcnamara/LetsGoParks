@@ -65,10 +65,11 @@
         //If any fields are empty, do nothing
         string[] comment = { name.ToString(), dateTime.ToString(), description.ToString(), token.ToString() };
         string newId = parkId.ToString();
-        
+
         //Updates the date time on comment
         comment[1] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         ParkService.UpdateComment(newId, comment, commentIndex);
+        NavigationManager.NavigateTo("/Explore", forceLoad: true);
         return true;
     }
 
@@ -96,7 +97,8 @@
                 <label for="token-input">Token:</label>
             <input type="text" id="token-input" name="token" value="@Token" @oninput="@((eventArgs) => tokenString = eventArgs.Value.ToString())" />
             </div>
-            <button type="submit" @onclick="@(() => NavigationManager.NavigateTo("~/Pages/Explore"))">Update Comment</button>
+            <button type="submit">Update Comment</button>
+
     </form>
 
 <a href="/Explore" style="z-index: 100;">Back to Explore</a> 
