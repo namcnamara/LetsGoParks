@@ -1,5 +1,6 @@
 ﻿@page "{id}"
 @using LetsGoPark.WebSite.Services
+@using System.Net;
 @inject JsonFileParksService ParksService
 @model LetsGoPark.WebSite.Pages.ReadParkModel
 @{
@@ -15,12 +16,26 @@
         string defaultImageUrl = "/data/defaultPark.jpg";
 
         // Check if the image URL is valid or null
-        if (string.IsNullOrWhiteSpace(imageUrl) || !Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
+        if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
         {
             // If invalid or null, return the image URL to the default image
             return defaultImageUrl;
         }
-        return imageUrl;
+
+        // Check if the image URL is an accessable image
+        var uri = new Uri(imageUrl);
+        var request = HttpWebRequest.Create(uri);
+        request.Method = "HEAD";
+
+        using (var response = (HttpWebResponse)request.GetResponse())
+        {
+            if (response.ContentType.StartsWith("image/"))
+            {
+                return imageUrl;
+            }
+        }
+
+        return defaultImageUrl;
     }
 
     /// <summary>
@@ -116,7 +131,6 @@
             </td>
         </tr>
     }
-  }
 </table>
 <br>
 
