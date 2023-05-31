@@ -7,11 +7,6 @@
     cursor: pointer;
 }
 
-/*Sets the properties for table elements*/
-table {
-    color: white;
-}
-
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 .card {
@@ -35,7 +30,6 @@ for details on configuring this project to bundle and minify static web assets. 
     height: 100px;
     font-family: 'Nunito', sans-serif;
     background: rgb(7, 70, 6);
-    color: white;
 }
 
 .card-columns .card-img {
@@ -54,12 +48,12 @@ for details on configuring this project to bundle and minify static web assets. 
     box-shadow: 0 10px 20px rgba(37,33,82,.12), 0 4px 8px rgba(37,33,82,.06);
 }
 
-.card-columns .card-footer {
-    align-content: center;
-    background-color: #1a5c34;
-    border-bottom-right-radius: 40px;
-    border-bottom-left-radius: 40px;
-}
+    .card-columns .card-footer {
+        align-content: center;
+        background-color: rgb(67, 81, 44);
+        border-bottom-right-radius: 40px;
+        border-bottom-left-radius: 40px;
+    }
 
 /*.modal .#### describe the characteristics of the modal window's relavant section*/
 .modal .card-header {
@@ -72,11 +66,11 @@ for details on configuring this project to bundle and minify static web assets. 
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
-    background-color: #1a5c34;
+    background-color: rgb(67, 81, 44);
 }
 
 .modal .card-body {
-    background-color: rgb(204, 225, 166);
+    background-color: rgb(67, 81, 44);
 }
 
 .modal .card-footer {
@@ -97,7 +91,6 @@ a {
 }
 
 .btn-primary {
-    color: #fff;
     background-color: #252152;
     border-color: #252152;
 }
@@ -109,7 +102,6 @@ a {
     }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #fff;
     background-color: #1b6ec2;
     border-color: #1861ac;
 }
@@ -165,11 +157,9 @@ p {
 
 h1 {
     font-family: 'Nunito', sans-serif;
-    color: white;
 }
 
 h4 {
-    color: white;
     background-color: rgba(37,33,82,.06);
 }
 
@@ -186,30 +176,15 @@ ul {
     font-family: 'Nunito', sans-serif;
 }
 
-/*Backgrounds*/
-.bg-navbar {
-    background: -webkit-linear-gradient(340deg, #3b3952 40%, #1a5c34 40%);
-    background: -o-linear-gradient(340deg, #3b3952 40%, #1a5c34 40%);
-    background: -moz-linear-gradient(340deg, #3b3952 40%, #1a5c34 40%);
-    background: linear-gradient(340deg, #3b3952 40%, #1a5c34 40%);
-}
 
-.bg-footer {
-    background: -webkit-linear-gradient(340deg, #1a5c34 40%, #3b3952 40%);
-    background: -o-linear-gradient(340deg, #1a5c34 40%, #3b3952 40%);
-    background: -moz-linear-gradient(340deg, #1a5c34 40%, #3b3952 40%);
-    background: linear-gradient(340deg, #1a5c34 40%, #3b3952 40%);
-}
 
 /*formatting for portions of the home page and tis cards*/
 .homepageformat {
     text-align: center;
-    color: white;
 }
 
 .homepageformat span {
     font-weight: bold;
-     color: white;
 }
 
 homepageformat div {
@@ -219,13 +194,11 @@ homepageformat div {
 .homepageh5 {
     text-align: center;
     font-size: 36px;
-    color: white;
 }
 
 .homecard {
     text-align: center;
     background: #1a5c34;
-    color: white;
     border-color: #e9a8a6;
     border-radius: 10px;
     flex: 0 0 calc(33.33% - 20px);
@@ -233,7 +206,6 @@ homepageformat div {
 
 /*Formatting for the about us and privacy pages*/
 .aboutUsAndPrivacyFormat {
-    color: white;
 }
 
     /*changed color of anchors in aboutUsAndPrivacyFormat class*/
@@ -249,7 +221,6 @@ homepageformat div {
 
 .form-submit {
     background-color: #4CAF50; 
-    color: white;
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
@@ -257,19 +228,16 @@ homepageformat div {
 }
 
 .updateAndDelete {
-    color: white;
     text-align: left;
 }
 
 /*Formating for the read parks page*/
 .readpageformat {
     text-align: left;
-    color: white;
 }
 
 .readpageformat .comments{
     text-align: left;
-    color: white;
 }
 
 .table-style {
@@ -277,15 +245,7 @@ homepageformat div {
     width: 100%;
 }
 
-    .table-style td {
-        border: 1px solid white;
-        padding: 8px;
-    }
 
-/*Formats table for ParksIndex.cshtml*/
-.table {
-    color: white;
-}
 
 /*Formating for the sort buttons on Explore page*/
 .sort-container {
@@ -295,7 +255,6 @@ homepageformat div {
 }
 
 .btn-sort {
-    color: #fff;
     background-color: #006400;
     border-color: #252152;
 }
@@ -340,7 +299,6 @@ aboutus-html {
     padding: 20px;
     text-align: center;
     background-color: darkgreen;
-    color: white;
 }
 
 .aboutus-container {
@@ -378,4 +336,63 @@ aboutus-html {
         width: 100%;
         display: block;
     }
+}
+
+/*
+    Trying Day/Night
+*/
+
+/*Basic color scheme for day view*/
+.dayFormatting {
+    background-image: url(https://wallpapers.com/images/high/all-light-green-bokeh-a9i3jcgdgez0iyyd.webp);
+    background-size: cover;
+    background-attachment: fixed;
+    border-color: rgb(9, 35, 2);
+    color: rgb(8, 1, 12);
+}
+
+/*Sets the properties for table elements*/
+table {
+    color: white;
+}
+.dayFormatting-style td {
+        border: 1px solid black;
+        padding: 8px;
+    }
+
+/*Header/Footer Backgrounds*/
+.dayFormatting navbar {
+    background: linear-gradient(340deg, #3b3930 40%, #1a5c15 40%);
+}
+
+.dayFormatting footer {
+    background: linear-gradient(340deg, #1a5c29 40%, #3b3925 40%);
+}
+
+/*Basic color scheme for night view*/
+.nightFormatting {
+    background-image: url(https://wallpapers.com/images/high/plain-dark-green-wallpaper-4py2q8q4fvne42p7.webp);
+    background-size: cover;
+    background-attachment: fixed;
+    border-color: rgb(148, 202, 147);
+    color: rgb(172, 222, 216);
+}
+
+/*Sets the properties for table elements*/
+table {
+    color: white;
+}
+
+.nightFormatting-style td {
+    border: 1px solid white;
+    padding: 8px;
+}
+
+/*Header/Footer Backgrounds*/
+.nightFormatting navbar {
+    background: linear-gradient(340deg, #3b3952 40%, #1a5c34 40%);
+}
+
+.nightFormatting footer {
+    background: linear-gradient(340deg, #1a5c34 40%, #3b3952 40%);
 }
