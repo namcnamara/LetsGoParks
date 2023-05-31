@@ -1,5 +1,7 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +11,12 @@
     <link href="https://fonts.googleapis.com/css?family=Yellowtail&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
 </head>
-<body>
+
+@{
+    ViewBag.Formatting = "dayFormatting";
+}
+
+<body class="ViewBag.Formatting">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-navbar border-bottom box-shadow mb-3">
             <div class="container">
@@ -34,6 +41,18 @@
                         </li>
                     </ul>
                 </div>
+                
+                <button id="toggleButton" class="@ViewBag.Formatting" onclick="toggleFormatting()">Toggle Day/Night View</button>
+
+                <script>
+                    function toggleFormatting() {
+                        var bodyElement = document.getElementsByTagName("body")[0];
+                        bodyElement.classList.toggle('dayFormatting');
+                        bodyElement.classList.toggle('nightFormatting');
+                        var currentFormatting = bodyElement.classList.contains('dayFormatting') ? 'dayFormatting' : 'nightFormatting';
+                        document.getElementById("toggleButton").className = currentFormatting;
+                    }
+                </script>
             </div>
         </nav>
     </header>
