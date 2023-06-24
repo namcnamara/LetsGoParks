@@ -34,13 +34,3 @@ Azure is used for hosting the site.
 * About Us
     - Contact Info
 * Privacy
-
-## Website preview
-![image](https://github.com/lmeng25/LetsGoParks/assets/98987608/a0616484-851b-430f-bb82-299f8b15f663)
-![image](https://github.com/lmeng25/LetsGoParks/assets/98987608/bd07c88a-00b7-4915-9c71-e6b1ba08521d)
-![image](https://github.com/lmeng25/LetsGoParks/assets/98987608/467eda6d-ab0d-4a14-8287-603970bc6058)
-![image](https://github.com/lmeng25/LetsGoParks/assets/98987608/56a64ea0-c680-425b-aa16-0621b944ec6a)
-![image](https://github.com/lmeng25/LetsGoParks/assets/98987608/58627c9e-d1c8-45c4-a453-846516849888)
-![image](https://github.com/lmeng25/LetsGoParks/assets/98987608/138d3136-7240-453e-9cc7-af7eb0c5c86c)
-![image](https://github.com/lmeng25/LetsGoParks/assets/98987608/975f96fb-812a-45a5-bc7a-fd544cdab6ac)
-![image](https://github.com/lmeng25/LetsGoParks/assets/98987608/4c90eca3-0efe-4aef-9fd2-4941653d4c5d)
